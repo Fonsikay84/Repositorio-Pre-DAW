@@ -1,0 +1,41 @@
+h1
+{
+  color: #F72585;
+  text-align: center;
+}
+
+.div_tipos
+{
+  border: 5px solid #560bad;
+  margin: 10px auto;
+  background-color: #f1faee;
+  text-align: center;
+  width: 600px;
+}
+
+.h2_tipos
+{
+  color: #3f37c9;
+  margin-bottom: 0;
+}
+
+.p_tipos
+{
+  margin-top: 0;
+}
+
+span
+{
+  color: #F72585;
+}
+
+h3
+{
+  color: #3f37c9;
+  margin-bottom: 0;
+}
+
+.p_texto
+{
+  margin-top: 0;
+}
