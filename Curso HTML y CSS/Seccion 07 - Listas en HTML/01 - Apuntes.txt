@@ -1,0 +1,197 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  SECCIÓN 07 - LISTAS EN HTML
+|  VIDEOS: 35, 36, 37, 38, 39
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Listas en HTML.
+
+  Existen 3 tipos de listas en HTML:
+
+    - <ul></ul>: Listas no ordenadas.
+    - <ol></ol>: Listas ordenadas.
+    - <dl></dl>: Listas de definición.
+
+1. Lista no ordenada (Video 35).
+
+  Para crear una lista no ordenada se utiliza la etiqueta <ul> y un ejemplo sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Listas en HTML</title>
+        <link rel = "stylesheet" href = "css/35_estilos.css"/>
+
+      </head>
+      <body>
+
+        <h1>Lista no ordenada.</h1>
+
+        <!-- Lista no ordenada anidada. -->
+        <ul>
+          <li>Alfonso
+            <ul>
+              <li>Tel. 666207804</li>
+              <li>Móv. 648232289</li>
+            </ul>
+          </li>
+          <li>Isabel</li>
+          <li>Álex
+            <ul>
+              <li>Tel. 648232289</li>
+              <li>Móv. 666207804</li>
+            </ul>
+          </li>
+        </ul>
+
+      </body>
+
+    </html>
+
+1.2. Menú de navegación con listas no ordenadas en HTML y CSS3 (Video 36, 37).
+
+  La creación de un menú de navegación en HTML se puede realizar de la siguiente manera:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Menu de navegación</title>
+        <link rel = "stylesheet" href = "css/36_estilos.css"/>
+
+      </head>
+      <body>
+
+        <!-- Lista no ordenada. -->
+        <ul>
+          <li><a href = "36_menu_navegacion_lista.html">Inicio</a></li>
+          <li><a href = "webs/36_contacto.html">Contacto</a></li>
+          <li><a href = "webs/36_acercade.html">Acerca de</a></li>
+        </ul>
+
+        <h1>Inicio</h1>
+
+      </body>
+
+    </html>
+
+  En cuanto a la hoja de estilos CSS3 para aplicar al menú de navegación, se realizaría de la siguiente manera:
+
+    h1
+    {
+      color: #1d3557;
+    }
+
+    ul
+    {
+      list-style-type: none;
+      background-color: #457b9d;  
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    li
+    {
+      float: left;
+    }
+
+    li a
+    {
+      display: block;
+      padding: 15px;
+      color: white;
+      text-decoration: none;
+    }
+
+    li a:hover
+    {
+      color:white;
+      background-color: #1d3557;
+      text-decoration: none;
+    }
+
+2. Listas ordenadas en HTML (Video 38).
+
+  Para crear una lista ordenada se utiliza la etiqueta <ol> y un ejemplo sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang="es">
+      <head>
+
+        <meta charset = "UTF-8">
+        <title>Listas ordenadas</title>
+        <link rel = "stylesheet" href = "css/38_estilos.css"/>
+
+      </head>
+      <body>
+        
+        <!-- Lista ordenada. -->
+        <ol>
+          <li>Universidad Java</li>
+          <li>Universidad Python</li>
+          <li>Universidad Excel</li>
+        </ol>
+        
+      </body>
+    </html>
+
+  La configuración de la hoja de estilo aplicada a esta lista ordenada sería:
+
+    ol
+    {
+      list-style: none;
+      counter-reset: contador;
+    }
+
+    ol li
+    {
+      counter-increment: contador;
+    }
+
+    ol li::before
+    {
+      content: "Curso " counter(contador) ") ";
+      color: #ff6f00;
+    }
+
+    ol li::after
+    {
+      content: ".";
+    }
+  
+3. Listas de descripción (Video 39).
+
+  Para crear una lista de descripción se utiliza la etiqueta <dl> como principal y un ejemplo sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+        
+        <meta charset = "UTF-8"/>
+        <title>Lista de descripción</title>
+
+      </head>
+      
+      <body>
+
+        <h1>Lenguajes de programación.</h1>
+
+        <!-- Lista de descripción. -->
+        <dl>
+          <dt>Java:</dt>
+            <dd>Creador: Jamen Gosling</dd>
+          <dt>Python:</dt>
+            <dd>Creador: Guido van Rossum</dd>
+          <dt>JavaScript:</dt>
+            <dd>Creador: Brendan Eich</dd>
+        </dl>
+      
+      </body>
+    </html>
+

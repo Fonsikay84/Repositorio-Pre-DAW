@@ -1,0 +1,30 @@
+
+1. Crear una página "index.html" y este es el contenido que va a tener:
+
+  - El nombre de la página será "Inicio".
+  - Un título con el texto "Universidad HTML".
+  - Una línea horizontal de separación.
+  - Un link nos va a llevar a la página de "index.html" con el texto "Inicio".
+  - Un link que nos va a llevar a la página de "contacto.html" con el texto "Contacto".
+  - Un link que nos va a llevar a la página "acercade.html" con el texto "Acerca de".
+  - Un texto "Bienvenidos al curso de Universidad HTML".
+
+2. Crear una página "contacto.html" y este es el contenido que va a tener:
+
+  - El nombre de la página será "Contacto".
+  - Un título con el texto "Contacto Globalmentoring.com.mx". 
+  - Una línea horizontal de separación.
+  - Un texto "Página de contacto.".
+  - Un link nos va a llevar al Facebook de Globalmentoring "https://www.facebook.com/globalmentoring/" con el texto 
+    "Facebook de Globalmentoring.com.mx" abriendo una nueva pestaña.
+  - Un link que nos va a llevar a la página de "index.html" con el texto "Inicio".
+
+3. Crear una página "acercade.html" y este es el contenido que va a tener:
+
+  - El nombre de la página será "Acerca de..".
+  - Un título con el texto "Acerca de Globalmentoring.com.mx". 
+  - Una línea horizontal de separación.
+  - Un texto "Empresa con más de 10 años de experiencia en capacitación online.".
+  - Un link nos va a llevar a la web de Globalmentoring "https://www.globalmentoring.com.mx/" con el texto 
+    "Ir a Globalmentoring.com.mx" abriendo una nueva pestaña.
+  - Un link que nos va a llevar a la página de "index.html" con el texto "Inicio".

@@ -1,0 +1,35 @@
+/* Hoja de estilo para la web "index.html". */
+
+/* Estilo al título h1. */
+h1
+{
+  color: #f07167;
+}
+
+/* Estilo al link cuando es nuevo. */
+a:link 
+{
+  color: #fb8500;
+  text-decoration: none;  /* Se elimina el subrayado del texto del link. */
+}
+
+/* Estilo al link cuando estamos posicionados en el link. */
+a:hover
+{
+  color: #8ecae6;
+  text-decoration: underline;   /* Se añade el subrayado del texto del link. */
+}
+
+/* Estilo al link cuando lo estamos presionando. */
+a:active
+{
+  color: #023047;
+  text-decoration: underline;   /* Se añade el subrayado del texto del link. */
+}
+
+/* Estilo al link cuando ha sido visitado. */
+a:visited
+{
+  color: #219ebc;
+  text-decoration: none;    /* Se elimina el subrayado del texto del link. */
+}

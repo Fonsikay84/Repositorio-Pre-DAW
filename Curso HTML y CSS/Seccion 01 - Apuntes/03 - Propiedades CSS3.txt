@@ -1,0 +1,45 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  LISTADO DE PROPIEDADES CSS3 PARA LAS ETIQUETAS HTML5.                                                                                           |
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+  - Colores:
+
+    - color: Propiedad que permite modificar el color del texto de un elemento.
+             Se puede identificar un color de varias maneras: Nombre del color, código RGB, código RGBA con transparencia, código Hexadecimal, 
+             código HSL, código HSL con transparencia.
+    - background-color: Indica el color de fondo del elemento.
+
+  - Textos:
+
+    - text-align: Se indica la alineación de un texto sobre un elemento.
+    - text-decoration: Se indica si se quiere indicar un subrayado al texto.
+    - font-size: Se indica el tamaño de la fuente del texto.
+    - font-family: Se indica la familia de la fuente del texto.
+
+  - Elementos:
+
+    - padding: Propiedad o relleno que se crea alrededor del contenido de un elemento dentro de los bordes definidos.
+    - border: Define los bordes de un elemento.
+    - margin: Establece el margen por los cuatro lados de un elemento. 
+    - width: Indica el tamaño del ancho del elemento.
+    - height: Indica el tamaño del alto del elemento.
+    - line-height: Indica el tamaño de altura que tiene asignada la línea del elemento.
+    - display: Indica si el elemento es tratado como un bloque (Se coloca encima de otro (en vertical)) o un elemento de línea (Se coloca a 
+               continuación del otro (en horizontal)).
+
+  - Tablas:
+
+    - border-collapse: Propiedad que se utiliza para fusionar los bordes de una tabla.
+    - tr:nth-child(even): Propiedad para aplicar un estilo a las filas pares de una tabla. 
+    - tr:nth-child(odd): Propiedad para aplicar un estilo a las filas impares de una tabla. 
+
+  - Listas:
+
+    - list-style-type: Propiedad que se utiliza para indicar el tipo de punto que se utiliza para mostrar la lista.
+
+  - Links:
+
+    - a:link: Propiedad para modificar el link en el momento que no se ha pulsado.
+    - a:hover: Propiedad para modificar el link cuando estamos posicionados en él.
+    - a:active: Propiedad para modificar el link cuando lo estamos pulsando.
+    - a:visited: Propiedad para modificar el link cuando ha sido visitado.

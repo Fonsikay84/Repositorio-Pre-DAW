@@ -1,0 +1,70 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  LISTADO DE ETIQUETAS HTML                                                                                                                       |
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+  - Etiquetas de la estructura general de cualquier archivo HTML.
+
+    <!DOCTYPE html>: Indica al navegador que el documento está basado en el estándar HTML5.
+    <html lang = "es"></html>: Representa la raíz de un documento HTML. Todos los demás elementos de la estructura HTML deben ser recogidos dentro 
+                               de estas etiquetas. El atributo "lang" indica que la página web está escrita en el idioma español.
+    <head></head>: Bloque que representa una colección de metadatos acerca del documento, incluyendo enlaces a, o definiciones de, scripts y hojas
+                   de estilo. Estos metadatos del documento, es información para el navegador y no contenido que será visible en la página web.
+    <body></body>: Bloque que representa el contenido de un documento HTML y en el cual se recogen todos los elementos que se quiera mostrar en la
+                   página web.
+
+  - Etiquetas dentro del bloque de la cabecera <head></head>.
+
+    <meta charset = "UTF-8"/>: Etiqueta que indica el formato de códificación de caracteres y se indica el valor "UTF-8" con el atributo "charset".
+    <meta name = "viewport" content="width = device-width, initial-scale = 1.0">: Etiqueta que produce que la web sea Responsive.
+    <title></title>: Etiqueta que define el título del documento que se muestra en un buscador web en la barra de título o la pestaña.
+    <style></style>: Etiqueta que define el estilo que va a tener cada uno de los elementos que contenga dicha etiqueta configurado.
+    <link rel = "stylesheet" href = "css/estilos.css"/>: Etiqueta que vincula el archivo ".html" con una hoja de estilos ".css" utilizando el 
+                                                         atributo "href" con la ruta de dicho archivo CSS3 e indicando la relación con una hoja de 
+                                                         estilo con el atributo "rel" y el valor "stylesheet".
+
+  - Etiquetas dentro del bloque del cuerpo <body></body>.
+
+    <h1></h1> al <h6></h6>: Etiquetas para indicar un titulo de un bloque y va de mayor jerarquía (h1) a la de menor jerarquía (h6).
+    <p></p>: Etiqueta que se utiliza para crear un párrafo de texto.
+    <br/>: Etiqueta que crea un salto de línea en un párrafo.
+    <hr/>: Etiqueta que crea una línea horizontal de separación.
+    <a></a>: Crea un enlace a otras páginas web, archivos o ubicaciones dentro de la misma web, emails, etc.
+                                   En el atributo "href" se indica la ruta de la página web y en "target" se indica cómo se quiere abrir la página 
+                                   web que se va a abrir.
+    <img/>: Etiqueta que incluye una imágen en el archivo HTML.
+    <span></span>: Etiqueta de elemento de línea que permite modificar el elemento que contiene en la misma línea donde se encuentra dicho elemento.
+    <div></div>: Etiqueta principal de los elementos de bloque y permite crear divisiones o nuevos bloques ocupando todo el ancho disponible y 
+                 creando un salto de línea antes y despúes de dicho bloque.
+
+    - Etiquetas aplicadas a un bloque de texto.
+
+      <b></b>: Etiqueta que pone en negrita el texto incluido.
+      <strong></strong>: Etiqueta que pone en negrita el texto indicado pero indica al HTML que el texto que contiene es importante.
+      <i></i>: Etiqueta que pone el texto en cursiva el texto incluido.
+      <em></em>: Etiqueta que pone el texto en cursiva el texto incluido pero sirve para enfatizarlo.
+      <small></small>: Etiqueta que pone el texto en pequeño.
+      <mark></mark>: Etiqueta que pone el texto subrayado en amarillo.
+      <del></del>: Etiqueta que pone el texto tachado.
+      <ins></ins>: Etiqueta que pone el texto subrayado.
+      <sub></sub>: Etiqueta que pone el texto como sub indice.
+      <sup></sup>: Etiqueta que pone el texto como super indice.
+      <code></code>: Etiqueta que pone el texto con un estilo tipo código.
+    
+    - Etiquetas aplicadas a una tabla.
+
+      <table></table>: Etiqueta que crea una tabla.
+      <caption></caption>: Etiqueta que muestra el título que va a tener la tabla.
+      <th></th>: Etiqueta que representa cada una de las celdas de la cabecera de la tabla.
+      <th colspan = 2></th>: Etiqueta que representa una de las celdas de la cabecera de la tabla que se expande en dos columnas.
+      <tr></tr>: Etiqueta que representa una fila completa de la tabla.
+      <td></td>: Etiqueta que representa una celda de datos de la tabla.
+      <td rowspan = "2"></td>: Etiqueta que representa una celda de datos de la tabla que abarca 2 celdas de fila.
+
+    - Etiquetas aplicadas a una lista.
+
+      - <ul></ul>: Etiqueta que crea una lista no ordenada.
+      - <ol></ol>: Etiqueta que crea una lista ordenada.
+      - <li></li>: Etiqueta que crea un elemento de la lista.
+      - <dl></dl>: Etiqueta que inicia la estructura de una lista de definición.
+      - <dt></dt>: Etiqueta que indica el término de una lista de definición.
+      - <dd></dd>: Etiqueta que indica el dato de una lista de definición.

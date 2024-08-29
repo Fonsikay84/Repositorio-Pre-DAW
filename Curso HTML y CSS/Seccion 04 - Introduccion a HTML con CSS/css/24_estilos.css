@@ -1,0 +1,33 @@
+/* Hoja de estilo aplicada al archivo "24_BoxModel.html". */
+
+h1
+{
+  color: blue;
+}
+
+p
+{
+  color: white;
+  background-color: crimson;
+  padding: 15px;
+  border: 10px solid powderblue;
+  
+  /* Cada propiedad del margin por separado. */
+  margin-top: 40px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+
+  /* arriba, derecha, abajo, izquierda */
+  margin: 40px 10px 20px 10px;
+  /* arriba, derecha e izquierda, abajo */
+  margin: 40px 10px 20px;
+  /* arriba y abajo, derecha e izquierda */
+  margin: 40px 20px;
+  /* todos los lados la misma cantidad */
+  margin: 20px;
+  /* margin centrado con 50 px de separación a derecha e izquierda */
+  margin: auto 50px;
+  /* texto centrado. */
+  text-align: center;
+}

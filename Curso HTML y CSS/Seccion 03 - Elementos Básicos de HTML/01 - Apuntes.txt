@@ -1,0 +1,297 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  SECCIÓN 03 - ELEMENTOS BÁSICOS DE HTML                                                                                                                      
+|  VIDEOS: 9, 10, 11, 12, 13, 14, 15, 16, 19
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Titulos en HTML (Video 9).
+
+  Los elementos de encabezado <h> se incluyen en el bloque del cuerpo <body> e implementan seis niveles de encabezado del documento, <h1> es el más 
+  importante, y <h6>, el menos importante y se indican con las etiquetas desde el <h1> hasta el <h6>.  
+
+  Un ejemplo de cada uno de los elementos de encabezado en orden de niveles sería:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+      <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+        <title>Títulos en HTML</title>
+      </head>
+      
+      <body>
+        <h1>Título h1</h1>
+        <h2>Título h2</h2>
+        <h3>Título h3</h3>
+        <h4>Título h4</h4>
+        <h5>Título h5</h5>
+        <h6>Título h6</h6>
+      </body>
+    </html>
+
+2. Párrafos en HTML (Video 10).
+
+  El elemento HTML de párrafo <p> es un bloque de texto que se añade al contenido del archivo HTML, en el cual, puede ser una sóla línea o tener 
+  varias líneas.
+  
+  Tiene como atributos:
+
+    - title = "": Se indica un nombre o título que va a tener el párrafo y se muestra poniendo el cursor encima del párrafo.
+
+  Un ejemplo sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+      <head>
+        
+        <meta charset = "UTF-8"/>
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+        <title>Párrafos en HTML</title>
+      
+      </head>
+
+      <body>
+
+        <h1>Título h1.</h1>
+        <p title = "Parrafo 1">Primera línea del párrafo.<br/>Segunda línea del párrafo.</p>
+        <hr/>
+        <p title = "Parrafo 2">Segundo párrafo.</p>
+
+      </body>
+    </html>
+
+3. Links en HTML (Video 11).
+
+  El Elemento HTML <a> crea un enlace a otras páginas de internet, archivos o ubicaciones dentro de la misma página, direcciones de correo, o 
+  cualquier otra URL.
+
+  Tiene como atributos:
+
+    - href = "": Se indica la ruta del enlace a donde se quiere ir.
+    - target = "": Se indica cómo se quiere abrir la nueva página web.
+
+  Un ejemplo sería el siguiente:
+
+  <!DOCTYPE html>
+  <html lang = "es">
+    
+    <head>
+      
+      <meta charset = "UTF-8"/>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+      <title>Links en HTML</title>
+    
+    </head>
+
+    <body>
+
+      <h1>Título h1.</h1>
+      <p>Primera línea del párrafo.<br/>Segunda línea del párrafo.</p>
+      <hr/>
+      <p>Segundo párrafo.</p>
+      
+      <a href="https://www.google.es/" target="_blank">Ir a Google.</a><br/>
+      <a href="pagina1.html">Ir a la página 1.</a>
+
+    </body>
+
+  </html>
+
+4. Manejo de imágenes en HTML (Video 12).
+
+  El elemento de imagen HTML <img> representa una imagen en el documento.
+  
+  Tiene como atributos:
+
+    - src = "": Se indica la ruta donde se encuentra la imágen ya sea la carpeta o la URL.
+    - alt = "": Se indica el texto que se muestra cuando la imágen no puede ser cargada de forma correcta.
+    - width = "": Se indica el tamaño del ancho que va a tener la imágen en píxeles. Se recomienda solo indicar el ancho o alto porque sino 
+                  la imágen se deforma.
+    - height = "": Se indica el tamaño del alto que va a tener la imágen en píxeles.
+    - title = "": Se indica un nombre o título que va a tener la imágen que se muestra poniendo el cursor encima de la imágen.
+
+  Un ejemplo sería el siguiente:
+
+  <!DOCTYPE html>
+  <html lang = "es">
+    
+    <head>
+      
+      <meta charset = "UTF-8"/>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+      <title>Manejo de imágenes en HTML</title>
+    
+    </head>
+
+    <body>
+
+      <h1>Título h1.</h1>
+      <p>Primera línea del párrafo.<br/>Segunda línea del párrafo.</p>
+      <hr/>
+      <p>Segundo párrafo.</p>
+      
+      <a href="https://www.google.es/" target="_blank">Ir a Google.</a><br/>
+      <a href="pagina1.html">Ir a la página 1.</a>
+      <br/>
+      <img src = "imagenes/html5.png" alt = "Logo HTML5" width = "100px" title = "Logo HTML5"/>
+      <img src = "http://globalmentoring.com.mx/imagenes/css3.png" alt = "Logo CSS3" width = "100px" title = "Logo CSS3"/>
+      <img src = "http://globalmentoring.com.mx/imagenes/javascript.png" alt = "Logo JavaScript" width = "100px" title = "Logo JavaScript"/>
+      
+    </body>
+
+  </html>
+
+5. Aplicar estilos CSS en HTML (Video 14).
+
+  Usando el atributo style = "" se puede modificar el estilo que tiene un elemento HTML pero lo mas recomendable es realizarlo con las hojas
+  de estilo CSS.
+
+  Se pueden aplicar multiples estilos como pueden ser:
+
+    - Color de fondo.
+    - Fuente de letra.
+    - Tamaño de la letra.
+    - etc.
+
+  Un ejemplo sería el siguiente aplicando un color de fondo, tamaño de fuente y tipo de fuente al bloque <body>:
+
+  <!DOCTYPE html>
+  <html lang = "es">
+    
+    <head>
+      
+      <meta charset = "UTF-8"/>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+      <title>Aplicar estilos CSS en HTML</title>
+    
+    </head>
+
+    <body style = "background-color:burlywood; font-size: 25px; font-family: 'Courier New', Courier, monospace;">
+
+      <h1>Título h1.</h1>
+      <p>Primera línea del párrafo.<br/>Segunda línea del párrafo.</p>
+      <hr/>
+      <p>Segundo párrafo.</p>
+      
+      <a href="https://www.google.es/" target="_blank">Ir a Google.</a><br/>
+      <a href="pagina1.html">Ir a la página 1.</a>
+      <br/>
+      <img src = "imagenes/html5.png" alt = "Logo HTML5" width = "100px" title = "Logo HTML5"/>
+      <img src = "http://globalmentoring.com.mx/imagenes/css3.png" alt = "Logo CSS3" width = "100px" title = "Logo CSS3"/>
+      <img src = "http://globalmentoring.com.mx/imagenes/javascript.png" alt = "Logo JavaScript" width = "100px" title = "Logo JavaScript"/>
+      
+    </body>
+
+  </html>
+
+6. Formato de texto con HTML (Video 15).
+
+  Existen varias etiquetas que dan formato a los textos en HTML aunque esto se suele hacer con las hojas de estilo CSS3.
+
+  Algunas etiquetas para dar formato al texto son:
+
+    - Texto en negrita: <b></b>
+    - Texto en negrita que es importante: <strong></strong>
+    - Texto en cursiva: <i></i>
+    - Texto en cursiva para enfatizarlo: <em></em>
+    - Texto pequeño: <small></small>
+    - Texto subrayado en amarillo: <mark></mark>
+    - Texto tachado: <del></del>
+    - Texto subrayado: <ins></ins>
+    - Texto subindice: <sub></sub>
+    - Texto superindice: <sup></sup>
+    - Texto con estilo de código: <code></code>
+
+  Un ejemplo sería el siguiente:
+
+  <!DOCTYPE html>
+  <html lang = "es">
+    
+    <head>
+      
+      <meta charset = "UTF-8"/>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+      <title>Formato de texto con HTML</title>
+    
+    </head>
+
+    <body>
+
+      <h1>Título h1.</h1>
+      <p>Primera línea del párrafo.<br/>Segunda línea del párrafo.</p>
+      <hr/>
+      <p title = "Parrafo 2"><b>Segundo párrafo.</b></p>
+      <p title = "Parrafo 3"><strong>Tercer párrafo (Es importante).</strong></p>
+      <p title = "Parrafo 4"><i>Cuarto párrafo.</i></p>
+      <p title = "Parrafo 5"><em>Quinto párrafo.</em></p>
+      <p title = "Parrafo 6"><small>Sexto párrafo.</small></p>
+      <p title = "Parrafo 7"><mark>Séptimo párrafo.</mark></p>
+      <p title = "Parrafo 8"><del>Octavo párrafo.</del></p>
+      <p title = "Parrafo 9"><ins>Noveno párrafo.</ins></p>
+      <p title = "Parrafo 10">Décimo H<sub>2</sub>0.</p>
+      <p title = "Parrafo 11">Undécimo x<sup>2</sup>.</p>
+  
+    </body>
+
+  </html>
+
+7. Referencias de caracteres en HTML (Video 16).
+
+  Si por algún motivo se quiere indicar un carácter especial que no esta en nuestro teclado normal, se puede indicar cualquier carácter que 
+  esta recogido en la siguiente web: https://tools.w3cub.com/html-entities
+
+  Estos caracteres especiales siempre van precedidos del símbolo "&" para indicar que es un caracter especial.
+
+  Algunos ejemplos serían:
+
+    &excl; -> Signo de exclamación "!".
+    &dollar; -> Signo del dolar "$".
+    &equals; -> Signo de igual "=".
+
+  Un ejemplo sería el siguiente:
+
+  <!DOCTYPE html>
+  <html lang = "es">
+    
+    <head>
+      
+      <meta charset = "UTF-8"/>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+      <title>Referencias de caracteres en HTML</title>
+    
+    </head>
+
+    <body>
+
+      <p title = "Parrafo 1">&excl; Simbolo de exclamación</p>
+      <p title = "Parrafo 2">&lt; Simbolo de menor que.</p>
+      <p title = "Parrafo 3">&gt; Simbolo de mayor que.</p>
+      
+    </body>
+
+  </html>
+
+8. Link para enviar un Email en HTML (Video 19).
+
+  La etiqueta que se utiliza para crear un link a un correo electronico es la "<a>" pero en este caso en la URL se inicia con "mailto:"
+  y se indica a continuación la dirección email a la que se quiere mandar el correo electrónico junto al asunto y el cuerpo del email.
+
+  Un ejemplo sería el siguiente:
+
+  <!DOCTYPE html>
+  <html lang = "es">
+    
+    <head>
+      
+      <meta charset = "UTF-8"/>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+      <title>Link para enviar un Email en HTML</title>
+    
+    </head>
+
+    <body>
+
+      <a href = "mailto:alfonso_lopezjimenez@hotmail.com?subject=Texto del Asunto del email&body=Texto del cuerpo del email.">Mandar un email.</a>
+      
+    </body>
+
+  </html>

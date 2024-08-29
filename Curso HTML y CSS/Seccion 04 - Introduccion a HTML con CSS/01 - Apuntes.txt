@@ -1,0 +1,155 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  SECCIÓN 04 - INTRODUCCIÓN A HTML CON CSS                                                                                                                      
+|  VIDEOS: 20, 21, 22, 23, 24, 25
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Manejo de colores en CSS y HTML  (Video 20, 21).
+
+  Existen varias formas de poner indicar el color con el atributo "color" que va a tener un texto y son las siguientes:
+
+    - Indicando el nombre.
+    - Indicando el código RGB.
+    - Indicando el código RGBA con transparencia.
+    - Indicando el código Hexadecimal.
+    - Indicando el código HSL.
+    - Indicando el código HSL con transparencia.
+
+  Un ejemplo sería:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Manejo de colores en CSS y HTML</title>
+      
+      </head>
+      <body>
+        
+        <h1>Universidad HTML.</h1>
+        <p style = "color:crimson">Color por nombre.</p>
+        <p style = "color:rgb(220, 20, 60)">Color por RGB.</p>
+        <p style = "color:rgba(220, 20, 60, 0.5)">Color por RGB con transparencia.</p>
+        <p style = "color:#DC143C">Color por Hexadecimal.</p>
+        <p style = "color:hsl(348, 83%, 47%)">Color por HSL.</p>
+        <p style = "color:hsla(348, 83%, 47%, 0.5)">Color por HSL con transparencia.</p>
+
+      </body>
+
+    </html>
+
+2. Introducción a CSS3 (Video 22).
+
+  Las hojas de estilo o archivos CSS3 son archivos donde se indica la configuración visual que va a tener la página web y para ello se debe
+  de crear una carpeta llamada "css" y dentro de ella un archivo llamado "estilos.css".
+  
+  Dentro de este archivo se puede modificar el aspecto de todos los elementos que componen la página web indicando su color, tamaño, fuente, 
+  espacio entre elementos, etc.
+
+  Para poner un comentario en un archivo ".css" se debe de indicar de la siguiente manera: /* texto a indicar */
+
+  Un ejemplo de archivo CSS3 sería el siguiente:
+
+    /* Hoja de estilo CSS3 para el archivo "index2.html */
+
+    /* Estilo para las etiquetas de tipo h1.*/
+    h1{
+      color: blue;
+    }
+
+    /* Estilo para los párrafos.*/
+    p{
+      color:white;
+      background-color: crimson;
+    }
+
+  Para poder vincular una página web ".html" con una hoja de estilo CSS3 ".css" se debe de utilizar la siguiente etiqueta:
+
+    <link rel = "stylesheet" href = "css/estilos.css"/>
+  
+  Un ejemplo de vinculación entre el archivo HTML y el de CSS3 sería:
+
+  <!DOCTYPE html>
+  <html lang = "es">
+
+    <head>
+
+      <meta charset = "UTF-8"/>
+      <title>Manejo de colores en CSS y HTML</title>
+      <link rel = "stylesheet" href = "css/estilos.css"/>
+
+    </head>
+
+    <body>
+      
+      <h1>Universidad HTML.</h1>
+      <p>Bienvenido a CSS.</p>
+      <p>Saludos!.</p>
+
+    </body>
+
+  </html>
+
+3. Cascadeo en las Hojas de Estilo CSS (Video 23).
+
+  El cascadeo en las hojas de estilo CSS quiere decir que el estilo que se ha aplicado a una etiqueta que sea padre de otra, arrastra la configuración
+  a sus elementos hijos, mientras que éstos no tengan su propio estilo definido.
+
+  Por ejemplo, si a la etiqueta <body> se le asigna un color de fondo, todos los elementos que estén dentro de este elemento van a tener el mismo color
+  de fondo, pero si alguno de los elementos tiene su propio color de fondo indicado en la hoja de estilos, pues predomina el color propio y no el color
+  establecido en el elemento padre.
+
+4. Modelo de caja o Box Model en CSS (Video 24).
+
+  Existen varias propiedades que tienen todos los elementos HTML con respecto al espacio que ocupan fisicamente en la página web y son:
+
+    - Padding: Es una propiedad o relleno que se crea alrededor del contenido de un elemento dentro de los bordes definidos.
+    - Border: Es una propiedad que permite definir los bordes de un elemento.
+    - Margin: Es una propiedad que establece el margen por los cuatro lados de un elemento.
+
+  Todas estas propiedades tienen los 4 lados y son (top, right, bottom, left), la cantidad se indica en pixeles (ya sea un valor fijo o un porcentaje) 
+  y se puede indicar un valor, dos, tres o los cuatro valores y según el número de valores indicados se refiere al valor asignado a una posición del 
+  elemento:
+
+    - Cuando se especifica un valor, se aplica el mismo relleno a los cuatro lados.
+    - Cuando se especifican dos valores, el primer relleno se aplica a la parte de arriba y abajo, el segundo a la izquierda y la derecha.
+    - Cuando se especifican tres valores, el primer relleno se aplica a la parte de arriba, el segundo a la derecha e izquierda, el tercero a la parte
+      de abajo.
+    - Cuando se especifican cuatro valores, los rellenos se aplican a la parte de arriba, derecha, abajo e izquierda en ese orden (en el sentido de las
+      agujas del reloj).
+
+  Un ejemplo con la propiedad "margin" sería así, aunque se puede aplicar el mismo ejemplo a las propiedades "border" y "padding":
+
+  /* Hoja de estilo para un elemento párrafo. */
+
+  p
+  {
+    color: white;
+    background-color: crimson;
+    padding: 15px;
+    border: 10px solid powderblue;
+    
+    /* Cada propiedad del margin por separado. */
+    margin-top: 40px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+
+    /* arriba, derecha, abajo, izquierda */
+    margin: 40px 10px 20px 10px;
+    /* arriba, derecha e izquierda, abajo */
+    margin: 40px 10px 20px;
+    /* arriba y abajo, derecha e izquierda */
+    margin: 40px 20px;
+    /* todos los lados la misma cantidad */
+    margin: 20px;
+    /* margin centrado con 50 px de separación a derecha e izquierda */
+    margin: auto 50px;
+    /* texto centrado. */
+    text-align: center;
+  }
+
+5. Paleta de colores en HTML (Video 25).
+
+  Una web donde existe variedad de paletas de colores es: https://coolors.co/palettes/trending para usar en nuestros diseños.

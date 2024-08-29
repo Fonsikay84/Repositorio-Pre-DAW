@@ -1,0 +1,83 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  SECCIÓN 05 - LINKS EN HTML Y CSS
+|  VIDEOS: 27, 28, 29, 30
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Estados y colores de los links en HTML y CSS (Video 27).
+
+  Los estados que puede estar un link en HTML son:
+
+    - Estado Nuevo: El color del link es azul.
+    - Estado Posicionado: El color del link es azul o morado.
+    - Estado Presionado: El color del link es rojo.
+    - Estado Visitado: El color del link es morado.
+    
+  Estos colores por defecto se pueden modificar utilizando para ello una hoja de estilo CSS con la siguiente configuración:
+
+    /* Estilo al link cuando es nuevo. */
+    a:link 
+    {
+      color: #fb8500;
+      text-decoration: none;  /* Se elimina el subrayado del texto del link. */
+    }
+
+    /* Estilo al link cuando estamos posicionados en el link. */
+    a:hover
+    {
+      color: #8ecae6;
+      text-decoration: underline;   /* Se añade el subrayado del texto del link. */
+    }
+
+    /* Estilo al link cuando lo estamos presionando. */
+    a:active
+    {
+      color: #023047;
+      text-decoration: underline;   /* Se añade el subrayado del texto del link. */
+    }
+
+    /* Estilo al link cuando ha sido visitado. */
+    a:visited
+    {
+      color: #219ebc;
+      text-decoration: none;    /* Se elimina el subrayado del texto del link. */
+    }
+
+2. Links con imágenes (Video 28).
+
+  Para poder utilizar una imágen como un enlace, solo hay que crear el enlace y dentro de ella crear la etiqueta de imágen de la siguiente manera:
+
+    <a href="http://globalmentoring.com.mx" target="_blank">
+      <img src="http://globalmentoring.com.mx/imagenes/gm.png" alt="Logo GM" style="width: 150px; height: 74px;"/>
+    </a>
+
+3. Links como botones en HTML y CSS (Video 29).
+
+  Para poder crear un botón con un link utilizando la hoja de estilos CSS3, se debe de realizar la siguiente configuración:
+
+    /* Estilo del botón cuando es nuevo y visitado. */
+    a:link, a:visited
+    {
+      background-color: #b5179e;
+      color: white;
+      padding: 15px 25px 15px 25px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    /* Estilo del botón cuando estamos encima o es presionado. */
+    a:hover, a:active
+    {
+      background-color: #f72585;
+    }
+
+4. Rutas relativas y absolutas en HTML (Video 30).
+
+  - Rutas relativas: Se recomienda utilizar las relativas para indicar paginas, hojas de estilo, imagenes, etc. que tenemos en nuestro equipo o servidor.
+
+    Ejemplo 1: <a href="webs/30_web_contenido.html">Ir al contenido</a>
+    Ejemplo 2 Carpeta raiz inicial: <a href="/Seccion 05 - Links en HTML y CSS/webs/30_web_contenido.html">Ir al contenido</a>
+    Ejemplo 3 Retroceder Carpeta: <a href="../Seccion 05 - Links en HTML y CSS/webs/30_web_contenido.html">Ir al contenido</a>
+
+  - Rutas absolutas: Se recomienda utilizar esta ruta cuando se quiere llamar a paginas, imagenes que están en Internet y no en nuestro equipo.
+
+    Ejemplo: <a href="http://www.globalmentoring.com.mx" target="_blank">Ir a Global Mentoring</a>

@@ -1,0 +1,55 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  SECCIÓN 02 - INTRODUCCIÓN UNIVERSIDAD DESARROLLO WEB                                                                                                                      
+|  VIDEOS: 3, 4, 5, 6, 7
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Instalación de Visual Studio Code y extensiones a añadir (Video 3, 4).
+
+    1.1. Instalación de VSC: https://code.visualstudio.com/download
+    1.2. Extensiones (Botón Extensiones o Ctrl + Mayús + X):
+
+        - Spanish Languaje Pack for Visual Studio Code: La aplicación de Visual Studio Code se muestra en español.
+        - Prettier - Code Formatter: Es un formateador de código para que se presente de una forma más limpia y estructurada.
+        - Live Server: Permite ejecutar tu proyecto en servidor local y ver los cambios en tu navegador sin tener que recargar la página.
+        - Live Server Preview: Permite ejecutar tu proyecto en servidor local y ver los cambios en tu navegador sin tener que recargar la página y
+                               verlo directamente dentro del VSCODE.
+        - Path Intellisense: Permite seleccionar los archivos a utilizar con una ruta mas sencilla de localización.
+    
+    1.3. Indicar autoguardado automático en: Archivo -> Autoguardado.
+
+2. Esquema básico de un archivo HTML (Video 5, 7).
+
+    <!DOCTYPE html>
+    <html lang = "es">
+    <head>
+        <title>Universidad HTML</title>
+        <meta charset = "UTF-8" />
+    </head>
+
+    <body>
+        <h1>Curso Universidad HTML</h1>
+        <p>Mi primera página HTML</p>
+    </body>
+    </html>
+
+3. Explicación de etiquetas básicas.
+
+  - Etiquetas de la estructura general de cualquier archivo HTML.
+
+    <!DOCTYPE html>: Indica al navegador que el documento está basado en el estándar HTML5.
+    <html lang = "es"></html>: Representa la raíz de un documento HTML. Todos los demás elementos de la estructura HTML deben ser recogidos dentro
+                               de estas etiquetas.
+    <head></head>: Representa una colección de metadatos acerca del documento, incluyendo enlaces a, o definiciones de, scripts y hojas de estilo.
+                   Estos metadatos del documento, es información para el navegador y no contenido que será visible en la página web.
+    <body></body>: Bloque en el cual se recoge todo lo que quieras mostrar en la página web y su contenido será el que se muestre en la web.
+
+  - Etiquetas dentro del bloque <head></head>.
+
+    <meta charset = "UTF-8"/>: Etiqueta que indica el formato de códificación de los caracteres Unicode y se indica el valor "UTF-8".
+    <meta name = "viewport" content="width = device-width, initial-scale = 1.0">:
+    <title></title>: Etiqueta usada para definir el título de la página web.
+
+  - Etiquetas dentro del bloque <body></body>.
+
+    <h1></h1>: Etiqueta utilizada para jerarquizar el contenido de la web.
+    <p></p>: Etiqueta que se utiliza para crear un párrafo de texto.

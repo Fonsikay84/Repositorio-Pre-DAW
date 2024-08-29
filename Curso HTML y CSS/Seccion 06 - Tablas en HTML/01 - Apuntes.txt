@@ -1,0 +1,146 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  SECCIÓN 06 - TABLAS EN HTML
+|  VIDEOS: 31, 32, 33, 34
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Tablas en HTML (Video 31).
+
+  En HTML para la creación de tablas existen una serie de etiquetas que se necesitan para formar la estructura de tabla y son las siguientes:
+
+    - <table></table>: Etiqueta que crea una tabla.
+    - <tr></tr>: Etiqueta que representa una fila completa de la tabla.
+    - <th></th>: Etiqueta que representa cada una de las celdas de la cabecera de la tabla.
+    - <td></td>: Etiqueta que representa una celda de datos de la tabla.
+  
+  Un ejemplo de tabla con su cabecera y 3 registros sería la siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Tablas en HTML</title>
+
+      </head>
+      
+      <body>
+
+        <table>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+          </tr>
+          <tr>
+            <td>Alfonso</td>
+            <td>López Jiménez</td>
+            <td>alfonso_lopezjimenez@hotmail.com</td>
+          </tr>
+          <tr>
+            <td>Isabel</td>
+            <td>Ferral Cabrera</td>
+            <td>isafc1986@hotmail.com</td>
+          </tr>
+          <tr>
+            <td>Álex</td>
+            <td>López Ferral</td>
+            <td>alexlf2022@hotmail.com</td>
+          </tr>
+        </table>
+
+      </body>
+
+    </html>
+
+2. Tablas en HTML con CSS (Video 32).
+
+  Utilizando las hojas de estilo CSS3 se puede dar formato a las tablas y para ello se puede realizar la siguiente configuración:
+
+  table, th, td
+  {
+    border: 1px solid black;
+    border-collapse: collapse; /* Se utiliza esta propiedad para fusionar los bordes de las tablas.
+    padding: 5px;
+  }
+
+3. Atributos colspan y rowspan en tablas HTML (Video 33).
+
+  - Atributo colspan: Sirve para ampliar una columna en x columnas.
+  - Atributo rowspan: Sirve para amplicar una fila en x filas.
+
+  Un ejemplo sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Tablas en HTML</title>
+
+      </head>
+      
+      <body>
+
+        <table>
+          <tr>
+            <th colspan = "2">Nombre completo</th>
+            <th>Email</th>
+          </tr>
+          <tr>
+            <td>Alfonso</td>
+            <td>López Jiménez</td>
+            <td>alfonso_lopezjimenez@hotmail.com</td>
+          </tr>
+          <tr>
+            <td>Isabel</td>
+            <td>Ferral Cabrera</td>
+            <td rowspan = "2">isafc1986@hotmail.com</td>
+          </tr>
+          <tr>
+            <td>Álex</td>
+            <td>López Ferral</td>
+          </tr>
+        </table>
+
+      </body>
+
+    </html>
+
+4. Estilos CSS a tablas HTML (Video 34).
+
+  Los estilos que se pueden dar a un elemento de tipo tabla puede ser alguno de los siguientes:
+
+    table, th, td
+    {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 5px;
+    }
+
+    caption
+    {
+      color: #e63946;
+      font-family: 'Trocchi', serif;
+      font-size: 30px;
+      line-height: 70px
+    }
+
+    th
+    {
+      color: #f1faee;
+      background-color: #1b3557;
+    }
+
+    /* Filas pares de la tabla. */
+    tr:nth-child(even)
+    {
+      background-color: #f1faee;
+    }
+
+    /* Filas impares de la tabla. */
+    tr:nth-child(odd)
+    {
+      background-color: #a8dadc;
+    }

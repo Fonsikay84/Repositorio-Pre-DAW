@@ -1,0 +1,9 @@
+/* Hola de estilo vinculado a la web "31_tablas.html". */
+
+table, th, td
+{
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
+

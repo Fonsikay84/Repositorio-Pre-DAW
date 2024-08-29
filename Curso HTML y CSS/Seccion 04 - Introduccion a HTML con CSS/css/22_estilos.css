@@ -1,0 +1,12 @@
+/* Hoja de estilo CSS3 para el archivo "index2.html */
+
+/* Estilo para las etiquetas de tipo h1.*/
+h1{
+  color: blue;
+}
+
+/* Estilo para los párrafos.*/
+p{
+  color:white;
+  background-color: crimson;
+}

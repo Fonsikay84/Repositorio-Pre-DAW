@@ -1,0 +1,942 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+| APUNTES GENERALES DE HTML - CURSO UDEMY UNIVERSIDAD DESARROLLO WEB                                                                               |
+| URL: https://www.udemy.com/course/universidad-desarrollo-web-moderno-html-css-javascript-html5-css3                                              |
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  SECCIÓN 02 - INTRODUCCIÓN UNIVERSIDAD DESARROLLO WEB                                                                                                                      
+|  VIDEOS: 3, 4, 5, 6, 7
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Instalación de Visual Studio Code y extensiones a añadir (Video 3, 4).
+
+    1.1. Instalación de VSC: https://code.visualstudio.com/download
+    1.2. Extensiones (Botón Extensiones o Ctrl + Mayús + X):
+
+        - Spanish Languaje Pack for Visual Studio Code: La aplicación de Visual Studio Code se muestra en español.
+        - Prettier - Code Formatter: Es un formateador de código para que se presente de una forma más limpia y estructurada.
+        - Live Server: Permite ejecutar tu proyecto en servidor local y ver los cambios en tu navegador sin tener que recargar la página.
+        - Live Server Preview: Permite ejecutar tu proyecto en servidor local y ver los cambios en tu navegador sin tener que recargar la página y
+                               verlo directamente dentro del VSCODE.
+        - Path Intellisense: Permite seleccionar los archivos a utilizar con una ruta mas sencilla de localización.
+    
+    1.3. Indicar autoguardado automático en: Archivo -> Autoguardado.
+
+2. Esquema básico de un archivo HTML (Video 5, 7).
+
+    <!DOCTYPE html>
+    <html lang = "es">
+    <head>
+        <title>Universidad HTML</title>
+        <meta charset = "UTF-8" />
+    </head>
+
+    <body>
+        <h1>Curso Universidad HTML</h1>
+        <p>Mi primera página HTML</p>
+    </body>
+    </html>
+
+3. Explicación de etiquetas básicas.
+
+  - Etiquetas de la estructura general de cualquier archivo HTML.
+
+    <!DOCTYPE html>: Indica al navegador que el documento está basado en el estándar HTML5.
+    <html lang = "es"></html>: Representa la raíz de un documento HTML. Todos los demás elementos de la estructura HTML deben ser recogidos dentro
+                               de estas etiquetas.
+    <head></head>: Representa una colección de metadatos acerca del documento, incluyendo enlaces a, o definiciones de, scripts y hojas de estilo.
+                   Estos metadatos del documento, es información para el navegador y no contenido que será visible en la página web.
+    <body></body>: Bloque en el cual se recoge todo lo que quieras mostrar en la página web y su contenido será el que se muestre en la web.
+
+  - Etiquetas dentro del bloque <head></head>.
+
+    <meta charset = "UTF-8"/>: Etiqueta que indica el formato de códificación de los caracteres Unicode y se indica el valor "UTF-8".
+    <meta name = "viewport" content="width = device-width, initial-scale = 1.0">:
+    <title></title>: Etiqueta usada para definir el título de la página web.
+
+  - Etiquetas dentro del bloque <body></body>.
+
+    <h1></h1>: Etiqueta utilizada para jerarquizar el contenido de la web.
+    <p></p>: Etiqueta que se utiliza para crear un párrafo de texto.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  SECCIÓN 03 - ELEMENTOS BÁSICOS DE HTML                                                                                                                      
+|  VIDEOS: 9, 10, 11, 12, 13, 14, 15, 16, 19
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Titulos en HTML (Video 9).
+
+  Los elementos de encabezado <h> se incluyen en el bloque del cuerpo <body> e implementan seis niveles de encabezado del documento, <h1> es el más 
+  importante, y <h6>, el menos importante y se indican con las etiquetas desde el <h1> hasta el <h6>.  
+
+  Un ejemplo de cada uno de los elementos de encabezado en orden de niveles sería:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+      <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+        <title>Títulos en HTML</title>
+      </head>
+      
+      <body>
+        <h1>Título h1</h1>
+        <h2>Título h2</h2>
+        <h3>Título h3</h3>
+        <h4>Título h4</h4>
+        <h5>Título h5</h5>
+        <h6>Título h6</h6>
+      </body>
+    </html>
+
+2. Párrafos en HTML (Video 10).
+
+  El elemento HTML de párrafo <p> es un bloque de texto que se añade al contenido del archivo HTML, en el cual, puede ser una sóla línea o tener 
+  varias líneas.
+  
+  Tiene como atributos:
+
+    - title = "": Se indica un nombre o título que va a tener el párrafo y se muestra poniendo el cursor encima del párrafo.
+
+  Un ejemplo sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+      <head>
+        
+        <meta charset = "UTF-8"/>
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+        <title>Párrafos en HTML</title>
+      
+      </head>
+
+      <body>
+
+        <h1>Título h1.</h1>
+        <p title = "Parrafo 1">Primera línea del párrafo.<br/>Segunda línea del párrafo.</p>
+        <hr/>
+        <p title = "Parrafo 2">Segundo párrafo.</p>
+
+      </body>
+    </html>
+
+3. Links en HTML (Video 11).
+
+  El Elemento HTML <a> crea un enlace a otras páginas de internet, archivos o ubicaciones dentro de la misma página, direcciones de correo, o 
+  cualquier otra URL.
+
+  Tiene como atributos:
+
+    - href = "": Se indica la ruta del enlace a donde se quiere ir.
+    - target = "": Se indica cómo se quiere abrir la nueva página web.
+
+  Un ejemplo sería el siguiente:
+
+  <!DOCTYPE html>
+  <html lang = "es">
+    
+    <head>
+      
+      <meta charset = "UTF-8"/>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+      <title>Links en HTML</title>
+    
+    </head>
+
+    <body>
+
+      <h1>Título h1.</h1>
+      <p>Primera línea del párrafo.<br/>Segunda línea del párrafo.</p>
+      <hr/>
+      <p>Segundo párrafo.</p>
+      
+      <a href="https://www.google.es/" target="_blank">Ir a Google.</a><br/>
+      <a href="pagina1.html">Ir a la página 1.</a>
+
+    </body>
+
+  </html>
+
+4. Manejo de imágenes en HTML (Video 12).
+
+  El elemento de imagen HTML <img> representa una imagen en el documento.
+  
+  Tiene como atributos:
+
+    - src = "": Se indica la ruta donde se encuentra la imágen ya sea la carpeta o la URL.
+    - alt = "": Se indica el texto que se muestra cuando la imágen no puede ser cargada de forma correcta.
+    - width = "": Se indica el tamaño del ancho que va a tener la imágen en píxeles. Se recomienda solo indicar el ancho o alto porque sino 
+                  la imágen se deforma.
+    - height = "": Se indica el tamaño del alto que va a tener la imágen en píxeles.
+    - title = "": Se indica un nombre o título que va a tener la imágen que se muestra poniendo el cursor encima de la imágen.
+
+  Un ejemplo sería el siguiente:
+
+  <!DOCTYPE html>
+  <html lang = "es">
+    
+    <head>
+      
+      <meta charset = "UTF-8"/>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+      <title>Manejo de imágenes en HTML</title>
+    
+    </head>
+
+    <body>
+
+      <h1>Título h1.</h1>
+      <p>Primera línea del párrafo.<br/>Segunda línea del párrafo.</p>
+      <hr/>
+      <p>Segundo párrafo.</p>
+      
+      <a href="https://www.google.es/" target="_blank">Ir a Google.</a><br/>
+      <a href="pagina1.html">Ir a la página 1.</a>
+      <br/>
+      <img src = "imagenes/html5.png" alt = "Logo HTML5" width = "100px" title = "Logo HTML5"/>
+      <img src = "http://globalmentoring.com.mx/imagenes/css3.png" alt = "Logo CSS3" width = "100px" title = "Logo CSS3"/>
+      <img src = "http://globalmentoring.com.mx/imagenes/javascript.png" alt = "Logo JavaScript" width = "100px" title = "Logo JavaScript"/>
+      
+    </body>
+
+  </html>
+
+5. Aplicar estilos CSS en HTML (Video 14).
+
+  Usando el atributo style = "" se puede modificar el estilo que tiene un elemento HTML pero lo mas recomendable es realizarlo con las hojas
+  de estilo CSS.
+
+  Se pueden aplicar multiples estilos como pueden ser:
+
+    - Color de fondo.
+    - Fuente de letra.
+    - Tamaño de la letra.
+    - etc.
+
+  Un ejemplo sería el siguiente aplicando un color de fondo, tamaño de fuente y tipo de fuente al bloque <body>:
+
+  <!DOCTYPE html>
+  <html lang = "es">
+    
+    <head>
+      
+      <meta charset = "UTF-8"/>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+      <title>Aplicar estilos CSS en HTML</title>
+    
+    </head>
+
+    <body style = "background-color:burlywood; font-size: 25px; font-family: 'Courier New', Courier, monospace;">
+
+      <h1>Título h1.</h1>
+      <p>Primera línea del párrafo.<br/>Segunda línea del párrafo.</p>
+      <hr/>
+      <p>Segundo párrafo.</p>
+      
+      <a href="https://www.google.es/" target="_blank">Ir a Google.</a><br/>
+      <a href="pagina1.html">Ir a la página 1.</a>
+      <br/>
+      <img src = "imagenes/html5.png" alt = "Logo HTML5" width = "100px" title = "Logo HTML5"/>
+      <img src = "http://globalmentoring.com.mx/imagenes/css3.png" alt = "Logo CSS3" width = "100px" title = "Logo CSS3"/>
+      <img src = "http://globalmentoring.com.mx/imagenes/javascript.png" alt = "Logo JavaScript" width = "100px" title = "Logo JavaScript"/>
+      
+    </body>
+
+  </html>
+
+6. Formato de texto con HTML (Video 15).
+
+  Existen varias etiquetas que dan formato a los textos en HTML aunque esto se suele hacer con las hojas de estilo CSS3.
+
+  Algunas etiquetas para dar formato al texto son:
+
+    - Texto en negrita: <b></b>
+    - Texto en negrita que es importante: <strong></strong>
+    - Texto en cursiva: <i></i>
+    - Texto en cursiva para enfatizarlo: <em></em>
+    - Texto pequeño: <small></small>
+    - Texto subrayado en amarillo: <mark></mark>
+    - Texto tachado: <del></del>
+    - Texto subrayado: <ins></ins>
+    - Texto subindice: <sub></sub>
+    - Texto superindice: <sup></sup>
+    - Texto con estilo de código: <code></code>
+
+  Un ejemplo sería el siguiente:
+
+  <!DOCTYPE html>
+  <html lang = "es">
+    
+    <head>
+      
+      <meta charset = "UTF-8"/>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+      <title>Formato de texto con HTML</title>
+    
+    </head>
+
+    <body>
+
+      <h1>Título h1.</h1>
+      <p>Primera línea del párrafo.<br/>Segunda línea del párrafo.</p>
+      <hr/>
+      <p title = "Parrafo 2"><b>Segundo párrafo.</b></p>
+      <p title = "Parrafo 3"><strong>Tercer párrafo (Es importante).</strong></p>
+      <p title = "Parrafo 4"><i>Cuarto párrafo.</i></p>
+      <p title = "Parrafo 5"><em>Quinto párrafo.</em></p>
+      <p title = "Parrafo 6"><small>Sexto párrafo.</small></p>
+      <p title = "Parrafo 7"><mark>Séptimo párrafo.</mark></p>
+      <p title = "Parrafo 8"><del>Octavo párrafo.</del></p>
+      <p title = "Parrafo 9"><ins>Noveno párrafo.</ins></p>
+      <p title = "Parrafo 10">Décimo H<sub>2</sub>0.</p>
+      <p title = "Parrafo 11">Undécimo x<sup>2</sup>.</p>
+  
+    </body>
+
+  </html>
+
+7. Referencias de caracteres en HTML (Video 16).
+
+  Si por algún motivo se quiere indicar un carácter especial que no esta en nuestro teclado normal, se puede indicar cualquier carácter que 
+  esta recogido en la siguiente web: https://tools.w3cub.com/html-entities
+
+  Estos caracteres especiales siempre van precedidos del símbolo "&" para indicar que es un caracter especial.
+
+  Algunos ejemplos serían:
+
+    &excl; -> Signo de exclamación "!".
+    &dollar; -> Signo del dolar "$".
+    &equals; -> Signo de igual "=".
+
+  Un ejemplo sería el siguiente:
+
+  <!DOCTYPE html>
+  <html lang = "es">
+    
+    <head>
+      
+      <meta charset = "UTF-8"/>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+      <title>Referencias de caracteres en HTML</title>
+    
+    </head>
+
+    <body>
+
+      <p title = "Parrafo 1">&excl; Simbolo de exclamación</p>
+      <p title = "Parrafo 2">&lt; Simbolo de menor que.</p>
+      <p title = "Parrafo 3">&gt; Simbolo de mayor que.</p>
+      
+    </body>
+
+  </html>
+
+8. Link para enviar un Email en HTML (Video 19).
+
+  La etiqueta que se utiliza para crear un link a un correo electronico es la "<a>" pero en este caso en la URL se inicia con "mailto:"
+  y se indica a continuación la dirección email a la que se quiere mandar el correo electrónico junto al asunto y el cuerpo del email.
+
+  Un ejemplo sería el siguiente:
+
+  <!DOCTYPE html>
+  <html lang = "es">
+    
+    <head>
+      
+      <meta charset = "UTF-8"/>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/>
+      <title>Link para enviar un Email en HTML</title>
+    
+    </head>
+
+    <body>
+
+      <a href = "mailto:alfonso_lopezjimenez@hotmail.com?subject=Texto del Asunto del email&body=Texto del cuerpo del email.">Mandar un email.</a>
+      
+    </body>
+
+  </html>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  SECCIÓN 04 - INTRODUCCIÓN A HTML CON CSS                                                                                                                      
+|  VIDEOS: 20, 21, 22, 23, 24, 25
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Manejo de colores en CSS y HTML  (Video 20, 21).
+
+  Existen varias formas de poner indicar el color con el atributo "color" que va a tener un texto y son las siguientes:
+
+    - Indicando el nombre.
+    - Indicando el código RGB.
+    - Indicando el código RGBA con transparencia.
+    - Indicando el código Hexadecimal.
+    - Indicando el código HSL.
+    - Indicando el código HSL con transparencia.
+
+  Un ejemplo sería:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Manejo de colores en CSS y HTML</title>
+      
+      </head>
+      <body>
+        
+        <h1>Universidad HTML.</h1>
+        <p style = "color:crimson">Color por nombre.</p>
+        <p style = "color:rgb(220, 20, 60)">Color por RGB.</p>
+        <p style = "color:rgba(220, 20, 60, 0.5)">Color por RGB con transparencia.</p>
+        <p style = "color:#DC143C">Color por Hexadecimal.</p>
+        <p style = "color:hsl(348, 83%, 47%)">Color por HSL.</p>
+        <p style = "color:hsla(348, 83%, 47%, 0.5)">Color por HSL con transparencia.</p>
+
+      </body>
+
+    </html>
+
+2. Introducción a CSS3 (Video 22).
+
+  Las hojas de estilo o archivos CSS3 son archivos donde se indica la configuración visual que va a tener la página web y para ello se debe
+  de crear una carpeta llamada "css" y dentro de ella un archivo llamado "estilos.css".
+  
+  Dentro de este archivo se puede modificar el aspecto de todos los elementos que componen la página web indicando su color, tamaño, fuente, 
+  espacio entre elementos, etc.
+
+  Para poner un comentario en un archivo ".css" se debe de indicar de la siguiente manera: /* texto a indicar */
+
+  Un ejemplo de archivo CSS3 sería el siguiente:
+
+    /* Hoja de estilo CSS3 para el archivo "index2.html */
+
+    /* Estilo para las etiquetas de tipo h1.*/
+    h1{
+      color: blue;
+    }
+
+    /* Estilo para los párrafos.*/
+    p{
+      color:white;
+      background-color: crimson;
+    }
+
+  Para poder vincular una página web ".html" con una hoja de estilo CSS3 ".css" se debe de utilizar la siguiente etiqueta:
+
+    <link rel = "stylesheet" href = "css/estilos.css"/>
+  
+  Un ejemplo de vinculación entre el archivo HTML y el de CSS3 sería:
+
+  <!DOCTYPE html>
+  <html lang = "es">
+
+    <head>
+
+      <meta charset = "UTF-8"/>
+      <title>Manejo de colores en CSS y HTML</title>
+      <link rel = "stylesheet" href = "css/estilos.css"/>
+
+    </head>
+
+    <body>
+      
+      <h1>Universidad HTML.</h1>
+      <p>Bienvenido a CSS.</p>
+      <p>Saludos!.</p>
+
+    </body>
+
+  </html>
+
+3. Cascadeo en las Hojas de Estilo CSS (Video 23).
+
+  El cascadeo en las hojas de estilo CSS quiere decir que el estilo que se ha aplicado a una etiqueta que sea padre de otra, arrastra la configuración
+  a sus elementos hijos, mientras que éstos no tengan su propio estilo definido.
+
+  Por ejemplo, si a la etiqueta <body> se le asigna un color de fondo, todos los elementos que estén dentro de este elemento van a tener el mismo color
+  de fondo, pero si alguno de los elementos tiene su propio color de fondo indicado en la hoja de estilos, pues predomina el color propio y no el color
+  establecido en el elemento padre.
+
+4. Modelo de caja o Box Model en CSS (Video 24).
+
+  Existen varias propiedades que tienen todos los elementos HTML con respecto al espacio que ocupan fisicamente en la página web y son:
+
+    - Padding: Es una propiedad o relleno que se crea alrededor del contenido de un elemento dentro de los bordes definidos.
+    - Border: Es una propiedad que permite definir los bordes de un elemento.
+    - Margin: Es una propiedad que establece el margen por los cuatro lados de un elemento.
+
+  Todas estas propiedades tienen los 4 lados y son (top, right, bottom, left), la cantidad se indica en pixeles (ya sea un valor fijo o un porcentaje) 
+  y se puede indicar un valor, dos, tres o los cuatro valores y según el número de valores indicados se refiere al valor asignado a una posición del 
+  elemento:
+
+    - Cuando se especifica un valor, se aplica el mismo relleno a los cuatro lados.
+    - Cuando se especifican dos valores, el primer relleno se aplica a la parte de arriba y abajo, el segundo a la izquierda y la derecha.
+    - Cuando se especifican tres valores, el primer relleno se aplica a la parte de arriba, el segundo a la derecha e izquierda, el tercero a la parte
+      de abajo.
+    - Cuando se especifican cuatro valores, los rellenos se aplican a la parte de arriba, derecha, abajo e izquierda en ese orden (en el sentido de las
+      agujas del reloj).
+
+  Un ejemplo con la propiedad "margin" sería así, aunque se puede aplicar el mismo ejemplo a las propiedades "border" y "padding":
+
+  /* Hoja de estilo para un elemento párrafo. */
+
+  p
+  {
+    color: white;
+    background-color: crimson;
+    padding: 15px;
+    border: 10px solid powderblue;
+    
+    /* Cada propiedad del margin por separado. */
+    margin-top: 40px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+
+    /* arriba, derecha, abajo, izquierda */
+    margin: 40px 10px 20px 10px;
+    /* arriba, derecha e izquierda, abajo */
+    margin: 40px 10px 20px;
+    /* arriba y abajo, derecha e izquierda */
+    margin: 40px 20px;
+    /* todos los lados la misma cantidad */
+    margin: 20px;
+    /* margin centrado con 50 px de separación a derecha e izquierda */
+    margin: auto 50px;
+    /* texto centrado. */
+    text-align: center;
+  }
+
+5. Paleta de colores en HTML (Video 25).
+
+  Una web donde existe variedad de paletas de colores es: https://coolors.co/palettes/trending para usar en nuestros diseños.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  SECCIÓN 05 - LINKS EN HTML Y CSS
+|  VIDEOS: 27, 28, 29, 30
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Estados y colores de los links en HTML y CSS (Video 27).
+
+  Los estados que puede estar un link en HTML son:
+
+    - Estado Nuevo: El color del link es azul.
+    - Estado Posicionado: El color del link es azul o morado.
+    - Estado Presionado: El color del link es rojo.
+    - Estado Visitado: El color del link es morado.
+    
+  Estos colores por defecto se pueden modificar utilizando para ello una hoja de estilo CSS con la siguiente configuración:
+
+    /* Estilo al link cuando es nuevo. */
+    a:link 
+    {
+      color: #fb8500;
+      text-decoration: none;  /* Se elimina el subrayado del texto del link. */
+    }
+
+    /* Estilo al link cuando estamos posicionados en el link. */
+    a:hover
+    {
+      color: #8ecae6;
+      text-decoration: underline;   /* Se añade el subrayado del texto del link. */
+    }
+
+    /* Estilo al link cuando lo estamos presionando. */
+    a:active
+    {
+      color: #023047;
+      text-decoration: underline;   /* Se añade el subrayado del texto del link. */
+    }
+
+    /* Estilo al link cuando ha sido visitado. */
+    a:visited
+    {
+      color: #219ebc;
+      text-decoration: none;    /* Se elimina el subrayado del texto del link. */
+    }
+
+2. Links con imágenes (Video 28).
+
+  Para poder utilizar una imágen como un enlace, solo hay que crear el enlace y dentro de ella crear la etiqueta de imágen de la siguiente manera:
+
+    <a href="http://globalmentoring.com.mx" target="_blank">
+      <img src="http://globalmentoring.com.mx/imagenes/gm.png" alt="Logo GM" style="width: 150px; height: 74px;"/>
+    </a>
+
+3. Links como botones en HTML y CSS (Video 29).
+
+  Para poder crear un botón con un link utilizando la hoja de estilos CSS3, se debe de realizar la siguiente configuración:
+
+    /* Estilo del botón cuando es nuevo y visitado. */
+    a:link, a:visited
+    {
+      background-color: #b5179e;
+      color: white;
+      padding: 15px 25px 15px 25px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    /* Estilo del botón cuando estamos encima o es presionado. */
+    a:hover, a:active
+    {
+      background-color: #f72585;
+    }
+
+4. Rutas relativas y absolutas en HTML (Video 30).
+
+  - Rutas relativas: Se recomienda utilizar las relativas para indicar paginas, hojas de estilo, imagenes, etc. que tenemos en nuestro equipo o servidor.
+
+    Ejemplo 1: <a href="webs/30_web_contenido.html">Ir al contenido</a>
+    Ejemplo 2 Carpeta raiz inicial: <a href="/Seccion 05 - Links en HTML y CSS/webs/30_web_contenido.html">Ir al contenido</a>
+    Ejemplo 3 Retroceder Carpeta: <a href="../Seccion 05 - Links en HTML y CSS/webs/30_web_contenido.html">Ir al contenido</a>
+
+  - Rutas absolutas: Se recomienda utilizar esta ruta cuando se quiere llamar a paginas, imagenes que están en Internet y no en nuestro equipo.
+
+    Ejemplo: <a href="http://www.globalmentoring.com.mx" target="_blank">Ir a Global Mentoring</a>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  SECCIÓN 06 - TABLAS EN HTML
+|  VIDEOS: 31, 32, 33, 34
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Tablas en HTML (Video 31).
+
+  En HTML para la creación de tablas existen una serie de etiquetas que se necesitan para formar la estructura de tabla y son las siguientes:
+
+    - <table></table>: Etiqueta que crea una tabla.
+    - <tr></tr>: Etiqueta que representa una fila completa de la tabla.
+    - <th></th>: Etiqueta que representa cada una de las celdas de la cabecera de la tabla.
+    - <td></td>: Etiqueta que representa una celda de datos de la tabla.
+  
+  Un ejemplo de tabla con su cabecera y 3 registros sería la siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Tablas en HTML</title>
+
+      </head>
+      
+      <body>
+
+        <table>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+          </tr>
+          <tr>
+            <td>Alfonso</td>
+            <td>López Jiménez</td>
+            <td>alfonso_lopezjimenez@hotmail.com</td>
+          </tr>
+          <tr>
+            <td>Isabel</td>
+            <td>Ferral Cabrera</td>
+            <td>isafc1986@hotmail.com</td>
+          </tr>
+          <tr>
+            <td>Álex</td>
+            <td>López Ferral</td>
+            <td>alexlf2022@hotmail.com</td>
+          </tr>
+        </table>
+
+      </body>
+
+    </html>
+
+2. Tablas en HTML con CSS (Video 32).
+
+  Utilizando las hojas de estilo CSS3 se puede dar formato a las tablas y para ello se puede realizar la siguiente configuración:
+
+  table, th, td
+  {
+    border: 1px solid black;
+    border-collapse: collapse; /* Se utiliza esta propiedad para fusionar los bordes de las tablas.
+    padding: 5px;
+  }
+
+3. Atributos colspan y rowspan en tablas HTML (Video 33).
+
+  - Atributo colspan: Sirve para ampliar una columna en x columnas.
+  - Atributo rowspan: Sirve para amplicar una fila en x filas.
+
+  Un ejemplo sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Tablas en HTML</title>
+
+      </head>
+      
+      <body>
+
+        <table>
+          <tr>
+            <th colspan = "2">Nombre completo</th>
+            <th>Email</th>
+          </tr>
+          <tr>
+            <td>Alfonso</td>
+            <td>López Jiménez</td>
+            <td>alfonso_lopezjimenez@hotmail.com</td>
+          </tr>
+          <tr>
+            <td>Isabel</td>
+            <td>Ferral Cabrera</td>
+            <td rowspan = "2">isafc1986@hotmail.com</td>
+          </tr>
+          <tr>
+            <td>Álex</td>
+            <td>López Ferral</td>
+          </tr>
+        </table>
+
+      </body>
+
+    </html>
+
+4. Estilos CSS a tablas HTML (Video 34).
+
+  Los estilos que se pueden dar a un elemento de tipo tabla puede ser alguno de los siguientes:
+
+    table, th, td
+    {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 5px;
+    }
+
+    caption
+    {
+      color: #e63946;
+      font-family: 'Trocchi', serif;
+      font-size: 30px;
+      line-height: 70px
+    }
+
+    th
+    {
+      color: #f1faee;
+      background-color: #1b3557;
+    }
+
+    /* Filas pares de la tabla. */
+    tr:nth-child(even)
+    {
+      background-color: #f1faee;
+    }
+
+    /* Filas impares de la tabla. */
+    tr:nth-child(odd)
+    {
+      background-color: #a8dadc;
+    }
+
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  SECCIÓN 07 - LISTAS EN HTML
+|  VIDEOS: 35, 36, 37, 38, 39
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Listas en HTML.
+
+  Existen 3 tipos de listas en HTML:
+
+    - <ul></ul>: Listas no ordenadas.
+    - <ol></ol>: Listas ordenadas.
+    - <dl></dl>: Listas de definición.
+
+1. Lista no ordenada (Video 35).
+
+  Para crear una lista no ordenada se utiliza la etiqueta <ul> y un ejemplo sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Listas en HTML</title>
+        <link rel = "stylesheet" href = "css/35_estilos.css"/>
+
+      </head>
+      <body>
+
+        <h1>Lista no ordenada.</h1>
+
+        <!-- Lista no ordenada anidada. -->
+        <ul>
+          <li>Alfonso
+            <ul>
+              <li>Tel. 666207804</li>
+              <li>Móv. 648232289</li>
+            </ul>
+          </li>
+          <li>Isabel</li>
+          <li>Álex
+            <ul>
+              <li>Tel. 648232289</li>
+              <li>Móv. 666207804</li>
+            </ul>
+          </li>
+        </ul>
+
+      </body>
+
+    </html>
+
+1.2. Menú de navegación con listas no ordenadas en HTML y CSS3 (Video 36, 37).
+
+  La creación de un menú de navegación en HTML se puede realizar de la siguiente manera:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Menu de navegación</title>
+        <link rel = "stylesheet" href = "css/36_estilos.css"/>
+
+      </head>
+      <body>
+
+        <!-- Lista no ordenada. -->
+        <ul>
+          <li><a href = "36_menu_navegacion_lista.html">Inicio</a></li>
+          <li><a href = "webs/36_contacto.html">Contacto</a></li>
+          <li><a href = "webs/36_acercade.html">Acerca de</a></li>
+        </ul>
+
+        <h1>Inicio</h1>
+
+      </body>
+
+    </html>
+
+  En cuanto a la hoja de estilos CSS3 para aplicar al menú de navegación, se realizaría de la siguiente manera:
+
+    h1
+    {
+      color: #1d3557;
+    }
+
+    ul
+    {
+      list-style-type: none;
+      background-color: #457b9d;  
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    li
+    {
+      float: left;
+    }
+
+    li a
+    {
+      display: block;
+      padding: 15px;
+      color: white;
+      text-decoration: none;
+    }
+
+    li a:hover
+    {
+      color:white;
+      background-color: #1d3557;
+      text-decoration: none;
+    }
+
+2. Listas ordenadas en HTML (Video 38).
+
+  Para crear una lista ordenada se utiliza la etiqueta <ol> y un ejemplo sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang="es">
+      <head>
+
+        <meta charset = "UTF-8">
+        <title>Listas ordenadas</title>
+        <link rel = "stylesheet" href = "css/38_estilos.css"/>
+
+      </head>
+      <body>
+        
+        <!-- Lista ordenada. -->
+        <ol>
+          <li>Universidad Java</li>
+          <li>Universidad Python</li>
+          <li>Universidad Excel</li>
+        </ol>
+        
+      </body>
+    </html>
+
+  La configuración de la hoja de estilo aplicada a esta lista ordenada sería:
+
+    ol
+    {
+      list-style: none;
+      counter-reset: contador;
+    }
+
+    ol li
+    {
+      counter-increment: contador;
+    }
+
+    ol li::before
+    {
+      content: "Curso " counter(contador) ") ";
+      color: #ff6f00;
+    }
+
+    ol li::after
+    {
+      content: ".";
+    }
+  
+3. Listas de descripción (Video 39).
+
+  Para crear una lista de descripción se utiliza la etiqueta <dl> como principal y un ejemplo sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+        
+        <meta charset = "UTF-8"/>
+        <title>Lista de descripción</title>
+
+      </head>
+      
+      <body>
+
+        <h1>Lenguajes de programación.</h1>
+
+        <!-- Lista de descripción. -->
+        <dl>
+          <dt>Java:</dt>
+            <dd>Creador: Jamen Gosling</dd>
+          <dt>Python:</dt>
+            <dd>Creador: Guido van Rossum</dd>
+          <dt>JavaScript:</dt>
+            <dd>Creador: Brendan Eich</dd>
+        </dl>
+      
+      </body>
+    </html>
+
