@@ -1,0 +1,69 @@
+/* Hoja de estilo vinculada a la web "57_formularios.html". */
+
+/* Reseteo de margenes en la web. */
+*
+{
+  margin: 0;
+  padding: 0;
+}
+
+/* Bloque del body. */
+body
+{
+  background-color: blueviolet;
+}
+
+/* Bloque div para centrar el formulario. */
+#bloqueCentrarForm
+{
+  text-align: center;
+  padding-top: 50px;
+}
+
+/* Bloque del formulario. */
+#frmPrincipal
+{
+  display: inline-block;
+  text-align: left;
+  background-color:darkslateblue;
+  padding: 20px 30px 50px 30px;
+  border-radius: 10px;
+}
+
+/* Label para el titulo. */
+#lblTitulo
+{
+  color:dodgerblue;
+  text-align: center;
+}
+
+/* Labels de usuario y contraseña. */
+#lblUsuario, #lblPassword
+{
+  color: white;
+  display: inline-block;
+  padding-top: 20px;
+}
+
+/* Cajas de texto de usuario y contraseña. */
+#txtUsuario, #txtPassword
+{
+  width: 300px;
+  color: white;
+  background-color: darkslateblue;
+  text-align: left;
+  padding: 10px;
+  border: 0px;
+  border-bottom: 1px solid white;
+}
+
+/* Botón de envíar. */
+#btEnviar
+{
+  width: 322px;
+  color: white;
+  background-color:deeppink;
+  margin-top: 50px;
+  padding: 10px 108px;
+  border: 0px;
+}

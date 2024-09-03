@@ -15,12 +15,13 @@
   - Etiquetas dentro del bloque de la cabecera <head></head>.
 
     <meta charset = "UTF-8"/>: Etiqueta que indica el formato de códificación de caracteres y se indica el valor "UTF-8" con el atributo "charset".
-    <meta name = "viewport" content="width = device-width, initial-scale = 1.0">: Etiqueta que produce que la web sea Responsive.
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">: Etiqueta que produce que la web sea Responsive.
     <title></title>: Etiqueta que define el título del documento que se muestra en un buscador web en la barra de título o la pestaña.
     <style></style>: Etiqueta que define el estilo que va a tener cada uno de los elementos que contenga dicha etiqueta configurado.
-    <link rel = "stylesheet" href = "css/estilos.css"/>: Etiqueta que vincula el archivo ".html" con una hoja de estilos ".css" utilizando el 
-                                                         atributo "href" con la ruta de dicho archivo CSS3 e indicando la relación con una hoja de 
-                                                         estilo con el atributo "rel" y el valor "stylesheet".
+    <link rel = "stylesheet" type = "text/css" href = "css/estilos.css"/>: Etiqueta que vincula el archivo ".html" con una hoja de estilos ".css" 
+                                                                           utilizando el atributo "href" con la ruta de dicho archivo CSS3 e 
+                                                                           indicando la relación con una hoja de estilo con el atributo "rel" y el
+                                                                           valor "stylesheet".
 
   - Etiquetas dentro del bloque del cuerpo <body></body>.
 
@@ -55,7 +56,7 @@
       <table></table>: Etiqueta que crea una tabla.
       <caption></caption>: Etiqueta que muestra el título que va a tener la tabla.
       <th></th>: Etiqueta que representa cada una de las celdas de la cabecera de la tabla.
-      <th colspan = 2></th>: Etiqueta que representa una de las celdas de la cabecera de la tabla que se expande en dos columnas.
+      <th colspan = "2"></th>: Etiqueta que representa una de las celdas de la cabecera de la tabla que se expande en dos columnas.
       <tr></tr>: Etiqueta que representa una fila completa de la tabla.
       <td></td>: Etiqueta que representa una celda de datos de la tabla.
       <td rowspan = "2"></td>: Etiqueta que representa una celda de datos de la tabla que abarca 2 celdas de fila.
@@ -68,3 +69,39 @@
       - <dl></dl>: Etiqueta que inicia la estructura de una lista de definición.
       - <dt></dt>: Etiqueta que indica el término de una lista de definición.
       - <dd></dd>: Etiqueta que indica el dato de una lista de definición.
+
+    - Etiquetas aplicadas a un formulario.
+
+      - <form method = "post"></form>: Etiqueta que crea el bloque de un formulario web indicando que el método de envío de datos es "post".
+      - <fieldset></fieldset>: Etiqueta que crea un marco que engloba a todo el formulario.
+      - <legend></legend>: Etiqueta que crea un titulo al marco del formulario creado por la etiqueta <fieldset>.
+      - <label for = "nombre_usuario"></label>: Etiqueta que crea un texto para acompañar a otro elemento al cual está vinculado.
+      - <input type = "text" id = "nombre_usuario" name = "nombre_usuario"/>: Etiqueta que crea una caja de texto con sus atributos generales.
+      - <input type = "hidden" id = "sistema_usuario" name = "sistema_usuario" value = "SAP"/>: Etiqueta que crea una caja de texto con información para 
+                                                                                                el servidor pero no se muestra en la web.
+      - <input type = "text" id = "nombre_usuario" name = "nombre_usuario" readonly = "true"/>: Etiqueta de texto de sólo lectura.
+      - <input type = "text" id = "nombre_usuario" name = "nombre_usuario" readonly = "true" disabled = "true"/>: Etiqueta de texto de sólo lectura y no
+                                                                                                                  se envía la información al servidor.
+      - <input type = "password" id = "password_usuario" name = "password_usuario"/>: Etiqueta que crea una caja de texto para las contraseñas.
+      - <input type = "button" id = "boton_usuario" value = "Enviar datos"/>: Etiqueta que crea un botón.
+      - <input type = "submit" id = "boton_confirmar"/>: Etiqueta que crea un botón especifico para confirmar una operación.
+      - <input type = "reset" id = "boton_resetear" value = "Restablecer"/>: Etiqueta que crea un botón específico para resetear los datos del formulario.
+      - <input type = "email" id = "email_usuario" name = "email_usuario"/>: Etiqueta que crea un campo de texto para introducir un email.
+      - <input type = "number" id = "edad_usuario" name = "edad_usuario"/>: Etiqueta que crea un campo para datos numéricos con scroll. 
+      - <input type = "number" id = "peso_usuario" name = "peso_usuario" step = "any"/>: Etiqueta que crea un campo para datos numéricos decimales.
+      - <input type = "radio" id = "genero_masculino" name = "genero" value = "H"/>_ Etiqueta que crea un elemento de tipo RadioButton.
+      - <input type = "checkbox" id = "musica_jazz" name = "musica_usuario" value = "jazz"/>: Etiqueta que crea un elemento de tipo Checkbox.
+      - <select id = "coches" name = "coches" multiple = "true"></select>: Etiqueta que crea un elemento de tipo lista de valores.
+      - <option value = "seat" selected = "true">Seat</option>: Etiqueta que crea un elemento de la lista de valores creada con la etiqueta <select>.
+      - <textarea id = "comentario" name = "comentario" rows = "2" cols = "30"></textarea>: Etiqueta que crea un elemento para textos grandes.
+
+    - Etiquetas estructurales.
+
+      - <section></section>: Se añade una nueva sección a la web.
+      - <article></article>: Se añade un nuevo artículo a la web.
+      - <aside></aside>: Se añade un elemento en la barra lateral de la web.
+      - <header></header>: Se añade una cabecera a la web.
+      - <footer></footer>: Se añade un pié de página a la web.
+      - <hgroup></hgroup>: Bloque que se utiliza para agrupar diferentes títulos <h1> al <h6>.
+      - <nav></nav>: Se añade un menú de navegación a la web.
+

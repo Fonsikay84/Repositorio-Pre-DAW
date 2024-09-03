@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang = "es">
+
+  <head>
+
+    <meta charset = "UTF-8"/>
+    <title>Formularios HTML</title>
+    <link rel = "stylesheet" type = "text/css" href = "css/47_48_estilos.css"/>
+
+  </head>
+  <body>
+    
+    <h1>Formularios en HTML</h1>
+
+    <!-- Formulario con envío de datos ocultos con el método "post". -->
+    <form method = "post">
+      
+      <!-- Etiqueta que crea un marco al formulario. --> 
+      <fieldset>
+
+        <!-- Etiqueta que indica un titulo al marco del formulario. -->
+        <legend>Datos Usuario</legend>
+        </br>
+        <!-- Elemento de tipo label con referencia al elemento de caja de texto de solo lectura. -->
+        <label for = "id_usuario">ID Usuario:</label>
+        <input type = "text" id = "id_usuario" name = "id_usuario" readonly = "true" disabled = "true" value = "1"/>
+        <!-- Elemento de texto que no se muestra pero se envía al servidor. --> 
+        <input type = "hidden" id = "sistema_usuario" name = "sistema_usuario" value = "SAP"/>
+        <br/>
+        <br/>        
+        <!-- Elemento de tipo label con referencia al elemento de caja de texto. -->
+        <label for = "nombre_usuario">Nombre:</label>
+        <!-- Elemento de tipo caja de texto. -->
+        <input type = "text" id = "nombre_usuario" name = "nombre_usuario"/>
+        <br/>
+        <br/>
+        <!-- Elemento de tipo label y caja de texto con la información rellena. -->
+        <label for = "apellido1_usuario">Apellido 1:</label>
+        <input type = "text" id = "apellido1_usuario" name = "apellido1_usuario" value = "López"/>
+        <br/>
+        <br/>
+        <!-- Elemento de tipo label y caja de texto con la sugerencia de información a rellenar. -->
+        <label for = "apellido2_usuario">Apellido 2:</label>
+        <input type = "text" id = "apellido2_usuario" name = "apellido2_usuario" placeholder = "Escribe tu 2º apellido"/>
+        <br/>
+        <br/>
+        <!-- Elemento label y de tipo caja de texto de cumplimentación obligatoria para el DNI. -->
+        <label for = "dni_usuario">DNI:</label>
+        <input type = "text" id = "dni_usuario" name = "dni_usuario" required = "true"/>
+        <br/>
+        <br/>
+        <!-- Elemento label y de tipo caja de texto de cumplimentación obligatoria para el email. -->
+        <label for = "email_usuario">Email:</label>
+        <input type = "email" id = "email_usuario" name = "email_usuario" required = "true"/>
+        <br/>
+        <br/>
+        <!-- Elemento label y de tipo caja de texto para contraseñas. -->
+        <label for = "password_usuario">Password:</label>
+        <input type = "password" id = "password_usuario" name = "password_usuario" required = "true"/>
+        <br/>
+        <br/>
+        <!-- Elemento label y de tipo caja de texto para números. -->
+        <label for = "edad_usuario">Edad:</label>
+        <input type = "number" id = "edad_usuario" name = "edad_usuario"/>
+        <br/>
+        <br/>
+        <!-- Elemento label y de tipo caja de texto para números decimales. -->
+        <label for = "peso_usuario">Peso:</label>
+        <input type = "number" id = "peso_usuario" name = "peso_usuario" step = "any"/>
+        <br/>
+        <br/>
+        <!-- Elemento label y de tipo RadioButton. -->
+        <label>Género:</label>
+        </br>
+        <input type = "radio" id = "gen_masculino_usuario" name = "genero" value = "H"/>
+        <label for = "gen_masculino_usuario">Masculino</label>
+        </br>
+        <input type = "radio" id = "gen_femenino_usuario" name = "genero" value = "M"/>
+        <label for = "gen_femenino_usuario">Femenino</label>
+        <br/>
+        <br/>
+        <!-- Elemento label y de tipo Checkbox. -->
+        <label>Género música favorita:</label>
+        </br>
+        <input type = "checkbox" id = "musica_clasica" name = "musica_usuario" value = "clásica"/>
+        <label for = "musica_clasica">Clásica</label>
+        <input type = "checkbox" id = "musica_jazz" name = "musica_usuario" value = "jazz"/>
+        <label for = "musica_jazz">Jazz</label>
+        <br/>
+        <br/>   
+        <!-- Elemento label y de tipo lista con sus elementos. --> 
+        <label for = "coches">Marca de coche favorita:</label>
+        <select id = "coches" name = "coches">
+          <option value = "seat">Seat</option>
+          <option value = "bmw">BMV</option>
+          <option value = "audi" selected = "true">Audi</option>
+        </select>       
+        <br/>
+        <br/>
+        <!-- Elemento label y de tipo textArea para textos grandes. --> 
+        <label for = "comentario">Comentario:</label>
+        <textarea id = "comentario" name = "comentario" rows = "2" cols = "30">Este es mi comentario.</textarea>
+        <br/>
+        <br/>
+        <!-- Elemento de tipo botón "submit" con validación y no validación del formulario. -->
+        <input type = "submit" id = "boton_enviar"/>
+        <input type = "submit" id = "boton_usuario" value = "Enviar datos" formnovalidate = "formnovalidate"/> 
+        <input type = "reset" id = "boton_resetear" value = "Restablecer"/>
+
+      </fieldset>
+
+    </form>
+  
+  </body>
+
+</html>

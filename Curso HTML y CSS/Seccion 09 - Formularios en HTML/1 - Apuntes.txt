@@ -1,0 +1,547 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  SECCIÓN 09 - FORMULARIOS EN HTML
+|  VIDEOS: 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Formularios en HTML (Video 47, 48).
+
+  Un formulario es un conjunto de elementos que nos permiten mandar información del usuario via web y se crea con la etiqueta <form></form>.
+
+    - Etiqueta <label>: Etiqueta que crea un elemento de tipo etiqueta con un texto que se vincula con el cuadro de texto con el atributo "for".
+
+      <label for = "nombre_usuario">Nombre:</label>
+
+    - Etiqueta <input>: Es una etiqueta que puede crear un elemento de muchos tipos como pueden ser: Cajas de texto, botones, checkbox, radio 
+                        button, etc usando para ello el atributo "type".
+
+                        Esta etiqueta tiene varios atributos para el tipo "text":
+
+                          - type: Se indica el tipo de elemento que se va a crear.
+                          - id: Identificador unico del elemento.
+                          - name: Nombre que se asigna al elemento para usarlo como referencia en otros elementos.
+                          - value: Se indica un valor por defecto.
+                          - placeholder: Se indica una sugerencia de información.
+                          - required: Se indica si el elemento tiene que tener un valor obligatorio o no.
+
+      <input type = "text" id = "nombre_usuario" name = "nombre_usuario" value = "Alfonso" placeholder = "Escribe tu nombre" required = "true"/>
+
+  Un ejemplo de elementos de label, text y submit en un formulario sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Formularios HTML</title>
+
+      </head>
+      <body>
+        
+        <h1>Formularios en HTML</h1>
+
+        <form>
+        
+          <!-- Elemento de tipo label con referencia al elemento de caja de texto. -->
+          <label for = "nombre_usuario">Nombre:</label>
+          <!-- Elemento de tipo caja de texto. -->
+          <input type = "text" id = "nombre_usuario" name = "nombre_usuario"/>
+          <br/>
+          <br/>
+          <!-- Elemento de tipo label y caja de texto con la información rellena. -->
+          <label for = "apellido1_usuario">Apellido 1:</label>
+          <input type = "text" id = "apellido1_usuario" name = "apellido1_usuario" value = "López"/>
+          <br/>
+          <br/>
+          <!-- Elemento de tipo label y caja de texto con la sugerencia de información a rellenar. -->
+          <label for = "apellido2_usuario">Apellido 2:</label>
+          <input type = "text" id = "apellido2_usuario" name = "apellido2_usuario" placeholder = "Escribe tu 2º apellido"/>
+          <br/>
+          <br/>
+          <!-- Elemento label y de tipo caja de texto de cumplimentación obligatoria. -->
+          <label for = "dni_usuario">DNI:</label>
+          <input type = "text" id = "dni_usuario" name = "dni_usuario" required = "true"/>
+          <br/>
+          <br/>
+          <!-- Elemento de tipo botón "submit". -->
+          <input type = "submit" id = "boton_enviar"/>
+
+        </form>
+      
+      </body>
+
+    </html>
+
+2. Validar formularios en HTML (Video 49).
+
+  Para poder validar en un formulario un elemento de tipo "text" existe un atributo llamado "required" que si indicas el valor de "true" debe ser 
+  rellenado de forma obligatoria y si se indica "false" o no se indica este atributo, el elemento no es obligatorio.
+
+  Para que un formulario no valide ninguno de los elementos del formulario, se puede realizar de varias maneras:
+
+    1) En la etiqueta <form> se indica el atributo "novalidate": <form novalidate></form>
+    2) En la etiqueta <input> se indica el atributo "formnovalidate": <input type = "submit" formnovalidate = "formnovalidate"/>
+
+  Un ejemplo de elementos botonera de tipo submit con validación en un formulario sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Formularios HTML</title>
+
+      </head>
+      <body>
+        
+        <h1>Formularios en HTML</h1>
+
+        <form>
+        
+          <!-- Elemento de tipo label con referencia al elemento de caja de texto. -->
+          <label for = "nombre_usuario">Nombre:</label>
+          <!-- Elemento de tipo caja de texto. -->
+          <input type = "text" id = "nombre_usuario" name = "nombre_usuario"/>
+          <br/>
+          <br/>
+          <!-- Elemento de tipo label y caja de texto con la información rellena. -->
+          <label for = "apellido1_usuario">Apellido 1:</label>
+          <input type = "text" id = "apellido1_usuario" name = "apellido1_usuario" value = "López"/>
+          <br/>
+          <br/>
+          <!-- Elemento de tipo label y caja de texto con la sugerencia de información a rellenar. -->
+          <label for = "apellido2_usuario">Apellido 2:</label>
+          <input type = "text" id = "apellido2_usuario" name = "apellido2_usuario" placeholder = "Escribe tu 2º apellido"/>
+          <br/>
+          <br/>
+          <!-- Elemento label y de tipo caja de texto de cumplimentación obligatoria. -->
+          <label for = "dni_usuario">DNI:</label>
+          <input type = "text" id = "dni_usuario" name = "dni_usuario" required = "true"/>
+          <br/>
+          <br/>
+          <!-- Elemento de tipo botón "submit" con validación y no validación del formulario. -->
+          <input type = "submit" id = "boton_enviar"/>
+          <input type = "submit" id = "boton_usuario" value = "Enviar datos" formnovalidate = "formnovalidate"/> 
+
+        </form>
+      
+      </body>
+
+    </html>
+
+3. Método Get y Post HTTP (Video 50).
+
+  El método Get es el método por defecto que se utiliza para enviar la información del formulario al servidor indicando en la URL la dirección web 
+  junto a los valores de cada uno de los elementos del formulario separados por "&". Si no se desea que se muestren los valores en dicha URL se debe
+  de utilizar el método Post ya que se envia pero de forma oculta.
+
+  El método es un atributo de la etiqueta <form> llamado "method" y el nombre del método a elegir: "get" o "post".
+
+  Un ejemplo de formulario con el método "post" sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Formularios HTML</title>
+
+      </head>
+      <body>
+        
+        <h1>Formularios en HTML</h1>
+
+        <!-- Formulario con envío de datos ocultos con el método "post". -->
+        <form method = "post">
+        
+          <!-- Elemento de tipo label con referencia al elemento de caja de texto. -->
+          <label for = "nombre_usuario">Nombre:</label>
+          <!-- Elemento de tipo caja de texto. -->
+          <input type = "text" id = "nombre_usuario" name = "nombre_usuario"/>
+          <br/>
+          <br/>
+          <!-- Elemento de tipo label y caja de texto con la información rellena. -->
+          <label for = "apellido1_usuario">Apellido 1:</label>
+          <input type = "text" id = "apellido1_usuario" name = "apellido1_usuario" value = "López"/>
+          <br/>
+          <br/>
+          <!-- Elemento de tipo label y caja de texto con la sugerencia de información a rellenar. -->
+          <label for = "apellido2_usuario">Apellido 2:</label>
+          <input type = "text" id = "apellido2_usuario" name = "apellido2_usuario" placeholder = "Escribe tu 2º apellido"/>
+          <br/>
+          <br/>
+          <!-- Elemento de tipo botón "submit" con validación y no validación del formulario. -->
+          <input type = "submit" id = "boton_enviar"/>
+          <input type = "submit" id = "boton_usuario" value = "Enviar datos" formnovalidate = "formnovalidate"/> 
+
+        </form>
+      
+      </body>
+
+    </html>
+
+4. Tipos de elementos Email y Number en Formulario HTML (Video 51).
+
+  Para crear un elemento de tipo Email se crea de la siguiente manera: <input type = "email" id = "email_usuario" name = "email_usuario"/>
+  
+  Para crear un elemento de tipo numérico entero sería de la siguiente forma: <input type = "number" id = "edad_usuario" name = "edad_usuario"/>
+  En cambio, si se quiere crear un elemento de tipo numérico pero que contenga datos decimales pues sería de la siguiente manera utilizando el atributo
+  "step" con el valor "any":
+
+    <input type = "number" id = "peso_usuario" name = "peso_usuario" step = "any"/>
+
+  Un ejemplo con elementos de email y number sería de la siguiente manera:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Formularios HTML</title>
+
+      </head>
+      <body>
+        
+        <h1>Formularios en HTML</h1>
+
+        <!-- Formulario con envío de datos ocultos con el método "post". -->
+        <form method = "post">
+        
+          <!-- Elemento label y de tipo caja de texto de cumplimentación obligatoria para el email. -->
+          <label for = "email_usuario">Email:</label>
+          <input type = "email" id = "email_usuario" name = "email_usuario" required = "true"/>
+          <br/>
+          <br/>
+          <!-- Elemento label y de tipo caja de texto para números. -->
+          <label for = "edad_usuario">Edad:</label>
+          <input type = "number" id = "edad_usuario" name = "edad_usuario"/>
+          <br/>
+          <br/>
+          <!-- Elemento label y de tipo caja de texto para números decimales. -->
+          <label for = "peso_usuario">Peso:</label>
+          <input type = "number" id = "peso_usuario" name = "peso_usuario" step = "any"/>
+          <br/>
+          <br/>
+          <!-- Elemento de tipo botón "submit" con validación y no validación del formulario. -->
+          <input type = "submit" id = "boton_enviar"/>
+          <input type = "submit" id = "boton_usuario" value = "Enviar datos" formnovalidate = "formnovalidate"/> 
+
+        </form>
+      
+      </body>
+
+    </html>
+
+5. Tipo de elemento RadioButton y Checkbox en Formularios HTML (Video 52).
+
+  Para crear un elemento de tipo "RadioButton" se utiliza la etiqueta <input> con el valor de type "radio", en cambio para crear un elemento de
+  tipo "checkbox" se utiliza la etiqueta <input> con el valor de type "checkbox".
+  
+  A estos dos elementos hay que añadir los siguientes atributos:
+
+    - name: Se indica un nombre y todos los elementos de RadioButton que sean relacionados, deben de tener el mismo valor en el atributo "name"
+            para que sólo se pueda marcar un único RadioButton.
+    - value: Se indica el valor que se va a enviar al servidor cuando se elige un RadioButton determinado.
+
+  Un ejemplo que incluye estos dos elementos sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Formularios HTML</title>
+
+      </head>
+      <body>
+        
+        <h1>Formularios en HTML</h1>
+
+        <!-- Formulario con envío de datos ocultos con el método "post". -->
+        <form method = "post">
+        
+          <!-- Elemento label y de tipo RadioButton. -->
+          <label>Género:</label>
+          </br>
+          <input type = "radio" id = "gen_masculino_usuario" name = "genero" value = "H"/>
+          <label for = "gen_masculino_usuario">Masculino</label>
+          </br>
+          <input type = "radio" id = "gen_femenino_usuario" name = "genero" value = "M"/>
+          <label for = "gen_femenino_usuario">Femenino</label>
+          <br/>
+          <br/>
+          <!-- Elemento label y de tipo Checkbox. -->
+          <label>Género música favorita:</label>
+          </br>
+          <input type = "checkbox" id = "musica_clasica" name = "musica_usuario" value = "clásica"/>
+          <label for = "musica_clasica">Clásica</label>
+          <input type = "checkbox" id = "musica_jazz" name = "musica_usuario" value = "jazz"/>
+          <label for = "musica_jazz">Jazz</label>
+          <br/>
+          <br/>
+          <!-- Elemento de tipo botón "submit" con validación y no validación del formulario. -->
+          <input type = "submit" id = "boton_enviar"/>
+          <input type = "submit" id = "boton_usuario" value = "Enviar datos" formnovalidate = "formnovalidate"/> 
+        
+        </form>
+      
+      </body>
+
+    </html>
+
+6. Tipo de elemento Select y TextArea en HTML (Video 53).
+
+  Un elemento de tipo "Select" es un elemento de tipo lista que puede contener uno o varios elementos.
+
+  Para crear un elemento de tipo lista se utiliza la etiqueta <select></select> y dentro de ella se debe de crear cada uno de los elementos de la lista
+  utilizando para ello la etiqueta <option></option>.
+
+  En cuanto a crear un elemento de tipo textArea que se utiliza para textos grandes se crea con la etiqueta <textarea></textarea>
+
+  Un ejemplo de elemento de lista y textArea sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Formularios HTML</title>
+
+      </head>
+      <body>
+        
+        <h1>Formularios en HTML</h1>
+
+        <!-- Formulario con envío de datos ocultos con el método "post". -->
+        <form method = "post">
+        
+          <!-- Elemento label y de tipo lista con sus elementos. --> 
+          <label for = "coches">Marca de coche favorita:</label>
+          <select id = "coches" name = "coches">
+            <option value = "seat">Seat</option>
+            <option value = "bmw">BMV</option>
+            <option value = "audi" selected = "true">Audi</option>
+          </select>       
+          <!-- Elemento label y de tipo textArea para textos grandes. --> 
+          <label for = "comentario">Comentario:</label>
+          <textarea id = "comentario" name = "comentario" rows = "2" cols = "30">Este es mi comentario.</textarea>
+          <br/>
+          <br/>
+          <!-- Elemento de tipo botón "submit" con validación y no validación del formulario. -->
+          <input type = "submit" id = "boton_enviar"/>
+          <input type = "submit" id = "boton_usuario" value = "Enviar datos" formnovalidate = "formnovalidate"/> 
+
+        </form>
+      
+      </body>
+
+    </html>
+
+7. Elemento Fieldset y Legend en Formularios HTML (Video 54).
+
+  Un elemento Fieldset es simplemente un marco para el formulario y para ello se utiliza la etiqueta <fieldset></fieldset> y si se quiere crear un
+  titulo al marco creado, se debe de utilizar la etiqueta <legend></legend> indicando el titulo necesario.
+
+  Un ejemplo del uso de las etiquetas de marco y titulo del marco es la siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Formularios HTML</title>
+
+      </head>
+      <body>
+        
+        <h1>Formularios en HTML</h1>
+
+        <!-- Formulario con envío de datos ocultos con el método "post". -->
+        <form method = "post">
+          
+          <!-- Etiqueta que crea un marco al formulario. --> 
+          <fieldset>
+            
+            <!-- Etiqueta que indica un titulo al marco del formulario. -->
+            <legend>Datos Usuario</legend>
+            </br>
+            <!-- Elemento label y de tipo textArea para textos grandes. --> 
+            <label for = "comentario">Comentario:</label>
+            <textarea id = "comentario" name = "comentario" rows = "2" cols = "30">Este es mi comentario.</textarea>
+            <br/>
+            <br/>
+            <!-- Elemento de tipo botón "submit" con validación y no validación del formulario. -->
+            <input type = "submit" id = "boton_enviar"/>
+            <input type = "submit" id = "boton_usuario" value = "Enviar datos" formnovalidate = "formnovalidate"/> 
+          
+          </fieldset>
+
+        </form>
+      
+      </body>
+
+    </html>
+
+8. Atributos del elemento <form> en HTML (Video 55).
+
+  - Atributo action: Se indica cual es el componente del lado del servidor o la URL que va a procesar el formulario.
+
+    Ej: <form action = "mi_servidor">
+  
+  - Atributo method: Se indica el método de envío de información al servidor ("get" o "post").
+
+    Ej: <form method = "post">
+  
+  - Atributo target: Se indica si la respuesta del servidor se debe de cargar en la misma ventana "_self" o debe de abrir una nueva pestaña "_blank".
+
+    Ej: <form target = "_blank"> 
+
+  - Atributo autocomplete: Se indica si pulsando un elemento debe de aparecer valores introducidos anteriormente o no ("on" o "off").
+
+    Ej: <form autocomplete = "off">
+
+  Un ejemplo del uso de los atributos del formulario es la siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Formularios HTML</title>
+
+      </head>
+      <body>
+        
+        <h1>Formularios en HTML</h1>
+
+        <!-- Formulario con envío de datos ocultos con el método "post" indicando el servidor, que se abra en la misma ventana la respuesta
+             y que no se produzca autocompletado. 
+        -->             
+        <form action = "mi_servido" method = "post" target = "_self" autocomplete = "on">
+          
+          <!-- Etiqueta que crea un marco al formulario. --> 
+          <fieldset>
+            
+            <!-- Etiqueta que indica un titulo al marco del formulario. -->
+            <legend>Datos Usuario</legend>
+            </br>
+            <!-- Elemento label y de tipo textArea para textos grandes. --> 
+            <label for = "comentario">Comentario:</label>
+            <textarea id = "comentario" name = "comentario" rows = "2" cols = "30">Este es mi comentario.</textarea>
+            <br/>
+            <br/>
+            <!-- Elemento de tipo botón "submit" con validación y no validación del formulario. -->
+            <input type = "submit" id = "boton_enviar"/>
+            <input type = "submit" id = "boton_usuario" value = "Enviar datos" formnovalidate = "formnovalidate"/> 
+          
+          </fieldset>
+
+        </form>
+      
+      </body>
+
+    </html>
+
+9. Mas elementos de tipo Input (Video 56).
+
+  Botón para resetear los valores originales del formulario: <input type = "reset" id = "boton_resetear" value = "Restablecer"/>
+
+  - Elemento de texto de sólo lectura: <input type = "text" id = "nombre_usuario" name = "nombre_usuario" readonly = "true"/>
+  - Elemento de texto de sólo lectura y no se envía la información al servidor: <input type = "text" id = "nombre_usuario" name = "nombre_usuario" 
+                                                                                     readonly = "true" disabled = "true"/> 
+  - Elemento de texto que no se muestra pero se envía al servidor: <input type = "hidden" id = "sistema_usuario" name = "sistema_usuario" 
+                                                                          value = "SAP"/>
+
+10. Elementos semánticos en HTML (Video 60).
+
+  Los elementos semánticos en HTML definen una región dentro de nuestra web y son los siguientes:
+
+    - <section></section>: Se añade una nueva sección a la web.
+    - <article></article>: Se añade un nuevo artículo a la web.
+    - <aside></aside>: Se añade un elemento en la barra lateral de la web.
+    - <header></header>: Se añade una cabecera a la web.
+    - <footer></footer>: Se añade un pié de página a la web.
+    - <hgroup></hgroup>: Bloque que se utiliza para agrupar diferentes títulos <h1> al <h6>.
+    - <nav></nav>: Se añade un menú de navegación a la web.
+
+  Un ejemplo de la aplicación de todos los elementos semánticos de HTML sería el siguiente:
+
+    <!DOCTYPE html>
+    <html lang = "es">
+
+      <head>
+
+        <meta charset = "UTF-8"/>
+        <title>Elementos semánticos HTML</title>
+        <link rel = "stylesheet" type = "text/css" href = "css/61_estilos.css"/>
+
+      </head>
+      
+      <body>
+
+        <!-- Cabecera de la web. -->
+        <header>
+          
+          <h1>Etiquetas semánticas en HTML5</h1>
+
+        </header>
+
+        <!-- Barra de navegación. -->
+        <nav>
+          
+          <a href = "#">Inicio</a>
+          <a href = "#">Servicios</a>
+          <a href = "#">Contacto</a>
+          <a href = "#">Acerca de</a>
+        
+        </nav>
+
+        <!-- Sección 1. -->
+        <section>
+
+          <h2>Sección 1.</h2>
+          <p>Información de la sección.</p>
+          
+          <!-- Bloque de Aside. -->
+          <aside>Nombre del autor</aside>
+
+        </section>
+
+        <!-- Sección 2. -->
+        <section>
+
+          <h2>Sección 2.</h2>
+          
+          <!-- Artículo 1. -->
+          <article>
+
+            <h3>Artículo 1</h3>
+          
+          </article>
+          
+          <!-- Artículo 2. -->
+          <article>
+          
+            <h3>Artículo 2</h3>
+          
+          </article>
+
+        </section>
+
+        <!-- Pie de página. -->
+        <footer>
+
+          <h2><a href="http://www.globalmentoring.com.mx">Globalmentoring.com.mx</a></h2>
+        
+        </footer>
+
+      </body>
+
+    </html>
