@@ -1,0 +1,48 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  ATAJOS DE TECLADO JAVA EN APACHE NETBEANS.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Web de consulta: https://maadcode.dev/articulos/atajos-de-teclado-en-netbeans-para-java
+
+- CTRL + Espacio: Te muestra los métodos y variables que contiene el método en el que estas situado.
+- CTRL + clik del ratón en una variable: Se desplaza a la declaración de la variable.
+- CTRL + F5: Debug.
+- F6: Ejecutar código.
+- Alt + Shift + F: Formatear el código con respecto a la alineación de forma automática.
+
+- Escribir sout + Tab: Autocompleta el método System.out.println().
+- Escribir soutv + Tab: Autocompleta el método System.out.println() con la ultima variable declarada de forma concatenada.
+- Escribir if + Tab: Genera la estructura condicional if.
+- Escribir if + CTRL + ESPACIO: Sentencia IF compleja (seleccionar la opción necesaria).
+- Escribir ifelse + Tab: Genera la estructura condicional if - else.
+- Escribir sw + Tab: Genera la estructura condicional switch.
+- Escribir dowhile + Tab: Genera la estructura repetitiva do-while.
+- Escribir whilexp + Tab: Genera la estructura repetitiva while.
+- Escribir fori + Tab: Genera la estructura repetitiva for.
+- Escribir fore + Tab: Genera la estructura repetitiva forEach para iterar un Array.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  ATAJOS DE TECLADO JAVA EN ECLIPSE.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+- F11: Debug.
+- F5: Ir línea a línea con el Debug.
+- CTRL + Espacio: Te muestra los métodos y variables que contiene el método en el que estas situado.
+- CTRL + F11: Ejecutar codigo.
+- CTRL + Shift + L: Lista de atajos.
+- CTRL + L: Acceso a la línea indicada.
+- CTRL + K: Rastrea la variable seleccionada.
+- CTRL + D: Eliminar la fila.
+- CTRL + O: Acceso a los atributos y métodos de esa clase.
+- CTRL + O (2 veces): Igual que el anterior pero añadiendo los atributos y métodos de las clases padre.
+- CTRL + L: Acceso a la línea indicada.
+- CTRL + 7: Comenta el texto seleccionado.
+- CTRL + E: Listar los archivos abiertos del editor (y seleccionar el que se quiera).
+- CTRL + clik del ratón en una variable: Se desplaza a la declaración de la variable.
+
+- Creación del método principal "main": Escribir main, pulsar CTRL + ESPACIO y seleccionar main method.
+- Impresion rápida por consola (System.out.println): Escribir syso y pulsar CTRL + Espacio.
+- Sentencia IF: Escribir if, pulsar CTRL + ESPACIO y seleccionar la opción statement.
+- Bucle Desde (for): Escribir for, pulsar CTRL + ESPACIO y seleccionar la opción.
+- Bucle Mientras (while): Escribir while, pulsar CTRL + ESPACIO y seleccionar la opción.
+- Bucle Repetir Hasta (do..while): Escribir do, pulsar CTRL + ESPACIO y seleccionar la opción.

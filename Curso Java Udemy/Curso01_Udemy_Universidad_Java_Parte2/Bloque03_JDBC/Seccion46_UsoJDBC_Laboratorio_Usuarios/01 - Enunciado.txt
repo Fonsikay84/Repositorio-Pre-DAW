@@ -1,0 +1,23 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 03 - SECCIÓN 46 - USO DE JDBC EN JAVA. 
+|  VIDEOS: 185, 186
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+	Se solicita crear un proyecto Java con las siguientes características:
+	
+		- Crear una tabla llamada "usuario" en MySQL en el esquema: test y con los siguientes campos:
+		
+			* idUsuario (int) PK autoincrementable.
+			* usuario (String).
+			* password (String).
+		
+		- Crear las clases similares al ejercicio JDBC para el manejo de las operaciones en la tabla "usuario":
+		
+			* Consultar los registros de usuarios.
+			* Insertar un nuevo usuario.
+			* Actualizar un usuario.
+			* Eliminar un usuario.
+			
+		- Utilizar para ello la creación de un ménu en el que pueda el usuario elegir la opción a realizar.
+			
+			

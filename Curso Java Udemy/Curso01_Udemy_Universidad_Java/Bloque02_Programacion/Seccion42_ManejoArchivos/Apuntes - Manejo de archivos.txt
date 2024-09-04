@@ -1,0 +1,434 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 42 - MANEJO DE ARCHIVOS EN JAVA 
+|  VIDEOS: 150, 151, 152, 153, 154.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Uso de Archivos (Video 150).
+
+	- Cuando se trabaja con archivos hay que implementar una serie de métodos de tipo estáticos que son comunes ya que son las opciones que se pueden
+		realizar con el uso de un archivo y son:
+	
+		1) Creación del archivo 								-> Método ManejarArchivos.crearArchivo()
+		2) Guardar información en el archivo.		-> Método ManejarArchivos.escribirArchivo()
+		3) Anexar información en el archivo.		-> Método ManejarArchivos.anexarContenidoArchivo()
+		4) Leer la información del archivo.
+		5) Otras operaciones.
+
+1. Método de creación del archivo (Video 150).
+
+	- Se detalla la creación del método "crearArchivo()" dentro de la clase "ManejarArchivos" para crear fiicamente un archivo en nuestro HDD.
+
+		import java.io.File;
+		import java.io.FileNotFoundException;
+		import java.io.PrintWriter;
+	
+		// 1. Declaración del método para crear el archivo físico en el HDD.
+		public static void crearArchivo(String nombreArchivo)
+		{
+			
+			// 1.1. Creación de un objeto de tipo File en memoria donde se le pasa el argumento "nombreArchivo".
+			File archivo = new File(nombreArchivo);
+			
+			// 1.2. Debido a que la clase "PrintWriter" puede dar error, hay que incluirlo dentro de un bloque de excepciones "try catch" 
+			// para enmascarar el error de que si no puede crear el archivo. Esta excepción se llama "FileNotFoundException".
+			try 
+			{
+		
+				// 1.3. Creación de un objeto de la clase "PrintWriter" que va a abrir el archivo fisicamente en el HDD.
+				PrintWriter salida = new PrintWriter(archivo);
+				
+				// 1.4. Creación del archivo fisicamente en el HDD en el momento del cierre del archivo.
+				salida.close();
+				
+				System.out.println("Se ha creado el archivo: " + nombreArchivo + " correctamente.");
+				
+			} 
+			catch (FileNotFoundException w_error) 
+			{
+				// Se imprime el error por consola.
+				w_error.printStackTrace(System.out);	
+			}
+		}
+	
+	- Se detalla la clase "PruebaManejoArchivos" para que se produzca la creación del archivo indicado (Video 151).
+	
+		public static void main(String[] args) 
+		{
+		
+		// 1. Creación del archivo de forma fisica.
+		
+			// 1.1. Declaración de unas variables donde se indica la ruta y el nombre del archivo a crear.
+			//	  	Para indicar la barra invertida de la ruta, se debe de indicar dos barras.
+			
+				String ruta = "C:\\CFGS\\Curso01_Udemy_Universidad_Java\\Bloque02_Programacion\\Seccion42_ManejoArchivos\\Archivos\\";
+				String nombre = "prueba.txt";
+				
+			// 1..2. Se declara una variable que contenga la ruta y el nombre del archivo a crear si se quiere que se cree en un directorio determinado.
+				
+				String nombreArchivo = ruta + nombre;
+			
+			// 1.3. Se llama al método "ManejoArchivos.crearArchivo()" para que se realice la creación del archivo.
+				
+				ManejoArchivos.crearArchivo(nombreArchivo);
+			
+			// Si se quiere sólo indicar el nombre del archivo y no la ruta, pues el archivo se crea en la carpeta principal del proyecto.
+			// En este caso, la ruta principal del proyecto es: "C:\CFGS\Curso01_Udemy_Universidad_Java"
+	
+			// Se llama de nuevo al método "ManejoArchivos.crearArchivo()" para que se realice la creación del archivo sin indicar la ruta.
+			
+			 	ManejoArchivos.crearArchivo(nombre);
+			 
+		}
+		
+2. Método de añadir información por primera vez en el archivo indicado (Video 152).
+
+	- Se detalla la creación del método "escribirArchivo()" dentro de la clase "ManejarArchivos" para escribir la información que le pasamos
+		con el argumento "contenidoArchivo".
+
+		import java.io.File;
+		import java.io.FileNotFoundException;
+		import java.io.PrintWriter;
+
+		// 2. Declaración del método para añadir información en el archivo creado (Video 152).	
+		public static void escribirArchivo(String nombreArchivo, String contenidoArchivo)
+		{
+			
+			// 2.1. Creación de un objeto de tipo File en memoria donde se le pasa el argumento "nombreArchivo".
+			File archivo = new File(nombreArchivo);
+			
+			// 2.2. Debido a que la clase "PrintWriter" puede dar error, hay que incluirlo dentro de un bloque de excepciones "try catch" 
+			// para enmascarar el error de que si no puede encontrar el archivo. Esta excepción se llama "FileNotFoundException".
+			try 
+			{
+				
+				// 2.3. Creación de un objeto de la clase "PrintWriter" que va a abrir el archivo fisicamente en el HDD.
+				PrintWriter salida = new PrintWriter(archivo);
+				
+				// 2.4. Se utiliza el método "println" para añadir la información al archivo. Éste método puede pasarse por argumento cualquier tipo
+				// de objeto.
+				salida.println(contenidoArchivo);
+				
+				// 2.5. Se guarda el archivo fisicamente en el HDD en el momento del cierre del archivo.
+				salida.close();
+				
+				System.out.println("Se ha escrito en el archivo: " + nombreArchivo + " correctamente.");
+				
+			} 
+			catch (FileNotFoundException w_error) 
+			{
+				// Se imprime el error por consola.
+				w_error.printStackTrace(System.out);	
+			}
+		}
+
+	- Se detalla la clase "PruebaManejoArchivos" para que se produzca la escritura de la información indicada en el archivo creado en el punto 1.
+	
+		public static void main(String[] args) 
+		{
+		
+			// 2. Escribir contenido en el archivo anteriormente creado (Video 152).
+		
+			// 2.1. Se declara una variable con la información que va a contener el archivo.
+			String contenidoArchivo = "Hola desde Java.";
+		
+			// 2.1. Se llama al método "escribirArchivo()" para incluir la información pasada por argumento en el archivo indicado.
+			ManejoArchivos.escribirArchivo(nombreArchivo, contenidoArchivo);		
+		}
+		
+3. Método para añadir información a la ya existente en el archivo indicado (Video 153).
+
+	- Se detalla la creación del método "anexarContenidoArchivo()" dentro de la clase "ManejarArchivos" para anexar la información que le pasamos
+		con el argumento "contenidoArchivo".
+
+		import java.io.File;
+		import java.io.FileNotFoundException;
+		import java.io.PrintWriter;
+		import java.io.FileWriter;
+		import java.io.IOException;
+		
+		// 3. Declaración del método para añadir información a la ya existente en el archivo creado (Video 153).
+		public static void anexarContenidoArchivo(String nombreArchivo, String contenidoArchivo)
+		{
+			
+			// 3.1. Creación de un objeto de tipo File en memoria donde se le pasa el argumento "nombreArchivo".
+			File archivo = new File(nombreArchivo);
+			
+			// 3.2. Debido a que la clase "PrintWriter" puede dar error, hay que incluirlo dentro de un bloque de excepciones "try catch" 
+			// para enmascarar el error de que si no puede encontrar el archivo. Esta excepción se llama "FileNotFoundException".
+			try 
+			{
+				
+				// 3.3. Creación de un objeto de la clase "FileWriter" que va a permitir anexar información a la que ya exista en el archivo.
+				FileWriter anexar = new FileWriter(archivo, true);	// Si se pasa por argumento "true" indica que se anexa información.
+																														// Si se pasa por argumento "false" indica que no se anexa información. 
+				
+				// 3.4. Creación de un objeto de la clase "PrintWriter" que va a abrir el archivo fisicamente en el HDD y se le pasa el objeto FileWriter.
+				PrintWriter salida = new PrintWriter(anexar);
+				
+				// 3.5. Se utiliza el método "println" para añadir la información al archivo. Éste método puede pasarse por argumento cualquier tipo
+				// de objeto.
+				salida.println(contenidoArchivo);
+				
+				// 3.6. Se guarda el archivo fisicamente en el HDD en el momento del cierre del archivo.
+				salida.close();
+				
+				System.out.println("Se ha anexado la nueva información en el archivo: " + nombreArchivo + " correctamente.");
+				
+			} 
+			// Error: No se encuentra el archivo (PrintWriter).
+			catch (FileNotFoundException w_error) 
+			{
+				// Se imprime el error por consola.
+				w_error.printStackTrace(System.out);	
+			} 
+			catch (IOException w_error) 
+			{
+				// Se imprime el error por consola.
+				w_error.printStackTrace(System.out);	
+			}
+		}
+
+	- Se detalla la clase "PruebaManejoArchivos" para que se produzca el añadido de la información indicada en el archivo creado en el punto 1.
+	
+		public static void main(String[] args) 
+		{
+		
+			// 3. Anexar contenido al ya existente en el archivo anteriormente creado (Video 153).
+		
+			// 3.1. Se declara una variable con la información que va a añadir al contenido del archivo.
+			String contenidoArchivo2 = "Adios desde Java.";
+		
+			// 3.2. Se llama al método "anexarContenidoArchivo()" para anexar la información pasada por argumento en el archivo indicado.
+			ManejoArchivos.anexarContenidoArchivo(nombreArchivo, contenidoArchivo2);
+		
+		}
+
+4. Método para leer la información que existe en el archivo indicado (Video 154).
+
+	- Se detalla la creación del método "obtenerContenidoArchivo()" dentro de la clase "ManejarArchivos" para leer la información del archivo creado 
+		en el punto 1.
+
+		import java.io.BufferedReader;
+		import java.io.File;
+		import java.io.FileNotFoundException;
+		import java.io.FileReader;
+		import java.io.FileWriter;
+		import java.io.IOException;
+		import java.io.PrintWriter;
+
+		// 4. Declaración del método para leer la información que contiene el archivo creado (Video 154).
+		public static void obtenerContenidoArchivo(String nombreArchivo)
+		{
+			
+			// 4.1. Creación de un objeto de tipo File en memoria donde se le pasa el argumento "nombreArchivo".
+			File archivo = new File(nombreArchivo);
+	
+			// 4.2. Debido a que la clase "PrintWriter" puede dar error, hay que incluirlo dentro de un bloque de excepciones "try catch" 
+			// para enmascarar el error de que si no puede encontrar el archivo. Esta excepción se llama "FileNotFoundException".
+			try 
+			{
+				// 4.3. Creación de un objeto de tipo FileReader para poder leer el contenido del archivo "nombreArchivo".
+				FileReader lector = new FileReader(archivo);
+				
+				// 4.4. Creación de un objeto de tipo BufferedReader para poder almacenar en el buffer toda la información que existe en el archivo.
+				// 			Se le pasa como argumento el objeto de FileReader creado anteriomente.
+				BufferedReader entrada = new BufferedReader(lector);
+				
+				// 4.5. Se realiza la lectura de la primera linea completa de nuestro archivo y se guarda en la variable "lectura".
+				String lectura = entrada.readLine();
+				
+				// 4.6. Se realiza la lectura del documento completo hasta que no encuentre un null con un bucle While (no hay mas información que leer).
+				
+				// Se declara una varible contador de las líneas que tiene el archivo de modo informativo.
+				int linea = 0;
+				
+				while (lectura != null)
+				{
+					// Se incrementa el contador de líneas.
+					++linea;
+					
+					// Se imprime la información de la línea completa leida.
+					System.out.println("Línea (" + linea + "): " + lectura);
+					
+					// Se lee la siguiente línea del archivo.
+					lectura = entrada.readLine();
+				}
+				
+				// 4.6. Se cierra el archivo.
+				entrada.close();
+	
+				System.out.println("Se ha leido toda la información del archivo: " + nombreArchivo + " correctamente.");
+				
+			} 
+			// Error: No se encuentra el archivo (PrintWriter).
+			catch (FileNotFoundException w_error) 
+			{
+				// Se imprime el error por consola.
+				w_error.printStackTrace(System.out);	
+			} 
+			catch (IOException w_error) 
+			{
+				// Se imprime el error por consola.
+				w_error.printStackTrace(System.out);	
+			}
+		}
+	
+	- Se detalla la clase "PruebaManejoArchivos" para que se produzca la lectura de toda la información indicada en el archivo creado en el punto 1.
+	
+		public static void main(String[] args) 
+		{
+			
+			// 4.1. Se llama al método "obtenerContenidoArchivo()" para leer la información del archivo indicado.
+			ManejoArchivos.obtenerContenidoArchivo(nombreArchivo);
+		
+		}
+		
+5. Método para buscar una cadena en un archivo de texto.
+	
+	import java.io.File;
+	
+	public String buscar(String nombreArchivo, String buscar) throws LecturaDatosEx, AccesoDatosEx 
+	{
+		
+		// Declaración de variables.
+		
+		int numlinea = 1;
+		boolean existePelicula = false;
+		String mensaje = null;
+		
+		// Si el archivo indicando existe en el directorio.
+		if (existe(nombreArchivo) == true)
+		{
+		
+			// Debido a que la clase "Scanner" puede dar error, hay que incluirlo dentro de un bloque de excepciones "try catch" 
+			// para enmascarar el error de que si no puede encontrar el archivo. Esta excepción se llama "FileNotFoundException".
+			try 
+			{
+				
+				// Creación de un objeto de tipo File en memoria donde se le pasa el argumento "nombreArchivo".
+				File archivo = new File(nombreArchivo);
+				
+				// Creación de un objeto de tipo FileReader para poder leer el contenido del archivo "peliculas.txt".
+				FileReader lector = new FileReader(archivo);
+				
+				// Creación de un objeto de tipo BufferedReader para poder almacenar en el buffer toda la información que existe en el archivo.
+				BufferedReader bufferDatos = new BufferedReader(lector);
+				
+				// Se realiza la lectura de la primera linea completa de nuestro archivo y se guarda en la variable "datosArchivo".
+				String datosArchivo = bufferDatos.readLine();
+				
+				// Mientras existan datos de texto en el archivo.
+				while(datosArchivo != null)
+				{
+					
+					// Si se pasa por el argumento "buscar" un nombre de película y existe una línea igual al nombre de pelicula a buscar es que ha encontrado la película en el archivo.
+					// Se utiliza el método "equalsIgnoreCase" para comparar las dos cadenas y que no afecte si estan en mayúsculas o minúsculas.
+					if(buscar != null && buscar.equalsIgnoreCase(datosArchivo) == true)
+					{
+						// Si se ha encontrado, cambia la variable "existePelicula" a true y se termina el bucle.
+						existePelicula = true;							
+						break;
+					}
+					
+					// Si no se ha encontrado todavia, pues se lee la siguiente línea del archvo y se incrementa el contador de líneas.
+					datosArchivo = bufferDatos.readLine();
+					numlinea++;
+				}
+				
+				// Si se ha encontrado la película, se indica por mensaje.
+				if (existePelicula == true)
+				{
+					mensaje = "\nINFORMACIÓN: La película \"" + buscar + "\" aparece en la línea " + numlinea + " del catálogo de películas.";												
+				}
+				// Si no se ha encontrado la película, se indica por mensaje.
+				else
+				{
+					mensaje = "\nINFORMACIÓN: La película \"" + buscar + "\" no existe en el catálogo de películas.";
+				}
+			}
+
+			// ERROR: Error general.
+			catch (Exception w_error) 
+			{
+				// Imprime el error por consola.
+				w_error.printStackTrace();
+				throw new LecturaDatosEx("ERROR GENERAL - Método Buscar: " + w_error.getMessage());
+			}
+		}
+		// Si el archivo no existe.
+		else
+		{
+			// Imprime el error controlado por consola.
+			throw new LecturaDatosEx("ERROR - Método Buscar: El sistema no puede encontrar la ruta/archivo especificada: " + nombreArchivo);
+		}
+	
+		// Se retorna el mensaje indicando si se ha encontrado la película o no en el archivo.
+		return mensaje;
+	}
+	
+6. Método para eliminar un archivo.
+
+	import java.io.File;
+
+	public void borrar(String nombreArchivo) throws AccesoDatosEx
+	{
+		
+		// Si el archivo indicando existe en el directorio.
+		if (existe(nombreArchivo) == true)
+		{
+			// Creación de un objeto de tipo File en memoria donde se le pasa el argumento "nombreArchivo".
+			File archivo = new File(nombreArchivo);
+			
+			// Se crea un bloque try catch donde se produce el error para enmascarar y que no salte como error sino que informe del error producido y lo 
+			// muestre por la consola.
+			try
+			{	
+				
+				// Se borra el archivo y si devuelve true es que se ha borrado correctamente.
+				if(archivo.delete() == true)
+				{
+					System.out.println("\nINFORMACIÓN: El archivo " + nombreArchivo + " se ha borrado correctamente.");
+				}
+				// Si no se ha borrado correctamente el archivo.
+				else
+				{
+					throw new AccesoDatosEx("\nERROR - Método Borrar: El archivo " + nombreArchivo + " no se ha borrado correctamente.");
+				}
+			}
+			// ERROR: Error general.
+			catch (Exception w_error) 
+			{
+				// Imprime el error por consola.
+				w_error.printStackTrace(System.out);
+			}
+		}
+		// Si no existe el archivo a borrar.
+		else
+		{
+			// Imprime el error controlado por consola.
+			throw new AccesoDatosEx("\nERROR - Método Borrar: El archivo " + nombreArchivo + " ya no existe en el sistema.");
+		}
+	}
+
+7. Método para saber si existe un archivo.
+
+	import java.io.File;
+	
+	// Declaración del método que comprueba si existe el archivo.
+	public boolean existe(String nombreArchivo)
+	{
+		
+		// Creación de un objeto de tipo File en memoria donde se l pasa el argumento "nombreArchivo".		
+		File archivo = new File(nombreArchivo);
+		
+		// Si el archivo existe, devuelve true, sino pues devuelve false.
+		if (archivo.exists() == true)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	} 
+	

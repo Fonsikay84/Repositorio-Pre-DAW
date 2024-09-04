@@ -1,0 +1,60 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 11 - ALCANCES DE LAS VARIABLES EN JAVA 
+|  VIDEOS: 56, 57 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Alcance de las variables (Video 56).
+
+- Variables de clase: Variable definida como atributo de una clase que existe durante todo el tiempo que exista el objeto.
+
+	- Pueden usarse en cualquier metodo de la clase.
+	- Se inicializan con valores por default de manera automática.
+	- Las variables locales, ocultan a las variables de clase, y si queremos utilizar las variables de clase en un método que ha 
+		definido variables locales con el mismo nombre, entonces debemos utilizar el prefijo "this" para poder acceder a las variables
+		de clase en lugar de los atributos locales.
+
+- Variables locales: Variable definida dentro de un método, incluyendo los argumentos que recibe una función. 
+
+	- Estas variables se crean en el momento de ejecutarse el método y se eliminan cuando termina la ejecución de dicho método.
+	- Se pueden usar sólo en el método que se definen.
+	- Siempre se deben de inicializar con algun valor, de lo contrario el compilador marcará un error.
+
+Un ejemplo del alcance de las variables sería:
+
+	public class Aritmetica
+	{
+		
+		// Declaración de variables de clase.
+		
+		int a;
+		int b;
+	
+		// Los argumentos también son variables locales del método.
+	
+		int sumar(int args1, int args2)		
+		{
+			int resultado = args1 + args2;	// Declaración de variables locales.
+			return resultado;
+		}
+	}
+
+2. Memoria Stack y Memoria Heap (Video 57).
+
+	- Memoria Stack: Se utiliza para almacenar las variables locales y las llamadas de funciones en Java. Las variables almacenadas en 
+					 este espacio de memoria normalmente tienen un periodo de vida corto, únicamente mientras termina la función o método 
+					 en el que se están ejecutando.
+
+	- Memoria Heap: Se utiliza para almacenar los objetos Java, incluyendo sus atributos. Los objetos almacenados en este espacio de
+					memoria normalmente tienen un tiempo de duración más prolongado.
+
+	Esto quiere decir que las varibles de tipo Object que creamos, no almacenan la información del objeto en sí mismo, sino que sólo 
+	guarda la dirección de memoria de donde se encuentra la información de dicho objeto.
+	
+	Esto es muy importante para temas como la recolección de objetos en Java, debido a que el recolector de basura únicamente podrá 
+	eliminar los objetos que no estén siendo apuntados por ninguna variable, como por ejemplo las variables declaradas de tipo Object que
+	tengan como valor "Null". De esta manera el recolector de basura (garbage collector) puede buscar aquellos objetos en la memoria heap
+	que ya no estén siendo referenciados por ninguna otra variable (Valor Null) y finalmente liberar el espacio en memoria que ocupaba 
+	dicho objeto.
+
+
+

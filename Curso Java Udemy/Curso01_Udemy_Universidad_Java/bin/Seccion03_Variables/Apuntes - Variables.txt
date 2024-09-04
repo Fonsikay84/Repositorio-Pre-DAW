@@ -1,0 +1,82 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 03 y 04 - TIPOS DE DATOS Y VARIABLES EN JAVA 
+|  VIDEOS: 7, 8, 9, 10, 11, 12, 15, 16, 17, 18, 19, 20.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Tipos de datos en Java.
+
+  1) Tipos primitivos (Videos 7, 8, 9, 10, 15, 16, 17, 18, 19, 20):
+
+    - Tipo Entero.
+
+      + byte 	  (8 bits) Default 0 -> Clase Byte.
+      + short  	 (16 bits) Default 0 -> Clase Short.
+      + int 	 (32 bits) Default 0 -> Clase Integer.
+      + long 	 (64 bits) Default 0 -> Clase Long.
+
+    - Tipo Flotante:
+
+      + float  (32 bits) Default 0.0.
+      + double (64 bits) Default 0.0.
+	
+	- Tipo Char.
+	
+	  + char
+	  Lista de caracteres: https://en.wikipedia.org/wiki/List_of_Unicode_characters
+	  
+    - Tipo Booleano:
+
+      + boolean Default False.
+
+  2) Tipos referenciados (Tipo Object):
+
+    - String Default "".
+    - Clases.
+    - Interfaces.
+    - Arreglos (Arrays).
+
+Tipos de variables en Java.
+
+  - Para declarar una variable, hay que indicar el tipo de variable, luego su nombre y si se le quiere indicar un valor por defecto en la declaración, pues se utiliza el operador "=". Una vez declarado, se termina la linea con el ";".
+  - Para declarar una variable de tipo Object, se utiliza la palabra reservada "New" menos la variable tipo "String".
+
+  - Declaración de variables.
+	
+	+ Byte: byte numeroByte = 10;
+	+ Short: short numeroShort = 15;
+    + Int: int miVariableEntera = 10;
+    + Long: long numeroLong = 25;
+    + Float numeroFloat = (float)10.45;		// Hay que añadir el (float) delante del número para que Java lo interprete como decimal.
+    + Double: double numeroDouble = 20.48; 
+    + Char: char variableChar = '#';
+    + Cadena: String miVariableCadena = "Hola";
+    + Booleano: boolean variableBoolean = true;
+    + Tipo generica entero: var miVariableEntero = 20;
+    + Tipo generica cadena: var miVariableCadena = "Alfonso";
+
+- Concatenación de variables de cadena (Video 11).
+
+  Se utiliza para ello el operador "+" con variables de tipo cadena. 
+
+- Operadores especiales para cadenas (Video 12).
+
+  - Salto de linea: \n
+  - Tabulador: \t
+  - Retroceso: \b
+  - Salto de página: \f
+  - Comillas simpres: \'
+  - Comillas dobles: \"
+  - Retorno de carro: \r
+  - Barra invertida: \\
+  
+- Conversión de tipos de variables (Videos 21, 22).
+
+  - Convertir variable de tipo String a un tipo Int: var w_edad = Integer.parseInt("39");
+  - Convertir variable de tipo String a un tipo Double: var w_valorPI = Double.parseDouble("3.1416");
+  - Convertir variable de tipo Int a un tipo String: var w_edadTexto = String.valueOf(10);
+  - Convertir variable de tipo String a un tipo Boolean: var envio = Boolean.parseBoolean(DatosConsola.nextLine()); 
+  
+- Si la variable va a permanecer inalterable a lo largo del programa, la declararemos como constante, utilizando la palabra reservada final de la siguiente forma:
+
+  final double PI = 3.1415926536;
+  

@@ -1,0 +1,99 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 37 - INTERFACES EN JAVA 
+|  VIDEOS: 130, 131, 132, 133.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Definición de Interfaces (Video 130).
+
+	- Una interface es un nuevo tipo de Java y similar a las clases abstractas ya que sus métodos no tienen ninguna implementación, por lo que todos 
+		los métodos que se definen en una inteface van a ser publicos y abstractos.
+	- Una interface no es una clase por lo que no hereda de la clase Object ni se pueden crear objetos de tipo Interface.
+	- Se puede extender una interface de otras interfaces hijas que heredan los métodos definidos en las interfaces padres.
+	- Si se agregan atributos a una interface van a ser de tipo constantes (public final static).
+	- Una interface no posee constructores por lo que la declaración de los atributos de la interface tienen que estar siempre inicializados en la 
+		declaración del atributo de forma obligatoria.
+	- Una interface se utiliza cuando la relación que existe entre clases no es por sus caracteristicas sino por su comportamiento.
+	- Uno de los usos en los que se suele utilizar las interfaces es para conectar nuestras clases con BBDD reales ya sea MySQL o Oracle.
+
+2. Creación de una interface (Video 131).
+
+	- Se crea como un nuevo elemento de Java: En el "Project Explorer", haciendo click derecho en el paquete donde va a contener el archivo de clase
+	 	tipo Interface -> New -> Inteface.
+	- En el nombre de la interface se pone siempre al inicio la letra "I" de interface para saber que es una interface.
+	- La declaración de una interface es: 
+	
+		modificadorAcceso + interface + I + nombreInterface{}
+	
+		- Ejemplo: Declaración de una interface tipica para el uso con BBDD.
+		
+			// Declaración de una interface.
+			public interface IAccesoDatos 
+			{
+				
+				// Declaración de un atributo de tipo constante.
+				public static final int MAX_REGISTRO = 10;
+				
+				// Declaración de métodos caracteristicos del trabajo con BBDD.
+				public abstract void consultar();
+				public abstract void insertar();
+				public abstract void actualizar();
+				public abstract void eliminar();
+				
+			}
+			
+3. Uso o implementación de una interface (Video 132).
+
+	- Para implementar o asociar una interface a una clase se utiliza la palabra reservada "implements" en la declaración de la clase.
+	- Esta operación produce que en la clase de implementación de la interface se debe de definir todos los métodos abstractos que se han definido
+		en la interface.
+	- Se puede decir que es como una clase padre/hijos en la que el padre es la interface y los hijos son las clases con la palabra "implements" pero
+		no son clases como tal, ya que una interface no es una clase.
+	
+		public class nombreClase implements nombreInterface {}
+		
+		public class ImplementacionMySQL implements IAccesoDatos
+		{
+			
+			// Se declaran todos los métodos abstractos que se han declarado en la interface.
+	
+			@Override
+			public void consultar() 
+			{
+				System.out.println("Consultar desde Oracle.");
+			}
+		
+			@Override
+			public void insertar() 
+			{
+				System.out.println("Insertar desde Oracle.");
+			}
+		
+			@Override
+			public void actualizar() 
+			{
+				System.out.println("Actualizar desde Oracle.");
+			}
+		
+			@Override
+			public void eliminar() 
+			{
+				System.out.println("Eliminar desde Oracle.");
+			}
+			
+		}
+
+4. Prueba de una interface (Video 133).
+
+	- Se debe de declarar una variable de tipo interface.
+	- Las interfaces tienen como objetivo la creación de métodos más genericos recibiendo variables tipo Interface y estas variables tipo Interface 
+		pueden apuntar a objetos que hayan implementado esta interface.
+		
+		// Declaración de una variable de tipo Interface, pero como no puede crear objetos por si sóla, pues se crea un objeto de una de las clases 
+		// que se han implementado con la interface "IAccesoDatos", en este caso, la clase "ImplementacionMySQL".
+		IAccesoDatos datos = new ImplementacionMySQL();
+		
+		// Llamada al método consultar, pero en este caso, al estar apuntando la variable "datos" a la clase "ImplementaciónMySQL" esta utilizando
+		// el método de dicha clase.
+		datos.consultar();
+		
+		

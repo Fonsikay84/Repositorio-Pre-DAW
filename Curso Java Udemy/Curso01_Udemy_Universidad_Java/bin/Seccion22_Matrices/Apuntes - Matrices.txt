@@ -1,0 +1,221 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 22 - MATRICES EN JAVA 
+|  VIDEOS: 87, 88, 89, 90, 91
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Matrices (Video 87).
+
+	Una matriz es un arreglo de arreglos por lo que tiene un arreglo por cada una de las filas de la matriz y luego otro arreglo por cada una de las
+	columnas de la matriz.
+	
+	- Para acceder a un elemento determinado de la matriz, se debe de conocer la fila y la columna en la que está en ese orden.
+	- Las matrices pueden ser cuadradas (1x1, 2x2, 3x3, ..) o no ser cuadradas (1x2, 2x1, 4x2, 5x3, ...).
+	- Las matrices funcionan practicamente igual que las matrices, por lo que para duda ver "Apuntes - Arreglos.txt" de la "Sección 21_Arreglos".
+	
+2. Matrices de tipo primitivo.
+	
+	2.1. Declaración de una matriz de tipo primitivo.
+		
+		La declaración de una variable de matriz es la siguiente:
+		
+			tipoVariable + nombreVariable[][] = new tipoVariable[numeroElementosFila][numeroElementosColumna];
+			
+		- Se debe de indicar siempre en la declaración, cuantos elementos va a contener la matriz y eso se indica entre corchetes tanto para fila como 
+		  para columna.
+		- Una vez que la matriz tiene el nº máximo de elementos indicado en la declaración, ya no es posible de poder añadir mas elementos a la matriz
+		  ya que ya ha llegado al tope de elementos en la matriz, ya que si se intenta agregar un nuevo valor, se muestra un error. 
+		
+		Ejemplo: Una variable de tipo matriz de tipo entero llamada edades que va a contener 3 elementos de fila y 2 elementos de columna.
+		
+			int edades[][] = new int[3][2];
+			
+			La matriz edades seria:
+			
+				Esquema de la matriz "edades".
+		 
+		 		-------------------------
+		 		| F/C |   C0   |   C1   |
+		    	-------------------------
+	 			| F0  | [0][0] | [0][1] |
+	 			-------------------------
+	 			| F1  | [1][0] | [1][1] |
+	 			-------------------------
+	 			| F2  | [2][0] | [2][1] |
+	 			-------------------------
+
+	2.2. Modificación o inicialización de los valores de una matriz de tipo primitivo (Video 88).
+	
+		Para incializar, modificar o acceder al valor de un elemento dentro de la matriz se realiza de la siguiente forma:
+		
+			nombreMatriz[indiceElementoFila][indiceElementoColumna] = valor;
+		
+		Ejemplo: Inicializar todos los elementos de una matriz (3x2) llamado "edades" y mostarlo por consola.
+		
+			edades[0][0] = 5;
+			edades[0][1] = 7;
+			edades[1][0] = 8;
+			edades[1][1] = 4;
+			edades[2][0] = 6;
+			edades[2][1] = 1;
+			
+			System.out.println("Los elementos de la matriz 'Edades' fila 0 son: " + edades[0][0] + ", " + edades[0][1]);
+			System.out.println("Los elementos de la matriz 'Edades' fila 1 son: " + edades[1][0] + ", " + edades[1][1]);
+			System.out.println("Los elementos de la matriz 'Edades' fila 2 son: " + edades[2][0] + ", " + edades[2][1]);
+			
+	2.3. Recorrer los elementos de una matriz de tipo primitivo utilizando un bucle For (Video 89).
+	
+		Para poder recorrer la matriz con un bucle For se realiza la siguiente sentencia utilizando el método "length" que nos indica el valor máximo de 
+		elementos que contiene cada uno de los arreglos que contiene la matriz.
+		
+		- edades.length -> Obtiene el número máximo de filas que tiene la matriz, en este caso, su valor será 3.
+		- edades[fila].length -> Obtiene el número máximo de columnas que tiene cada una de las filas que tiene la matriz, en este caso, su valor será 2.
+		
+		for (int fila = 0; fila < edades.length; fila++) 
+		{
+			for (int columna = 0; columna < edades[fila].length; columna++) 
+			{
+				System.out.println("Los elementos de la matriz 'Edades' posición [" + fila + "][" + columna + "] es: " + edades[fila][columna]);
+			}
+		}
+		
+		// Declaración del método "toString()" en la clase Persona.
+		public String toString() 
+		{
+			return "- Clase Persona: [Nombre: " + this.nombre + "]";
+		}
+		
+3. Matriz de tipo Objeto (Video 91).
+
+	3.1. Declaración de una matriz de tipo objeto.
+	
+		La declaración de una variable de tipo objeto que va a contener una matriz es la siguiente:
+
+			nombreClase nombreVariable[][] = new nombreClase[numeroElementosFila][numeroElementosColumna];
+
+		- El nombre de la variable siempre tiene que ser con el nombre en plural: Ejemplo: edades, personas, coches, etc.
+		
+		Ejemplo: Una variable de tipo Persona llamada personas que va a contener 2 elementos de fila y 3 elementos de columna.
+		
+			Persona personas[][] = new Persona[2][3];
+			
+	3.2. Modificación o inicialización de los valores de una matriz de tipo objeto.
+	
+		Para incializar, modificar o acceder al valor de un elemento dentro de la matriz se realiza de la siguiente forma:
+		
+			nombreVariable[indiceElementoFila][indiceElementoColumna] = new nombreClase(inicializarValorAtributo);
+
+		Ejemplo: Inicializar todos los elementos de una matriz de objetos llamado "personas" y mostarlo por consola utilizando el método "toString()" de la clase.
+		
+			/*	
+			Esquema de la matriz no cuadrada "personas" con los valores.
+			 
+		 		-------------------------------------
+		 		| F/C |   C0    |      C1    |  C2  |
+		  	 	-------------------------------------
+	 			| F0  | Alfonso |   Isabel   | Álex |
+	 			-------------------------------------
+	 			| F1  |   Rosa  | Mª Angeles | Javi |
+	 			-------------------------------------
+			*/		
+			
+			Persona personas[][] = new Persona[2][3];
+			personas[0][0] = new Persona("Alfonso");
+			personas[0][1] = new Persona("Isabel");
+			personas[0][2] = new Persona("Álex");
+			personas[1][0] = new Persona("Rosa");
+			personas[1][1] = new Persona("Mª Ángeles");
+			personas[1][1] = new Persona("Javi");
+			System.out.println("Los elementos de la matriz 'Personas' son: " + personas[0].toString() + ", " + personas[1].toString());
+
+			// Recorremos la matriz con un bucle For.
+			for(int fila = 0; fila < personas.length; fila++)
+			{
+				for(int columna = 0; columna < personas[fila].length; columna++)
+				{
+					System.out.println("Los elementos de la matriz 'Personas' posición [" + fila + "][" + columna + "] es: " + personas[fila][columna]);
+				}
+			}
+
+			// Declaración del método "toString()" en la clase Persona.
+			public String toString() 
+			{
+				return "- Clase Persona: [Nombre: " + this.nombre + "]";
+			}
+		
+	3.3. Declaración de un método que imprime todos los valores de una matriz de objetos pasada por argumento (Video 91).
+		
+		// Método Imprimir().
+		public static void imprimir(Object matriz[][])
+		{
+		
+			// Recorremos la matriz con un bucle For.
+			for(int fila = 0; fila < matriz.length; fila++)
+			{
+				for(int columna = 0; columna < matriz[fila].length; columna++)
+				{
+					System.out.println("Los elementos de la matriz posición [" + fila + "][" + columna + "] es: " + matriz[fila][columna]);
+				}
+			}
+		} 
+		
+		// Llamada del método Imprimir().
+		imprimir(personas);
+
+4. Inicialización de valores de una matriz desde su definición llamado "Sintaxis resumida" tanto para tipos primitivos como tipo objeto (Video 90).
+
+	Para poder inicializar los valores de una matriz desde su definición se realiza de la siguiente manera:
+	
+		tipoVariable/nombreClase nombreMatriz[][] = {{valorFila0Columna0, valorFila0Columna1}, {valorFila1Columna0, valorFila1Columna1}, etc..};
+	
+	Ejemplo: Una matriz cuadrada (2x2) de tipo cadena llamada "frutas" que contenga fila 0 "Narajan" y "Limón" y en la fila 1 "Fresa" y "Zarzamora" mostrar
+			 los datos por consola: 
+		
+		La matriz "frutas" sería:
+		 
+			------------------------------
+			| F/C |   C0    |      C1    |
+			------------------------------
+			| F0  | Naranja |    Limón   |
+			------------------------------
+			| F1  |  Fresa  | Zarzamora  |
+			------------------------------
+		
+		// Definición de la matriz.
+		String frutas[][] = {{"Narajan", "Limón"}, {"Fresa", "Zarzamora"}};
+
+		// Recorremos la matriz con un bucle For.
+		
+		for(int fila = 0; fila < frutas.length; fila++)
+		{
+			for(int columna = 0; columna < frutas[fila].length; columna++)
+			{
+				System.out.println("Los elementos de la matriz 'Frutas' posición [" + fila + "][" + columna + "] es: " + frutas[fila][columna]);
+			}
+		}
+		
+	Ejemplo: Una matriz no cuadrada (2x3) de tipo cadena llamada "frutas" que contenga fila 0 "Narajan", "Limón" y en la fila 1 "Fresa", "Zarzamora", "Mora". 
+			 Mostrar los datos por consola: 
+		
+		La matriz "frutas2" sería:
+		 
+	 		-------------------------------------
+	 		| F/C |   C0    |      C1    |  C2  |
+	   	    -------------------------------------
+ 			| F0  | Naranja |    Limón   |      |
+ 			-------------------------------------
+ 			| F1  |  Fresa  | Zarzamora  | Mora |
+ 			-------------------------------------
+		
+		// Definición de la matriz.
+		String frutas2[][] = {{"Narajan", "Limón"}, {"Fresa", "Zarzamora", "Mora"}};
+
+		// Recorremos la matriz con un bucle For.
+		
+		for(int fila = 0; fila < frutas2.length; fila++)
+		{
+			for(int columna = 0; columna < frutas2[fila].length; columna++)
+			{
+				System.out.println("Los elementos de la matriz 'Frutas' posición [" + fila + "][" + columna + "] es: " + frutas2[fila][columna]);
+			}
+		}
+

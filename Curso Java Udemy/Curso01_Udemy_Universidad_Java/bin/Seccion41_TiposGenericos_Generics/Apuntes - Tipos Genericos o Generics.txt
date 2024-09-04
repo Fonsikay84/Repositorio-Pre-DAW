@@ -1,0 +1,159 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 41 - TIPOS GENERICOS O GENERICS EN JAVA 
+|  VIDEOS: 146, 147, 148, 149.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Tipos genericos o Generics (Video 146).
+
+	- Un tipo generico es como un tipo comodín en el cual cuando definimos nuestra clase no vamos a indicar el tipo de dato que va almacenar o 
+		utilizar nuestra clase, sino que hasta el momento en que creamos un objeto de esta clase, es cuando vamos a especificar el tipo de dato que 
+		vamos a utilizar.
+	
+	- Existen diferentes nomenclaturas para indicar un tipo genérico: (Ver imágen "01 - Tipos Genericos.png").
+	
+		- Tipo generico E: Element (Uso en colecciones).
+		- Tipo generico K: Key (Llave utilizando en Mapas).
+		- Tipo generico V: Value (Valor utilizado en Mapas).
+		- Tipo generico N: Number (Uso para números).
+		- Tipo generico T: Type (Representa una clase).
+		- Tipo genericos S, U, etc: Usado para representar otros tipos.
+		
+1. Creación de una clase que va a contener un atributo de tipo genérico, en este caso, del tipo genérico "T": Type (Representa una clase).
+
+	- En la declaración de la clase, a continuación del nombre se debe de indicar entre "<>" el tipo genérico que se va a utilizar.
+	
+		public class ClaseGenerica <T>
+		{
+		}
+		
+	- Se puede declarar un atributo de clase con el tipo "T": private T objetoTipoGenerico;
+	- Se puede declarar un constructor con un argumento de tipo "T":
+	
+		public ClaseGenerica(T objetoTipoGenerico)
+		{
+			this.objetoTipoGenerico = objetoTipoGenerico;
+		}
+		
+	- Se puede crear un método para que muestre por consola, que tipo va a ser finalmente el que tenga el atributo de clase "objetoTipoGenerico".
+	
+		public void obtenerTipo()
+		{
+			System.out.println("El tipo T es de tipo: " + this.objetoTipoGenerico.getClass().getSimpleName());
+		}
+		
+2. Declaración de un objeto que tiene un tipo genérico (Video 147).
+	
+	- En la declaración del objeto se debe de indicar el tipo que va a tener el objeto siendo posible los tipos (Autoboxing Sección 29 - Video 113):
+	
+		- Integer.
+		- String.
+		- Long.
+		- Float.
+		- Double.
+		- Boolean.
+		- Byte.
+		- Character.
+		- Short.
+		
+	- Declaración del objeto indicando que el tipo.
+	
+		nombreClaseGenerica<tipo> nombreObjeto = new nombreClaseGenerica(objeto)
+	
+	- Se realiza Autoboxing: Se esta convirtiendo un tipo primitivo int al ser un número entero (15) a un tipo Integer, por lo que el tipo del
+		atributo de la clase, va a tener el tipo integer.
+		
+		ClaseGenerica<Integer> objetoInt = new ClaseGenerica(15); 	
+		
+	- Se obtiene el tipo que tiene el objeto llamando al método "obtenerTipo()".
+	
+		objetoInt.obtenerTipo();
+		
+3. Uso de tipos genericos con la API de Colecciones (Collections).
+
+3.1. Listas genericas (List).
+	
+	En una lista (List), para restringir el tipo de objeto que va a contener la lista, se debe de indicar el tipo que va a contener y para ello se 
+	utiliza el operador del tipo genérico "<>", en el cual se indica el tipo que va a tener todos los elementos de la lista, ya que si no se indica
+	el tipo, en la lista, al recibir un objeto, da igual el tipo que sea y de esta forma se restringe a que sea del tipo indicado.
+	
+	3.1.1 Declaración de un objeto de tipo Lista indicando el tipo.
+		
+		import java.util.ArrayList;
+		import java.util.List;
+		
+		List <tipo> nombreLista = new ArrayList <tipo>();
+		
+		List<String> listaDiasSemana = new ArrayList<String>();
+		
+	3.1.2. Obtener un determinado valor de la lista.
+		
+		Para obtener un valor determinado de una lista List se debe de utilizar el método "get()" pasando por argumento el indice del elemento a 
+		recuperar.
+		
+			tipoDatoElemento elemento = nombreLista.get(indiceElemento);
+				
+			String elemento = listaDiasSemana.get(0);	-> Elemento "Lunes".
+		
+	3.1.3. Método para imprimir todos los elementos ya sea de una lista o de un set (Video 144 y Video 148).
+
+		- El tipo del argumento a pasar tiene que ser el tipo más generico, en este caso, la interface Collection, ya que es la interface 
+		 	padre para los tipos List y Set.
+		- Para restringir el tipo de dato que va a recibir la variable "tipoLista" se indica el tipo que va a contener la colección y para ello se 
+			utiliza las "<>" y se indica el tipo de los datos que va a contener la lista.
+		
+			public static void imprimirLista(Collection <tipoDatoLista> tipoLista)
+			{
+				
+				// Se recorre con un bucle "foreach" todos los elementos de la lista, indicando que la variable es de tipo "String" debido a que ya sabemos
+				// el tipo del objeto con el que se va a trabajar, en este caso, la variable "elementosLista" y también indicando el nombre de la lista, 
+				// en este caso, "tipoLista".
+				
+				for (tipoDatoLista elementoLista : tipoLista) 
+				{
+					System.out.println("Elemento: " + elementoLista);
+				}
+			}
+		
+			public static void imprimirLista(Collection <String> tipoLista)
+			{
+				
+				// Se recorre con un bucle "foreach" todos los elementos de la lista, indicando que la variable es de tipo "String" debido a que ya sabemos
+				// el tipo del objeto con el que se va a trabajar, en este caso, la variable "elementosLista" y también indicando el nombre de la lista, 
+				// en este caso, "tipoLista".
+				
+				for (String elementoLista : tipoLista) 
+				{
+					System.out.println("Elemento: " + elementoLista);
+				}
+			}
+		
+3.2. Set genericos (Video 149).
+
+	En un Set, para restringir el tipo de objeto que va a contener el Set, se debe de indicar el tipo que va a contener y para ello se 
+	utiliza el operador del tipo genérico "<>", en el cual se indica el tipo que va a tener todos los elementos del Set, ya que si no se indica
+	el tipo, en el Set, al recibir un objeto, da igual el tipo que sea y de esta forma se restringe a que sea del tipo indicado.
+	
+	3.2.1 Declaración de un objeto de tipo Set indicando el tipo.
+		
+		import java.util.HashSet;
+		import java.util.Set;
+		
+		Set <tipo> nombreSet = new HashSet <tipo>();
+		
+		Set <String> setDiasSemana = new HashSet <String>();
+		
+3.3. Mapa genérico (Video 149).
+
+	En un Mapa, para restringir el tipo de objeto que va a contener el Mapa, se debe de indicar el tipo que va a contener y para ello se 
+	utiliza el operador del tipo genérico "<>", en el cual se indica el tipo que va a tener todos los elementos del Mapa, ya que si no se indica
+	el tipo, en el Mapa, al recibir un objeto, da igual el tipo que sea y de esta forma se restringe a que sea del tipo indicado.
+		
+	3.3.1 Declaración de un objeto de tipo Mapa indicando el tipo.
+		
+		import java.util.HashMap;
+		import java.util.Map;
+		
+		Map <tipoLlave, tipoValor> nombreObjetoMap = new HashMap <tipoLlave, tipoValor> ();
+		
+		Map <String, String> mapaNombres = new HashMap <String, String> ();
+		

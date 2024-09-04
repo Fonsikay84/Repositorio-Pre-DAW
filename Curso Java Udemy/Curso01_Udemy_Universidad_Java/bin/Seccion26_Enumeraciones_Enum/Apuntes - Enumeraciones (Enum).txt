@@ -1,0 +1,157 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 02 - SECCIÓN 26 - ENUMERACIONES EN JAVA 
+|  VIDEOS: 106, 107, 108.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Enumeraciones en Java (Video 106).
+
+  Una enumeración es un tipo de variable similar a una clase que contiene varios elementos definidos dentro de ésta variable.
+  
+  Para declarar una enumeración, en vez de utilizar la palabra "class" como una clase normal, en este caso se utiliza la palabra "enum".
+  Se puede crear un archivo de clase de tipo Enum de la siguiente manera: En el "Project Explorer", haciendo click derecho en el paquete donde va 
+  a contener el archivo de clase tipo enum -> New -> Enum.
+
+  Este tipo de clase, siempre van a ser de tipo cadena y constantes por lo que se puede entender por una clase de tipo enum que es una clase que
+  contiene una lista de cadenas de tipo constante.
+
+  A continuación, se debe de declarar los valores que va a tener la clase de tipo enumeración, van separados por comas y siempre van a ser public
+  static final por lo que los valores de ese tipo siempre son constantes y se deben de declarar como tal, utilizando las mayusculas.
+  
+  En la declaración, los valores que va a tener la clase de tipo enumeración, van separados por comas y siempre van a ser public static final 
+  por lo que los valores de ese tipo siempre son constantes y se deben de declarar como tal, utilizando las mayusculas.
+  
+  Tambien, los valores no se debe de indicar los valores que va a contener con comillas dobles como las cadenas normalmente, sino que se declaran
+  los valores sin comillas.
+    
+1. Sintaxis de una clase de tipo enum.
+  
+  La declaración de la clase tipo enum sería: public enum nombreClaseEnum {DATO_STRING1, DATO_STRING2,.., DATO_STRING_N}
+
+    Ej: Clase de tipo enum llamada "DiasSemana" que contenga todos los días de la semana.
+  
+      // Clase de tipo Enumeración llamada DiasSemana que contiene todos los días de la semana.
+      public enum DiasSemana 
+      {
+        LUNES,
+        MARTES,
+        MIERCOLES,
+        JUEVES,
+        VIERNES,
+        SABADO,
+        DOMINGO
+      }
+    
+2. Uso de una clase tipo enum.
+
+  Para poder usar un valor de una clase de tipo enum, se debe de indicar nombre_clase_enum + . + VALOR;
+  
+    Ej: Imprimir el valor de Sabado utilizando la clase enum llamada "DiasSemana".
+    
+      System.out.println("Día de la semana: " + DiasSemana.SABADO); 
+      
+  Para poder utilizar todos los valores que contenga una clase de tipo enum, se puede usar un bucle de tipo "switch", en el cual, pasando la 
+  variable de tipo enum, haga una acción con cada uno de los valores que contiene dicha clase enum.
+  
+    Ej: Crear un método llamado "indicarDiaSemana()" que imprima el día de la semana del valor de una clase enum "DiasSemana" que contenga los 
+        días de la semana.
+     
+      public void indicarDiaSemana(DiasSemana dia)
+      {
+        
+        switch (dia) 
+        {
+          case LUNES:
+            
+            System.out.println("Lunes: Primer día de la semana.");
+            break;
+            
+          case MARTES:
+            
+            System.out.println("Martes: Segundo día de la semana.");
+            break;
+          
+          case MIERCOLES:
+            
+            System.out.println("Miércoles: Tercer día de la semana.");
+            break;
+            
+          case JUEVES:
+            
+            System.out.println("Jueves: Cuarto día de la semana.");
+            break;
+    
+          case VIERNES:
+            
+            System.out.println("Viernes: Quinto día de la semana.");
+            break;
+          
+          case SABADO:
+            
+            System.out.println("Sábado: Sexto día de la semana.");
+            break;
+            
+          case DOMINGO:
+            
+            System.out.println("Domingo: Séptimo día de la semana.");
+            break;
+            
+          default:
+            
+            System.out.println("ERROR: El valor introducido es erróneo.");
+            break;
+        }
+      }      
+
+3. Uso de clase de tipo enum con definición de atributos (Video 107).
+
+  En una clase de tipo enum, igual que cualquier otra clase, se pueden definir atributos de clase pero en este caso particular, esos atributos
+  de clase los asigna a cada uno de los valores que tiene la clase enum.
+  
+  - Pasos para declarar una clase enum con atributos de clase.
+  
+    1) En la declaración de la clase de tipo num, se debe de indicar cada uno de los valores y éstos tienen entre paréntesis los valores
+       de los atributos de clase que va a contener la clase tipo enum.
+    
+    2) Se debe de declarar los atributos de la clase tipo enum.
+    3) Se debe de declarar el constructor de la clase para asignar el atributo de clase.
+    4) Se debe de definir los métodos get() y set() de los atributos de clase.
+  
+      Ej: Declarar una clase de tipo enum llamada "Continentes" que contenga los 5 continentes y en cada uno se le indique el número de
+          paises que tiene cada continente.
+      
+        // Declaración de la clase enum llamada "Continentes".
+        public enum Continentes 
+        {
+          // Se indica el valor del atributo de clase que va a tener cada uno de los elementos de la clase enum "Continentes".
+          AFRICA(53),
+          EUROPA(46),
+          ASIA(44),
+          AMERICA(34),
+          OCEANIA(14);
+          
+          // Declaración de un atributo de clase que tiene cada uno de los valores de la clase enum.
+          private final int numPaises;
+          
+          // Definición del constructor que carga el valor que se le pasa por parámetro a cada valor de la clase enum "Continentes".  
+          Continentes(int numPaises)
+          {
+            this.numPaises = numPaises;
+          }
+          
+          // Definición del método get() del atributo de clase.
+          public int getNumPaises()
+          {
+            return this.numPaises;
+          }
+        } 
+            
+  - Uso de una clase de tipo enum que contiene atributos en cada uno de sus elementos (Video 108).
+  
+    Para poder usar uno de los valores de la clase enum, como hemos visto antes, se indica el nombre de la clase enum + . + valor pero para
+    poder acceder al valor del atributo de la clase se realiza utilizando el método get() ya que funciona igual que una clase normal.
+    
+      Ej: Se muestra por pantalla el nombre del 4º continente de la clase enum "Continentes", en este caso, "AMERICA" y que tambien se 
+          muestre el número de paises que tiene.
+    
+        System.out.println("El 4º continente de la lista es " + Continentes.AMERICA + " y tiene " + Continentes.AMERICA.getNumPaises() + " paises.");
+          

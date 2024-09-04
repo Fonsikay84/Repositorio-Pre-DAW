@@ -1,0 +1,50 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 28 - USO DEL BUCLE FOREACH EN JAVA 
+|  VIDEOS: 111, 112.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Uso del bucle forEach en Java (Video 111).
+	
+	La palabra reservada "forEach" corresponde a un bucle "for" pero mejorado.
+	
+	- No tiene variable contador, sino que tiene una variable que va a almacenar cada uno de los elementos del arreglo y debe de ser del mismo tipo
+		de dato que los elementos del arreglo.
+	- Al no utilizar variable contador, no se puede tener acceso al índice de la posición en la cual está cada elemento dentro del arreglo.
+		
+1. Declaración y uso del bucle "forEach" para elementos primitivos.
+
+	- La sintaxis que tiene la declaración del bucle forEach es:
+	
+		for (tipo_variable nombre_variable : nombre_arreglo) 
+		{
+			codigo;
+		}
+		
+	- Ej: Tenemos un arreglo con varias edades y recorremos cada uno de los elementos utilizando el bucle "forEach" para mostrarlo por consola.
+	
+		int a_edades[] = {5, 6, 8};
+		
+		for (int w_edad : a_edades) 
+		{
+			System.out.println("Edad: " + w_edad);
+		}
+		
+2. Declaración y uso del bucle "forEach" para elementos de tipo Objeto (Video 112).
+
+	- La sintaxis que tiene la declaración del bucle forEach utilizando un objeto es:
+	
+		for (tipo_objeto nombre_variable : nombre_arreglo_objetos) 
+		{
+			codigo;
+		}
+		
+	- Ej: Tenemos un arreglo con varias Personas de clase Persona y recorremos cada uno de los elementos utilizando el bucle "forEach" para 
+				mostrarlo por consola.
+	
+		Persona a_personas[] = {new Persona("Alfonso"), new Persona("Isabel"), new Persona("Álex")};
+
+		for (Persona w_persona : a_personas) 
+		{
+			System.out.println(w_persona.toString());
+		}
+	

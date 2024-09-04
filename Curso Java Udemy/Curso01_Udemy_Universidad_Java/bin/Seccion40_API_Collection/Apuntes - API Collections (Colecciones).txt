@@ -1,0 +1,247 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 40 - API COLLECTION (COLECCIONES) EN JAVA 
+|  VIDEOS: 142, 143, 144, 145.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+API Collection - Colecciones (Video 142).
+
+	- Una colección es un conjunto de datos, que pueden o no tener un ordenamiento particular. 
+	- Las colecciones es muy similar a los arreglos, sin embargo, los arreglos es una estructura más simple que el manejo de colecciones.
+	- Las colecciones se conocen también como Estructuras de Datos, ya que permiten almacenar información de manera estructurada y de maneras más 
+	  variadas que en los arreglos.
+	- Los datos que puede tener una colección pueden necesitar un cierto orden, además de posiblemente necesitemos agregar más registros conforme 
+	  vamos necesitando, y como sabemos en un arreglo debemos declarar el número de elemento que contendrá el arreglo. 
+	- Una colección es más flexible y permite ir agregando elementos conforme vayamos necesitando de manera más dinámica, además de que puede tener
+	  métodos de ordenamiento, búsqueda, evitar valores duplicados, entre muchas otras características, todo depende del tipo de colección que 
+	  utilicemos.
+	- Existe un API llamada "API Collection" ya definida en Java, en la cual se tiene un conjunto de clases que permiten resolver problemas 
+		específicos de las colecciones, se encuentra en el paquete de Java "java.util" y su esquema de clases y elementos se puede ver en la imágen 
+		"01 - Esquema API Collection.png".
+		
+	El API de Colecciones, de manera simple se divide los siguientes elementos:
+		
+		- Interface Collection: Es la interface principal de la API y todas las clases descienden de esta interface.
+		- Interface List. 
+		
+			+ Clase ArrayList.
+			+ Clase Vector.
+			
+		- Interface Set.
+			
+			+ Clase Hashset. 
+			
+		- Interface Map. 
+		
+			+ Clase HashMap.
+			
+1) Listas (List) (Video 143).
+	
+	- IMPORTANTE: VER APUNTES SECCION41_TIPOSGENERICOS APARTADO 3 PARA VER COMO SE DEBE DE REALIZAR CORRECTAMENTE UNA DECLARACIÓN DE UNA 
+								LISTA (Video 148).
+	
+	- Una lista es una interface que se usa para tratar colección de tipo ordenada que sí permiten elementos duplicados.
+	- Una lista es muy parecida a un arreglo o array pero en la lista no hay que indicar el número máximo de elementos que va a contener el array
+		sino que una lista puede ir añadiendo elementos de forma dinámica según se necesite.
+	- Para poder usar una lista, al ser una interface, no se puede crear un objeto directamente del tipo interface por lo que se debe de utilizar
+		una de las clases hijas relacionadas, por ejemplo, la clase "ArrayList()".
+	
+	- En una lista, el orden de los elementos se mantiene según se han ido añadiendo a la lista.
+	
+	1.1. Declaración de una lista.
+		
+		import java.util.ArrayList;
+		import java.util.List;
+		
+		List nombreObjetoList = new ArrayList();
+		
+		List listaDiasSemana = new ArrayList();
+		
+	1.2. Añadir un objeto nuevo a la lista mediante el método "add()".
+		
+		Para añadir un nuevo elemento a la lista se utiliza el método "add()" en el cual se indica por argumento el objeto que se va a añadir, sin
+		importar el tipo de objeto que sea.
+		
+		nombreObjetoList.add(objetoAñadir);
+		
+		// Añadimos en la lista de forma dinámica todos los días de la semana.
+		
+		listaDiasSemana.add("Lunes");
+		listaDiasSemana.add("Martes");
+		listaDiasSemana.add("Miércoles");
+		listaDiasSemana.add("Jueves");
+		listaDiasSemana.add("Viernes");
+		listaDiasSemana.add("Sábado");
+		listaDiasSemana.add("Domingo");
+		listaDiasSemana.add("Domingo");		// Permite duplicar elementos.
+		
+	1.3. Mostrar los elementos de la lista mediante el bucle "foreach".
+	
+		Se recorre con un bucle "foreach" todos los elementos de la lista, indicando que la variable es de tipo "Object" y que se llama 
+		"elementosLista" y también indicando el nombre de la lista, en este caso, "listaDiasSemana".
+		
+		for (Object nombreVariable : nombreLista) 
+		{
+			codigo;
+		}
+		
+		// Se recorre la lista de días de la semana.
+		
+		for (Object elementoLista : listaDiasSemana) 
+		{
+			System.out.println("Elemento: " + elementoLista);
+		}
+	
+	1.4. Obtener un valor determinado de la lista.
+	
+		Para obtener un valor determinado de una lista List se debe de utilizar el método "get()" pasando por argumento el indice del elemento a 
+		recuperar.
+		
+			tipoDatoElemento elemento = (tipoDatoElemento) nombreLista.get(indiceElemento);
+			
+			String elemento = (String) listaDiasSemana.get(2);	-> Elemento "Miércoles".
+		
+2. Interface Set (Video 144 y 149).
+
+	- IMPORTANTE: VER APUNTES SECCION41_TIPOSGENERICOS APARTADO 4 PARA VER COMO SE DEBE DE REALIZAR CORRECTAMENTE LA DECLARACIÓN DEL SET (Video 149).
+									
+	- Un set es una interface que se usa para tratar colecciones de tipo no ordenada, por lo que los elementos no se muestran en consola en el 
+		órden que se insertaron sino en cualquier tipo de órden.
+	- Un set no permite elementos duplicados y por ello, los elementos duplicados no se insertarán en la colección.
+	- Una set es muy parecida a un arreglo o array pero en el set no hay que indicar el número máximo de elementos que va a contener el array
+		sino que una lista puede ir añadiendo elementos de forma dinámica según se necesite.
+	- Para poder usar una interface set, al ser una interface, no se puede crear un objeto directamente del tipo interface por lo que se debe de 
+		utilizar una de las clases hijas relacionadas, por ejemplo, la clase "HashSet()".
+
+	2.1. Declaración de un Set.
+		
+		import java.util.HashSet;
+		import java.util.Set;
+		
+		Set nombreObjetoSet = new HashSet();
+		
+		Set setDiasSemana = new HashSet();
+
+	2.2. Añadir un objeto nuevo al Set mediante el método "add()".
+		
+		Para añadir un nuevo elemento al Set se utiliza el método "add()" en el cual se indica por argumento el objeto que se va a añadir, sin
+		importar el tipo de objeto que sea.
+		
+		nombreObjetoSet.add(objetoAñadir);
+		
+		// Añadimos en el Set de forma dinámica todos los días de la semana.
+		
+		setDiasSemana.add("Lunes");
+		setDiasSemana.add("Martes");
+		setDiasSemana.add("Miércoles");
+		setDiasSemana.add("Jueves");
+		setDiasSemana.add("Viernes");
+		setDiasSemana.add("Sábado");
+		setDiasSemana.add("Domingo");
+		setDiasSemana.add("Domingo");		// No permite duplicar elementos.	
+
+	2.3. Mostrar los elementos del Set mediante el bucle "foreach".
+	
+		Se recorre con un bucle "foreach" todos los elementos del Set, indicando que la variable es de tipo "Object" y que se llama 
+		"elementosLista" y también indicando el nombre del Set, en este caso, "setDiasSemana".
+		
+		for (Object nombreVariable : nombreSet) 
+		{
+			codigo;
+		}
+		
+		// Se recorre el Set de días de la semana.
+		
+		for (Object elementoLista : setDiasSemana) 
+		{
+			System.out.println("Elemento: " + elementoLista);
+		}
+			
+	2.4. Método para imprimir todos los elementos ya sea de una lista o de un set (Video 144).
+		
+		- IMPORTANTE: VER APUNTES SECCION41_TIPOSGENERICOS APARTADO 3.1.3. PARA VER COMO SE DEBE DE REALIZAR CORRECTAMENTE LA DECLARACIÓN
+									DEL METODO PARA RECUPERAR LOS VALORES DE UNA LISTA (Video 148).
+		
+		- El tipo del argumento a pasar tiene que ser el tipo más generico, en este caso, la interface Collection, ya que es la interface 
+		 	padre para los tipos List y Set.
+		 	
+			public static void imprimirLista(Collection tipoLista)
+			{
+				
+				// Se recorre con un bucle "foreach" todos los elementos de la lista, indicando que la variable es de tipo "Object" y que se llama 
+				// "elementosLista" y también indicando el nombre de la lista, en este caso, "tipoLista".
+				
+				for (Object elementoLista : tipoLista) 
+				{
+					System.out.println("Elemento: " + elementoLista);
+				}
+			}
+	
+3. Interface Map (Video 145).
+
+	- Un Mapa es una interface que se utilza para trabajar con colecciones que relaciona una llave (key) con un valor, formando una especia de
+		tabla de datos.
+	- Para poder usar una interface Map, al ser una interface, no se puede crear un objeto directamente del tipo interface por lo que se debe de 
+		utilizar una de las clases hijas relacionadas, por ejemplo, la clase "HashMap()".
+	- Cuando un elemento que se desea añadir esta duplicado, osea, que el "valor" es igual a otro elemento, en los mapas lo que sucede es que se 
+		actualiza el "valor" anterior por el nuevo valor para ese "key".
+		
+	- IMPORTANTE: VER APUNTES SECCION41_TIPOSGENERICOS APARTADO 3.3 PARA VER COMO SE DEBE DE REALIZAR CORRECTAMENTE LA DECLARACIÓN DEL MAPA (Video 149).
+								
+	3.1. Declaración de un Map.
+		
+		import java.util.HashMap;
+		import java.util.Map;
+		
+		Map nombreObjetoMap = new HashMap();
+		
+		Map mapaNombres = new HashMap();
+	
+	3.2. Añadir un objeto nuevo al Mapa mediante el método "put()".
+		
+		Para añadir un nuevo elemento al Mapa se utiliza el método "put()" en el cual se indica como primer argumento el objeto que se va a añadir,
+		sin importar el tipo de objeto que sea, que va a corresponder al "key" y luego como segundo argumento, se le pasa otro objeto que va a ser
+		el "valor" asociado al "key".
+		
+		nombreObjetoMap.put(objetoAñadirKey, objetoAñadirValor);
+		
+		// Añadimos en el Mapa de forma dinámica todos varios nombres.
+		
+		mapaNombres.put("Nombre1", "Alfonso");
+		mapaNombres.put("Nombre2", "Isabel");
+		mapaNombres.put("Nombre3", "Álex");
+
+	3.3. Obtener un valor de un Mapa utilizando el "key" asociado.
+	
+		Para obtener el valor de un elemento determinado del Mapa, se utiliza el método "get()" y se debe de indicar la "key" que queremos obtener.
+		
+		Ejemplo: System.out.println("Elemento Map: " + mapaNombres.get("Nombre1"));
+	
+	3.4. Mostrar los elementos del Mapa, mediante el bucle "foreach".
+		
+		Los mapas para recorrer sus valores, primero se debe de tener claro que es lo que se quiere obtener:
+		
+			- Obtener los keys: Se utiliza el método "keySet()".
+			- Obtener los valores: Se utiliza el método "values()".
+			
+		Estos dos métodos devuelven una lista Set por lo que se recorre con un bucle "foreach" todos los elementos del Set del tipo Mapa, indicando
+		que la variable es de tipo "Object" y que se llama "elementosLista" y también indicando el Set que devuelve el método "keySet" o "values".
+		
+		for (Object nombreVariable : nombreSet) 
+		{
+			codigo;
+		}
+		
+		// Obtiene todos los elementos keys del Mapa.
+		
+		for (Object elementoLista : mapaNombres.keySet()) 
+		{
+			System.out.println("Key: " + elementoLista);
+		}
+		
+		// Obtiene todos los valores asociados a los elementos keys del Mapa.
+		
+		for (Object elementoLista : mapaNombres.values()) 
+		{
+			System.out.println("Valor: " + elementoLista);
+		}
+		

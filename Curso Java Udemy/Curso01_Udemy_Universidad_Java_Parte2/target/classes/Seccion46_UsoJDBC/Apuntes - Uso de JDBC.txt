@@ -1,0 +1,476 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 03 - SECCIÓN 46 - USO DE JDBC EN JAVA. 
+|  VIDEOS: 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Creación de la clase de entidad "Persona" que corresponde a la tabla "Persona" de BBDD (Video 177).
+
+	- Clase de Entidad o dominio: Clase que corresponde a una tabla de BBDD.
+	
+	Cuando se crea una tabla en BBDD hay que crear una clase de entidad con el nombre de la tabla creada ya que esta clase corresponde a un 
+	registro de la tabla de BBDD, por lo cual hay que crear una clase en Java con el mismo nombre en el que va a tener los siguientes elementos:
+	
+		- Definir un atributo de clase privado por cada campo de la tabla.
+		- Definir un constructor vacío.
+		- Definir un constructor para los atributos de clase que se van a utilizar en el momento de la inserción de un registro.
+		- Definir un constructor para los atributos de clase que se van a poder utilizar en el momento de la actualización de los datos y también se 
+			incluyen aquellos atributos de clase que sean PK porque se van a utilizar como filtro en el Where del Update.
+		- Definir un constructor para el atributo o atributos de clase que se va a utilizar como PK de la tabla ya que para eliminar un registro sólo 
+			se va a utilizar estos atributos en el Where del Delete.		
+		- Definir los métodos get() y set() de cada uno de los atributos de clase.
+		- Definir la sobrescritura del método "toString()".
+	
+	Cada clase de entidad tiene asociada una clase DAO que es la clase que se va a encargar de realizar todas las operaciones SQL que se pueden 
+	realizar con una clase de entidad.
+	
+2. Creacion de la una clase DAO que va a contener todas las operaciones que se pueden realizar con una clase de entidad (Video 178).
+	
+	- Clase Data Access Object (DAO): Clase que se utiliza para realizar todas las operaciones que se pueden realizar con una clase de entidad.
+	
+	- Esta clase de operaciones SQL va a realizar las siguientes acciones sobre la clase de entidad:
+		
+		* Consulta de datos de la tabla.
+		* Inserción de datos en la tabla.
+		* Actualización de datos en la tabla.
+		* Borrado de datos en la tabla.
+		
+2.1. Método de la clase DAO para consultar los datos de la tabla Persona.		
+		
+2.1.1. Declaración del método "consultaPersona()" en la clase DAO "PersonaDAO" (Videos 178, 179).
+
+	import java.sql.Connection;
+	import java.sql.PreparedStatement;
+	import java.sql.ResultSet;
+	import java.sql.SQLException;
+	import java.util.ArrayList;
+	import java.util.List;
+	
+	// Declaración de la clase DAO de Persona.
+	public class PersonaDAO 
+	{
+		
+		// Declaración de variables que van a contener cada una de las sentencias a ejecutar.
+		
+		private static final String SQL_SELECT = "SELECT idPersona, nombre, apellidos, email, telefono FROM persona";
+		
+		// Declaración de los métodos.
+		
+		// Declaración del método que va a realizar la consulta completa a la tabla de Persona y la va a guardar en una lista de tipo "Persona".
+		public List<Persona> consultarPersonas()
+		{
+			
+			// Definición de las variables.
+			
+			// Se crea un objeto de tipo "Conexion_Oracle" que se va a utilizar para la conexión con la BBDD indicando que la BBDD va a ser Oracle.
+			Conexion_BBDD conexionOracle = new Conexion_BBDD("Oracle");
+			// Se crea un objeto de tipo "Connection" para almacenar la conexión con la BBDD.
+			Connection conexion = null;
+			// Almacena la sentencia que se va a ejecutar en la BBDD.
+			PreparedStatement instruccion = null;
+			// Almacena un registro de la tabla Persona.
+			ResultSet registro = null;		
+			// Se crea un objeto de tipo Persona para almacenar cada registro recuperado de la tabla Persona.
+			Persona registroPersona = null;
+			// Se crea una lista de tipo Persona para almacenar todos los registros recuperados de la tabla Persona.
+			List<Persona> listaPersonas = new ArrayList<Persona>();
+	
+	    // Se mete el código en un bloque "try catch" para contemplar el error "SQLException".
+	    try 
+			{
+	    	
+	      // Se llama al método que realiza la conexión con la BBDD de Oracle y se devuelve el objeto de tipo Connection a la variable "conexión". 
+	      conexion = conexionOracle.crearConexionBBDD();
+	      
+	    	// Se crea la sentencia que se va a lanzar en la BBDD.
+	    	instruccion = conexion.prepareStatement(SQL_SELECT);
+				
+	    	// Se lanza la sentencia en BBDD y se guarda el resultado.
+	    	registro = instruccion.executeQuery();
+				
+	    	System.out.println("\n-------------------");
+				System.out.println("DATOS DE LA PERSONA");
+				System.out.println("-------------------\n");
+				
+				// Se recorre todos los registros recuperados, se muestran por consola y se añade cada registro en la lista de Persona.
+				while(registro.next() == true)
+				{
+					
+					// Se guarda cada campo en una variable para luego usarla.
+					int 	 reg_idPersona 	= registro.getInt("idpersona");
+					String reg_nombre 		= registro.getString("nombre");
+					String reg_apellidos 	= registro.getString("apellidos");
+					String reg_email 			= registro.getString("email");
+					String reg_telefono 	= registro.getString("telefono");
+	        
+	        // Se crea un objeto de tipo Persona utilizando el constructor completo.
+	        registroPersona = new Persona(reg_idPersona, 
+														        		reg_nombre, 
+														        		reg_apellidos, 
+														        		reg_email, 
+														        		reg_telefono);
+	        
+	        // Se añade cada registro de la tabla Persona en la lista "listaPersonas".
+	        listaPersonas.add(registroPersona);
+	        
+	        // Se imprime los datos por consola.
+	        registroPersona.toString();
+				}			
+			} 
+			// Si llega un mensaje de error, se muestra por consola.
+			catch (SQLException w_error) 
+			{
+				System.out.println("ERROR SQL: " + w_error.getMessage());
+			}
+	    // Se cierra todas las conexiones.
+			finally
+			{			
+				// Se cierra el registro, la instrucción y se desconecta de la BBDD.
+				conexionOracle.cerrar(registro);
+				conexionOracle.cerrar(instruccion);
+				conexionOracle.desconexion();
+			}
+	    
+	    // Se retorna la lista de registros de la tabla Persona.
+			return listaPersonas;
+		}
+	}
+		
+2.1.2. Uso del método "consultarPersonas()" de la clase DAO "PersonaDAO" (Video 180).
+		
+	import java.util.List;
+	
+	public class PruebaUsoPersonaDAO 
+	{
+	
+		public static void main(String[] args) 
+		{
+			
+			// Se consultan todos los datos de la tabla Persona.
+			consultar();
+			
+		}
+	
+		// Ejecución de consulta de datos.
+		public static void consultar()
+		{
+	
+			// Se crea un objeto de tipo PersonaDAO.
+			PersonaDAO personaDAO = new PersonaDAO();
+			// Se llama al método que lanza la consulta SELECT y se guardan los datos en una lista de tipo Persona.
+			List<Persona> listaPersonas = personaDAO.consultarPersonas();
+			
+	  	System.out.println("\n-----------------------------");
+			System.out.println("| DATOS DE LA TABLA PERSONA |");
+			System.out.println("-----------------------------\n");
+			
+			// Se recorre la lista y se muestra los datos por consola de cada uno de los campos.
+			for (Persona personas : listaPersonas) 
+			{
+				System.out.println("- Persona: " + personas.getIdPersona());
+				System.out.println("- Nombre: " + personas.getNombre());
+				System.out.println("- Apellidos: " + personas.getApellidos());
+				System.out.println("- Email: " + personas.getEmail());
+				System.out.println("- Teléfono: " + personas.getTelefono() + "\n");
+			}
+			
+			// Se recorre la lista y se muestra todos los datos por consola.
+			for (Persona personas : listaPersonas) 
+			{
+				System.out.println(personas.toString());
+			}
+		}
+	}
+			
+2.2. Método de la clase DAO para insertar registros en la tabla Persona (Video 181, 182).		
+
+2.2.1. Declaración del método "insertarPersona()" en la clase DAO "PersonaDAO".
+
+	import java.sql.Connection;
+	import java.sql.PreparedStatement;
+	import java.sql.ResultSet;
+	import java.sql.SQLException;
+	import java.util.ArrayList;
+	import java.util.List;
+	
+	// Declaración de la clase DAO de Persona.
+	public class PersonaDAO 
+	{
+		
+		// Declaración de variables que van a contener cada una de las sentencias a ejecutar.
+		
+		// El valor de cada uno de los campos se indica en la sentencia con el carácter "?" y luego cuando se use esta variable, es cuando a cada uno
+		// de ellos se carga el valor que va a tener.
+		private static final String SQL_INSERT = "INSERT INTO persona (nombre, apellidos, email, telefono) VALUES (?, ?, ?, ?)";
+		
+		// Declaración de los métodos.
+				
+		// 2. Declaración del método que va a realizar la inserción de un registro en la tabla de Persona y devuelve el nº de registros insertados.
+		public int insertarPersona(Persona persona)
+		{
+			
+			// Definición de las variables.
+			
+			// Se crea un objeto de tipo "Conexion_Oracle" que se va a utilizar para la conexión con la BBDD indicando que la BBDD va a ser Oracle.
+			Conexion_BBDD conexionOracle = new Conexion_BBDD("Oracle");
+			// Se crea un objeto de tipo "Connection" para almacenar la conexión con la BBDD.
+			Connection conexion = null;
+			// Almacena la sentencia que se va a ejecutar en la BBDD.
+			PreparedStatement instruccion = null;
+			// Almacena el nº de registros a insertar.
+			int numRegistro = 0;
+			
+	    // Se mete el código en un bloque "try catch" para contemplar el error "SQLException".
+	    try 
+			{
+	    	
+	      // Se llama al método que realiza la conexión con la BBDD de Oracle y se devuelve el objeto de tipo Connection a la variable "conexión". 
+	      conexion = conexionOracle.crearConexionBBDD();
+	      
+	    	// Se crea la sentencia que se va a lanzar en la BBDD.
+	    	instruccion = conexion.prepareStatement(SQL_INSERT);
+	    	
+	    	// Se llena los parámetros de la sentencia INSERT en la parte de "VALUES".
+	    	// El valor de cada uno de los campos se indica en la sentencia con el carácter "?" y ahora es cuando a cada uno de ellos se carga el 
+	    	// valor que va a tener.
+	    	// Se utiliza el método "set" de la variable "PreparedStatement" y para cada tipo de variable existe un método "set".
+	    	// El primer dato corresponde a la posición del campo dentro del VALUES y luego se asigna el valor correspondiente con el uso del método
+	    	// "get()" del campo.
+	    	instruccion.setString(1, persona.getNombre());
+	    	instruccion.setString(2, persona.getApellidos());
+	    	instruccion.setString(3, persona.getEmail());
+	    	instruccion.setString(4, persona.getTelefono());
+	      
+	    	// Se ejecuta el método "executeUpdate()" que no es que estemos haciendo un update sino que va a actualizar el estado de la BBDD.
+	    	// Devuelve el nº de registros insertados y se almacena en la variable "numRegistro".
+	    	numRegistro = instruccion.executeUpdate();
+	
+			} 
+			// Si llega un mensaje de error, se muestra por consola.
+			catch (SQLException w_error) 
+			{
+				System.out.println("ERROR SQL: " + w_error.getMessage());
+			}
+	    // Se cierra todas las conexiones.
+			finally
+			{			
+				// Se cierra la instrucción y se desconecta de la BBDD.
+				conexionOracle.cerrar(instruccion);
+				conexionOracle.desconexion();
+			}
+			
+			// Se retorna el nº de registros insertados.
+			return numRegistro;
+		}
+	}
+		
+2.2.2. Uso del método "insertarPersona()" de la clase DAO "PersonaDAO" (Video 182).
+		
+	public static void main(String[] args) 
+	{
+		
+		// Se inserta un nuevo registro en la tabla Persona.
+		// Se utiliza el constructor con todos los atributos de clase menos el "idPersona".
+		Persona nuevaPersona = new Persona("María Rosa", "Jiménez Gago", "jimenezgagorosa@gmail.com", "603254178");
+		insertar(nuevaPersona);
+		consultar();
+		
+	}
+	
+	// Ejecución de inserción de datos.
+	public static void insertar(Persona nuevaPersona)
+	{
+		
+		// Se crea un objeto de tipo PersonaDAO.
+		PersonaDAO personaDAO = new PersonaDAO();
+		// Se llama al método que lanza la consulta INSERT.
+		personaDAO.insertarPersona(nuevaPersona);
+		
+	}
+
+2.3. Método de la clase DAO para actualizar un registro de la tabla Persona (Video 183).		
+
+2.3.1. Declaración del método "actualizarPersona()" en la clase DAO "PersonaDAO".
+
+	import java.sql.Connection;
+	import java.sql.PreparedStatement;
+	import java.sql.ResultSet;
+	import java.sql.SQLException;
+	import java.util.ArrayList;
+	import java.util.List;
+	
+	// Declaración de la clase DAO de Persona.
+	public class PersonaDAO 
+	{
+		
+		// Declaración de variables que van a contener cada una de las sentencias a ejecutar.
+		
+		private static final String SQL_UPDATE = "UPDATE persona SET nombre = ?, apellidos = ?, email = ?, telefono = ? WHERE idPersona = ?";
+		
+		// Declaración del método que va a realizar la actualización de los datos de un registro indicado en la tabla de Persona y devuelve el nº 
+		// de registros actualizados (Video 182).
+		public int actualizarPersona(Persona persona, int idPersona)
+		{
+			// Definición de las variables.
+			
+			// Se crea un objeto de tipo "Conexion_Oracle" que se va a utilizar para la conexión con la BBDD indicando que la BBDD va a ser Oracle.
+			Conexion_BBDD conexionOracle = new Conexion_BBDD("Oracle");
+			// Se crea un objeto de tipo "Connection" para almacenar la conexión con la BBDD.
+			Connection conexion = null;
+			// Almacena la sentencia que se va a ejecutar en la BBDD.
+			PreparedStatement instruccion = null;
+			// Almacena el nº de registros a insertar.
+			int numRegistro = 0;		
+			
+			// Se mete el código en un bloque "try catch" para contemplar el error "SQLException".
+	    try 
+			{
+	
+	      // Se llama al método que realiza la conexión con la BBDD de Oracle y se devuelve el objeto de tipo Connection a la variable "conexión".
+				conexion = conexionOracle.crearConexionBBDD();
+				
+				// Se crea la sentencia que se va a lanzar en la BBDD.
+	    	instruccion = conexion.prepareStatement(SQL_UPDATE);
+				
+	    	// Se pasan los valores de los atributos a los campos del SET del UPDATE y por ultimo se le pasa el "idPersona" para el WHERE.
+				instruccion.setString(1, persona.getNombre());
+				instruccion.setString(2, persona.getApellidos());
+				instruccion.setString(3, persona.getEmail());
+				instruccion.setString(4, persona.getTelefono());
+				instruccion.setInt(5, idPersona);
+				
+	    	// Se ejecuta el método "executeUpdate()" que no es que estemos haciendo un update sino que va a actualizar el estado de la BBDD.
+	    	// Devuelve el nº de registros actualizados y se almacena en la variable "numRegistro".			
+				numRegistro = instruccion.executeUpdate();
+				
+				System.out.println("Se han actualizado " + numRegistro + " registros de la tabla Persona.");
+			
+			}
+			// Si llega un mensaje de error, se muestra por consola.
+			catch (SQLException w_error) 
+			{
+				System.out.println("ERROR SQL: " + w_error.getMessage());
+			}
+	    // Se cierra todas las conexiones.
+			finally
+			{			
+				// Se cierra la instrucción y se desconecta de la BBDD.
+				conexionOracle.cerrar(instruccion);
+				conexionOracle.desconexion();
+			}
+	
+	    // Se retorna el nº de registros actualizados.		
+			return numRegistro;
+		}
+	}
+	
+2.3.2. Uso del método "actualizarPersona()" de la clase DAO "PersonaDAO" (Video 183).
+
+	public static void main(String[] args) 
+	{
+		
+		// Se actualiza un registro de la tabla Persona.
+		// Se utiliza el constructor con todos los atributos de clase.
+		Persona personaActualizar = new Persona("1", "Alfonso", "López Jiménez", "alfonso_lopezjimenez@hotmail.com", "666207804");
+		actualizar(personaActualizar);
+		consultar();
+	}
+	
+	// Ejecución de actualización de datos.
+	public static void actualizar(Persona nuevosDatosPersona)
+	{
+
+		// Se crea un objeto de tipo PersonaDAO.
+		PersonaDAO personaDAO = new PersonaDAO();
+		// Se llama al método que lanza la consulta UPDATE.
+		personaDAO.actualizarPersona(nuevosDatosPersona);
+		
+	}
+	
+2.4. Método de la clase DAO para eliminar un registro de la tabla Persona (Video 184).		
+
+2.4.1. Declaración del método "eliminarPersona()" en la clase DAO "PersonaDAO".
+
+	import java.sql.Connection;
+	import java.sql.PreparedStatement;
+	import java.sql.ResultSet;
+	import java.sql.SQLException;
+	import java.util.ArrayList;
+	import java.util.List;
+	
+	// Declaración de la clase DAO de Persona.
+	public class PersonaDAO 
+	{
+		
+		// Declaración de variables que van a contener cada una de las sentencias a ejecutar.
+		private static final String SQL_DELETE = "DELETE persona WHERE idPersona = ?";
+
+	// 4. Declaración del método que va a realizar el borrado de un registro indicado de la tabla de Persona y devuelve el nº 
+	//de registros borrados (Video 182).
+		public void eliminarPersona(int idPersona)
+		{
+			
+			// Definición de las variables.
+			
+			// Se crea un objeto de tipo "Conexion_Oracle" que se va a utilizar para la conexión con la BBDD indicando que la BBDD va a ser Oracle.
+			Conexion_BBDD conexionOracle = new Conexion_BBDD("Oracle");
+			// Se crea un objeto de tipo "Connection" para almacenar la conexión con la BBDD.
+			Connection conexion = null;
+			// Almacena la sentencia que se va a ejecutar en la BBDD.
+			PreparedStatement instruccion = null;
+			// Almacena el nº de registros a insertar.
+			int numRegistro = 0;		
+			
+			// Se mete el código en un bloque "try catch" para contemplar el error "SQLException".
+	    try 
+			{
+	
+	    	// Se llama al método que realiza la conexión con la BBDD de Oracle y se devuelve el objeto de tipo Connection a la variable "conexión".
+				conexion = conexionOracle.crearConexionBBDD();
+				
+				// Se crea la sentencia que se va a lanzar en la BBDD.
+	    	instruccion = conexion.prepareStatement(SQL_DELETE);
+				
+	    	// Se pasa el parámetro "idPersona" para utilizarlo en el WHERE del DELETE.
+	    	instruccion.setInt(1, idPersona);
+	    	
+	    	// Se ejecuta el método "executeUpdate()" que no es que estemos haciendo un update sino que va a actualizar el estado de la BBDD.
+	    	// Devuelve el nº de registros eliminados y se almacena en la variable "numRegistro".			
+				numRegistro = instruccion.executeUpdate();
+				
+				System.out.println("\nINFORMACIÓN: Se ha eliminado " + numRegistro + " registro de la tabla Persona.\n");
+				
+			} 
+			// Si llega un mensaje de error, se muestra por consola.
+			catch (SQLException w_error) 
+			{
+				System.out.println("ERROR SQL: " + w_error.getMessage());
+			}
+	    finally
+			{
+				// Se cierra la instrucción y se desconecta de la BBDD.
+				conexionOracle.cerrar(instruccion);
+				conexionOracle.desconexion();
+			}
+		}
+	}			
+	
+2.4.2. Uso del método "eliminarPersona()" de la clase DAO "PersonaDAO" (Video 184).
+	
+		// Se elimina un registro de la tabla Persona. 
+		// Se utiliza el constructor con el atributo de clase "idPersona".
+		Persona personaEliminar = new Persona(4);
+		eliminar(personaEliminar);
+		consultar();
+	
+	// 4. Ejecución del borrado de datos.
+	public static void eliminar(Persona personaEliminar)
+	{
+
+		// Se crea un objeto de tipo PersonaDAO.
+		PersonaDAO personaDAO = new PersonaDAO();
+		// Se llama al método que lanza la consulta DELETE.
+		personaDAO.eliminarPersona(personaEliminar);
+		
+	}
+
+	

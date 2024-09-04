@@ -1,0 +1,143 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 09 - MÉTODOS Y USO DEL THIS EN JAVA 
+|  VIDEOS: 53 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Palabra reservada "this".
+
+	La palabra "this" es un operador que nos permite acceder a los atributos o métodos del objeto actual (la clase con la cual estamos trabajando). 
+	
+	Sus usos son:
+
+		- Es útil para evitar la ambigüedad entre las variables de clase y las locales.
+		- Es una referencia implícita al objeto que se está ejecutando.
+		- Permite a un objeto enviarse a él mismo como parámetro.
+
+	La palabra reservada "this" tiene una serie de usos y son:
+
+	1) Evitar la ambigüedad entre las variables de clase y las locales.
+
+		Con este operador podemos hacer una diferencia entre los argumentos recibidos en un método y los atributos de una clase.
+	
+		Aunque el uso del operador "this" en ocasiones parecerá redundante, es un buena práctica el usarlo para hacer referencia a los
+		atributos de la clase en la que estamos trabajando, ya que al leer nuestro código rápidamente reconoceremos qué variables son
+		atributos de una clase y cuales no lo son.
+	
+		Por ejemplo, si tenemos un código que tiene dos atributos llamados "a" y "b", y también tenemos un constructor de la clase que 
+		recibe dos argumentos llamados también "a" y "b". Para hacer diferencia entre estas dos variables (atributos de la clase y los 
+		argumentos recibidos en el método) ya que se llaman igual pues podemos utilizar la palabra "this" para así indicar que la variable
+	  	que va a ir con el operador "this" va a ser el atributo de la clase y no uno de los argumentos del método. Un ejemplo sería:
+
+		Su estructura es:
+	
+			"this" + "." + "nombreAtributo"
+			
+		// Constructor con dos argumentos. 
+	
+		Aritmetica (int a, int b)
+		{
+			// Asignación de los valores de los argumentos a los atributos.
+	
+			this.a = a;
+			this.b = b;
+		}
+			
+		// Creación del objeto.
+	
+		public static void main (String[] args)
+		{
+			Aritmetica obj1 = new Aritmetica (5, 8);
+			obj1.sumar();
+		}
+
+		En éste caso, se utiliza el operador "this" para que los valores 5 y 8 pasado como argumentos del método y que se llaman "a" y "b" 
+		se puedan cargar a los atributos de la clase "a" y "b" sin que haya confusión con respecto a tener el mismo nombre y no saber a que
+		tipo de variable se esta cargando de las dos.
+
+	2) Referencia implícita al objeto que se está ejecutando.
+
+		En este caso, el operador "this" se puede utilizar para hacer referencia al objeto de la clase que se esté ejecutando en ese momento
+		ya que por ejemplo, en el constructor "Persona" que posee el argumento "nombre", se utiliza el operador "this" primeramente para 
+		distinguir el valor del atributo con el valor del argumento. 
+		Luego, se vuelve a utilizar dicho operador para pasar como argumento el valor actual que tiene el atributo de la clase "Persona" y 
+		va a ser ahora el valor que tendrá el argumento del método "Imprimir". 
+		Por último, utilizamos el operador "this" en la clase "Imprimir" para que se observe que ahora toma el valor del atributo de la 
+		clase en la que se encuentra ahora, en este caso el valor "Alfonso" y ya no toma el valor que tenía en la clase "Persona".
+		
+		package Sección16_Uso_This;
+	
+		public class PalabraThis 
+		{
+			public static void main (String[] args)
+			{
+				Persona p = new Persona ("Juan");
+			}
+		}
+	
+		class Persona
+		{
+			String nombre;
+	
+			Persona()
+			{}
+			
+			Persona (String nombre)
+			{
+				this.nombre = nombre;				// Se está almacenando en el atributo de la clase "Persona" el valor del argumento "nombre".
+				Imprimir imp = new Imprimir();
+				imp.imprimir(this.nombre); 	// Se está pasando el valor actual que tiene el atributo de la clase "Persona" a la clase "Imprimir".
+			}
+		}
+	
+		class Imprimir
+		{
+			String nombre = "Alfonso";
+			
+			public void imprimir(String nombre)
+			{
+				System.out.println("Imprimir argumento: " + nombre);
+				System.out.println("Imprimir objeto actual: " + this.nombre);	// Se está guardando el valor actual del atributo de la clase 
+																																			// "Imprimir" y no el valor de la clase "Persona", ya que ahora 
+																																			// está situado en la clase "Imprimir" y hace referencia a dicha 
+																																			// clase.
+			}
+		}
+
+	3) Permite a un objeto enviarse a él mismo como parámetro.
+
+		package Sección16_Uso_This;
+	
+		public class PalabraThis 
+		{
+			public static void main (String[] args)
+			{
+				Persona p = new Persona ("Juan");
+			}
+		}
+	
+		class Persona
+		{
+			String nombre;
+	
+			Persona()
+			{}
+			
+			Persona (String nombre)
+			{
+				this.nombre = nombre;	// Se está almacenando en el atributo de la clase "Persona" el valor del argumento "nombre".
+				Imprimir imp = new Imprimir();
+				imp.imprimir(this); 	// Se está pasando el objeto completo actual de la clase "Persona" a la clase "Imprimir".
+			}
+		}
+	
+		class Imprimir
+		{
+			public void imprimir(Object nombre)
+			{
+				System.out.println("Imprimir argumento: " + nombre);	// El objeto completo que existe ahora mismo en ésta variable es el 
+																															// objeto de la clase "Persona" ya que se ha pasado por argumentos.
+				System.out.println("Imprimir objeto actual: " + this);	// Se está guardando el valor actual del objeto de la clase "Imprimir"
+																																// y no el de la clase "Persona", ya que ahora está situado en la clase
+																																// "Imprimir" y hace referencia a dicha clase.
+			}
+		}

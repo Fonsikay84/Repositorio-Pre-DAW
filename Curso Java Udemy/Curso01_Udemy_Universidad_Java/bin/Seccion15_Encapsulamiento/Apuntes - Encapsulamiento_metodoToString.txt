@@ -1,0 +1,106 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 15 - ENCAPSULAMIENTO Y USO MÉTODO "TOSTRING" EN JAVA 
+|  VIDEOS: 64, 65, 66
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Encapsulamiento (Video 64).
+
+	Característica que nos permite aislar o proteger los datos de nuestros objetos del acceso de otros objetos externos, para así restringir el acceso directo a los 
+	atributos o métodos que no deseemos permitir, ya que el estado de un objeto (los valores actuales de cada uno de los atributos del objeto) están generalmente ocultos.
+
+	El encapsulamiento se logra aplicar a una clase a través de los llamados "modificadores de acceso". 
+	Existen cuatro modificadores de acceso, pero en este apartado del curso sólo estudiaremos los dos primeros: 
+	
+		- Private: Permite acceder sólo desde la misma clase a los atributos o métodos marcados con éste modificador y no desde alguna otra clase. 
+		- Public: Permite acceder desde cualquier otra clase a cualquier atributo o método definido con éste modificador.
+		- Package o default.
+		- Protected.
+
+	Para indicar que se va a producir un encapsulamiento se va a utilizar un nuevo parámetro en el momento de declaración de atributos o métodos y su estructura será la siguiente:
+
+		modificador_de_acceso nombreMetodo/nombreAtributo (listaArgumentos);
+
+		Ejemplos:
+
+		- Declaración de atributo: private String nombre;
+		- Declaración de método: private void getApellidos();
+
+	En el momento de declarar un atributo como "private", ya no es posible poder modificar o consultar su valor directamente, sino que ahora se necesita crear dos métodos en la clase 
+	donde se declara el atributo, para así poder obtener o modificar el valor que tiene actualmente el atributo del objeto. 
+
+	Éstos dos métodos se llaman "accessors" (se utiliza como nombre "get" o "is" si es boolean) y "mutators" (se utiliza como nombre "set") y corresponden con la acción de obtener el
+	valor y modificar el valor del atributo respectivamente.
+
+- Interface de un objeto (Video 65).
+
+	Conjunto de métodos públicos por cada atributo privado que puedan tanto modificar como recuperar el valor de nuestros atributos de clase. 
+	Normalmente se crean dos métodos públicos por cada atributo privado, un método set y otro get.
+
+		- Obtener el valor del atributo privado: 
+
+			public tipoAtributoReturn getNombre_Atributo()
+			{
+				return nombreAtributo;
+			}
+
+			Ejemplo:
+	
+				public String getApellidos()
+				{
+					return apellidos;
+				}
+
+		- Obtener el valor del atributo privado de tipo boolean: 
+
+			public boolean isNombre_Atributo()
+			{
+				return nombreAtributo;
+			}
+
+			Ejemplo:
+	
+				public boolean isActivo()
+				{
+					return activo;
+				}
+
+		- Modificar el valor del atributo privado: 
+
+			public void setNombre_Atributo(Tipo nombreArgumento)
+			{
+				this.nombreAtributo = nombreArgumento;
+			}
+
+			Ejemplo:
+	
+				public void setDireccion(String newDireccion)
+				{
+					this.direccion = newDireccion;
+				}
+
+2 - Uso del método "toString()" (Video 66).
+
+	En todas las clases debe de existir un método llamado "toString()" en el cual se debe de detallar la salida por consola de todos los atributos con sus valores para 
+	que sea mas facil la visualización de los datos.
+	
+	El formato de declaración en la clase sería:
+	
+		public String toString() 
+		{
+			return "Clase nombreClase [atributo1: " + this.atributo1 + ", atributo2: " + this.atributo2 + ", atributoX: " + this.atributoX + "].";
+		}
+		
+		Ejemplo:
+		
+			public String toString() 
+			{
+				return "Clase Persona [Nombre: " + this.nombre + ", Sueldo: " + this.sueldo + ", Eliminado: " + this.eliminado + "].";
+			}
+			
+	La llamada a este método desde el método "main" sería:
+	
+		System.out.println("Datos nombreVariableObjeto con toString: " nombreVariableObjeto.toString());
+		
+		Ejemplo: System.out.println("Datos Persona1 con toString: " + persona1.toString());
+		
+		

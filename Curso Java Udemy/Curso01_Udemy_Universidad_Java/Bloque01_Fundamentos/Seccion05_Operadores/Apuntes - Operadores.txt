@@ -1,0 +1,85 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 05 - OPERADORES EN JAVA 
+|  VIDEOS: 24, 25, 26, 27.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1) Operadores de cadena.
+
+	- Concatenación de cadenas: +
+	- Comentarios:
+
+		+ Comentar una linea: //
+		+ Comentar un párrafo: /* ... */
+		+ Comentarios para la herramienta JavaDoc: /** ... */
+
+2) Operadores aritméticos (Video 24).
+
+	- Suma: +
+	- Resta: -
+	- Multiplicación: *
+	- División: /
+	- Resto de la división entera: %
+  
+3) Operadores de asignación (Video 25).
+	
+	- Operador de asignación: =	
+	- Operadores de asignación combinados.
+							 
+			NOMBRE			 OPERADOR		EJEMPLO EN JAVA		  EXPRESION EQUIVALENTE
+		-------------------------------------------------------------------------------
+		Suma combinada 			+= 				a+ = b; 				a = a + b;
+		Resta combinada 		-=				a- = b; 				a = a - b;
+		Producto combinado	 	*=				a* = b; 				a = a * b;
+		División combinada 		/=				a/ = b; 				a = a / b;
+		Resto combinado			%=				a% = b; 				a = a % b;
+
+4) Operador unario de cambio de signo (Video 26).
+	
+	- Cambio de signo: -
+
+5) Operadores aritméticos incrementales (Video 26).
+	
+	- Incremento.
+	
+		+ Preincremento: Primero incrementa el valor de la variable en 1 y luego se utiliza: ++i
+		+ Postincremento: Primero utiliza el valor de la variable y luego la incrementa en 1 su valor: i++
+		
+	- Decremento: 
+	
+		+ Predecremento: Primero decrementa el valor de la variable en 1 y luego se utiliza: --i 
+		+ Postdecremento: Primero utiliza el valor de la variable y luego la decrementa en 1 su valor: i++
+		
+6) Operadores de igualdad (Video 27).
+	
+	- Igual que: ==
+	- Distinto que: !=
+	- Entre cadenas String: objetoCadena.equals()
+	
+7) Operadores relacionales (Video 28).
+
+	- Mayor que: >
+	- Mayor o igual que: >=
+	- Menor que: <
+	- Menor o igual que: <=
+	
+8) Operadores lógicos o booleanos (Video 29).
+
+	- Producto lógico (AND): &
+	- Suma lógica (OR): |
+	- Negación (NOT): !
+	- Suma lógica exclusiva (XOR): ^
+	- Suma lógica con cortocircuito (Si el primer operador es True, el segundo se salta y el resultado es True): || 
+	- Producto lógico con cortocircuito (Si el primer operando es False, el segundo se salta y el resultado es False): &&
+
+9) Operador ternario (Video 30).
+
+	- Como si fuera un decode en sql: ?: -> Ejemplo: var resultado2 = (a > b) ? "verdadero" : "falso";
+
+10) Operadores a nivel de bits.
+
+	- Suma lógica binaria (OR): |
+	- Suma lógica exclusiva (XOR): ^
+	- Producto lógico binario (AND): &
+	- Desplaza a la izquierda los bits del 1º operando tantas veces como indica el 2º operando: <<
+	- Desplaza a la derecha los bits del 1º operando tantas veces como indica el 2º operando: >>
+	- Desplaza a la derecha los bits del 1º operando tantas veces como indica el 2º operando - sin signo: >>>

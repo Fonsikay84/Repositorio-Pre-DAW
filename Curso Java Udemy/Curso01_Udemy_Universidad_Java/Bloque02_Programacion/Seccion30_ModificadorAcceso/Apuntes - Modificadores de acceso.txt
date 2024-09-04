@@ -1,0 +1,66 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 30 - MODIFICADORES DE ACCESO EN JAVA 
+|  VIDEOS: 114, 115, 116, 117.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Tipos de Modificadores de acceso.
+	
+	Los modificadores de acceso en Java son los siguientes en el orden del menos restrictivo al más restrictivo:
+	
+		- public: 
+		- protected.
+		- default: Es el tipo de modificador cuando no se indica ninguno por eso es el predeterminado.
+		- private.
+		
+	Los modificadores de acceso se pueden utilizar en la declaración de los siguientes elementos:
+	
+		- Clase.
+		- Atributo o variable.
+		- Constructor.
+		- Método.
+
+	Según sea el elemento a declarar se podrá utilizar un modificador de acceso u otro y va a funcionar de una manera determinada:
+	
+		-------------------------------------------------------
+		MODIFICADOR		CLASE		ATRIBUTO		METODO		CONSTRUCTOR
+		-------------------------------------------------------
+		public				 Si			   Si					Si					Si
+		protected			 No			   Si					Si					Si
+		default				 Si			   Si					Si					Si
+		private				 No			   Si					Si					Si
+
+1. Modificador de acceso "public" (Video 114).
+
+	Se puede utilizar en cualquier parte de nuestro proyecto ya que siendo public se puede usar la clase desde otra clase del mismo paquete o desde
+	otras clases de otros paquetes externos.
+	
+2. Modificador de acceso "protected" (Video 115).
+
+	- Este tipo de modificador se utiliza cuando existen clases padre y clases hijas relacionadas.
+	- No se puede utilizar en la definición de una clase.
+	- Permite a las clases hijas poder acceder a los atributos, constructores y métodos declarados en la clase padre relacionada.
+	- No se permite utilizar atributos de clase, constructores y métodos declarados como "protected" en otras clases que no sean clases hijas 
+		relacionadas.
+	- Se tiene acceso a los atributos de clase, constructores y métodos de la clase padre desde la clase hija, incluso si la clase hija se encuentra
+		declarado en otro paquete distinto al de la clase padre.
+		
+3. Modificador de acceso "default" (Video 116).
+
+	- Este tipo de modificador se utiliza cuando no se indica ningún tipo de modificador de acceso en una clase, atributo, constructor o método.
+	- No se permite utilizar una clase declarada como default en otra clase creada en otro paquete distinto al paquete de la clase default por lo 
+		que solo permite trabajar con clases que se encuentren dentro de su mismo paquete.
+	- Se tiene acceso a los atributos de clase, constructores y métodos de una clase en otra clase, pero sólo si las clases se encuentran 
+		declaradas en el mismo paquete.
+	- Si tuviera relación padre/hija entre las clases, para poder usar los atributos, constructores y métodos de la clase padre en la clase hija,
+		se deben de declarar las dos clases en el mismo paquete.
+		
+4. Modificador de acceso "private" (Video 117).
+
+	- No se puede utilizar en la definición de una clase.
+	- No se puede modificar el valor de un atributo de clase directamente siendo privado ya sea hijo o este en el mismo u otro paquete, sólo se 
+		podrá modificar directamente desde la clase que está declarando el atributo o utilizando los métodos get() y set() declarados en ella.
+	- No se puede utilizar el constructor o un método siendo privados ya sea hijo o este en el mismo u otro paquete, ya que sólo se pueden usar
+		dentro de la clase donde se están declarando, nunca en otra clase.
+	- Desde una clase hija, lo unico que se puede acceder es a un constructor de la clase padre que esté declarado como "public" utilizando el 
+		operador "super()" ya que a uno indicando como "private" no es posible.
+		

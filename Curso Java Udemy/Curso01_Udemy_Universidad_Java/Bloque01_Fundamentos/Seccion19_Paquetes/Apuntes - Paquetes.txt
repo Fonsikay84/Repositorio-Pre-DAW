@@ -1,0 +1,18 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 19 - PAQUETES EN JAVA 
+|  VIDEOS: 78
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Paquetes (Video 78).
+
+	Para poder utilizar un metodo o un atributo que existe en una clase que está en un paquete distinto al que nosotros estamos trabajando se utiliza
+	la palabra import.
+	
+	La palabra import lo que hace es acceder a las clases de la ruta que se indican:
+	
+		- Importar una clase determinada que contiene un paquete: import Pruebas.persona;
+		- Importar todas las clases que contiene un paquete: import Pruebas.*;
+		- Importar un método o atributo que se ha declarado como estático: import static Pruebas.persona.imprimir;
+		
+	Tambien, se puede usar un método o atributo que exista en una clase sin utilizar la palabra "import" sino que para utilizarlo, se tendría que
+	indicar toda la ruta de paquetes, la clase y el método a utilizar (Esto no es recomendable). Ej: Bloque01_Fundamentos.Sección17_Herencia.Persona.getEdad()

@@ -1,0 +1,77 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 23 - DISEÑO DE CLASES EN JAVA 
+|  VIDEOS: 92, 93, 94, 95, 96, 97, 98
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Diseño de clases.
+	
+	- UML (Unified Modeling Language): Permite crear diagramas de clases, entre otros tipos de diagramas.
+	- Web para creaciones de diseño de clases: https://www.umletino.com/umletino.html
+	- Para mas información sobre UML está el documento "02 - UML (Unified Modeling Language).pdf" para su consulta.
+	
+	En UML se indican si las clases son privadas, publicas o estatícas de la siguiente manera:
+	
+		* Atributo privado: Se utiliza el operador "-".
+		* Atributo público: Se utiliza el operador "+".
+		* Atributo estático: Se utiliza el subrayado en el nombre del atributo. 
+
+2. Dos opciones de crear los métodos "agregarProducto()" y "calcularPrecio()".
+
+	2.1. Opción 1: Metodo para agregar un nuevo producto.
+	
+		public void agregarProducto(Producto producto) 
+		{
+			// Recorremos el arreglo y si hay un elemento vacío, pues añade el nuevo producto y sale del bucle.
+			for (int i = 0; i < this.productos.length; i++) 
+			{
+				if (this.productos[i] == null)
+				{
+					this.productos[i] = producto;
+					break;
+				}
+			}
+		}
+		
+	2.2. Opción 2: Metodo para agregar un nuevo producto teniendo una variable "contadorProductos" declarada como atributo de la clase (Video 95).
+	
+		public void agregarProducto(Producto producto) 
+		{
+			if(this.contadorProductos < Orden.MAX_PRODUCTOS)
+			{
+				productos[contadorProductos++] = productos;
+			}
+			else
+			{
+				System.out.printl("Se ha superado el máximo de productos: " + Orden.MAX_PRODUCTOS);
+			}
+		}
+	
+	2.3. Opción 1: Método para calcular el precio total de los productos vendidos.
+		
+		public double calcularTotal()
+		{
+			double totalPrecio = 0;
+			
+			// Recorre todo el arreglo y si existe un producto, pues suma el precio de dicho producto con los precios de los otros productos. 
+			for (int i = 0; i < this.productos.length; i++) 
+			{
+				if (this.productos[i] != null)
+				{
+					totalPrecio = totalPrecio + this.productos[i].getPrecio();
+				}
+			}
+			return totalPrecio;
+		}
+		
+	2.4. Opción 2: Método para calcular el precio total de los productos vendidos teniendo una variable "contadorProductos" declarada como atributo de la clase (Video 96).
+	
+		public double calcularTotal()
+		{
+			double totalPrecio = 0;
+			
+			for (int i = 0; i < this.contadorProductos; i++) 
+			{
+				totalPrecio = totalPrecio + this.productos[i].getPrecio();
+			}
+			return totalPrecio;
+		}

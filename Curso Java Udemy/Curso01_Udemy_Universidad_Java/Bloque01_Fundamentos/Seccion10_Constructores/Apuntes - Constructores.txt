@@ -1,0 +1,68 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 10 - CONSTRUCTORES EN JAVA 
+|  VIDEOS: 54, 55 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Constructores.
+
+	1.1. Constructor vacío (Video 54).
+
+		Es un tipo de método en el cual podemos inicializar los atributos de una clase siempre en el momento de la creación de un objeto, por 
+		lo que podriamos crear un objeto con unos valores ya indicados en el momento de crearlo.
+		
+		Los constructores tienes una serie de características:
+		
+			- Debe de tener el mismo nombre que el nombre de la clase.
+			- Estos métodos sólo se puede ejecutar al momento de la creación de un objeto, no es posible utilizarlos después.
+			- Un constructor a diferencia de un método, no tiene un valor de regreso, por ello no encontraremos la palabra "return" ni un tipo
+				de retorno en la declaración del constructor.
+			- El nombre del constructor es idéntico al nombre de la clase, así es como podemos identificar si una clase tiene constructores.
+			- Por defecto en Java, se crea un constructor sin argumentos, conocido como constructor vacío. Este constructor lo agrega en
+				automático el compilador de Java a nuestra clase, sin embargo si nosotros definimos un constructor distinto al constructor
+				vacío, es decir, con argumentos, entonces Java ya no agrega el constructor vacío y es nuestra responsabilidad agregar el
+				constructor vacio a nuestra clase si fuera necesario por lo que hay que crear siempre el mismo método pero de tipo constructor 
+				vacio.
+			- El constructor vacio es necesario para crear un objeto, recordemos la sintaxis básica general para crear un objeto.
+			- Por lo que ahora ya podemos entender que después de la palabra "new" realmente lo que estamos colocando es el nombre del 
+				constructor que deseamos llamar, pudiendo tener argumentos o no.
+			
+		La estructura de un constructor es:
+		
+		NombreClase + (arg1, args2, etc)
+		{
+			// Código del constructor de la clase.
+		}
+		
+		Por ejemplo, supongamos que tenemos dos atributos en nuestra clase, de tipo entero, llamado a y b. En el primer caso estamos creando 
+		un objeto llamando al constructor vacío, por lo tanto los valores de nuestros atributos se inicializan con los valores por "default" 
+		según el tipo de cada atributo. Si es un tipo primitivo, se inicializan según su valor por "default", y si son de tipo object su valor
+		inicia es "null".
+		
+			Ejemplo de constructor vacio.
+		
+				- Declaración: 
+		
+					Aritmetica()
+					{
+						// Código del constructor de la clase.
+					}
+		
+				- Llamada: Aritmetica var1 = new Aritmetica(); 
+	
+	1.2 - Constructor con argumentos (Video 55).
+		
+		Por otro lado, creamos un objeto Aritmetica pero con valores iniciales desde el momento en que estamos creando el objeto respectivo. 
+		Estamos enviando los valores de 5 y 10 respectivamente, y por lo tanto podemos tomar estos valores para inicializar los atributos de
+		nuestra clase.
+		
+		Ejemplo de constructor no vacio.
+	
+			- Declaración:
+	
+				Aritmetica (int a, int b)
+				{
+					// Código del constructor de la clase.
+				}
+	
+			- Llamada: Aritmetica var1 = new Aritmetica(5, 10);
+			

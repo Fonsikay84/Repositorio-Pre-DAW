@@ -1,0 +1,68 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 35 - COMPARACIÓN DE OBJECT Y USO DE EQUALS Y HASHCODE EN JAVA 
+|  VIDEOS: 126, 127.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Comparar objetos (Video 126, 127).
+	
+	La clase object es la clase principal en Java y todas las clases que se crean heredan de la clase "Object" y esta clase tiene ya algunos métodos
+	asociados como pueden ser:
+	
+		+ Método toString(): String
+		+ Método equals(): boolean
+		+ Método hashCode(): int
+		  ...
+		  
+1. Método "equals()". 
+
+	- Se realiza una comparación del contenido entre dos objetos y nos indica si dichos objetos son iguales.
+	- Devuelve un valor "boolean".
+	- Se debe de implementar éste método en la clase donde se quiera usar y para ello utilizamos la creación de métodos de forma automática: 
+		Source -> Generate HashCode() and Equals()..
+		
+		Ejemplo:
+		
+			// Declaración de dos objetos de tipo Empleado.
+			Empleado empleado1 = new Empleado("Juan", 5000);
+			Empleado empleado2 = new Empleado("Juan", 5000);
+			
+			// Se comprueba si los dos objetos son iguales en contenido con el método "equals()" (Video 127).
+			if (empleado1.equals(empleado2))
+			{
+				System.out.println("Equals: Los objetos son iguales en contenido.");
+			}
+			else
+			{
+				System.out.println("Equals: Los objetos son distintos en contenido.");
+			}
+			
+			// Resultado: Equals: Los objetos son iguales en contenido.
+
+2. Metodo "hashCode()". 
+
+	- Nos permite comparar el contenido entre dos objetos pero se va a realizar la comparación con un tipo entero, por lo que se va a generar un valor
+		de tipo entero y se le va a asignar a cada objeto generado a partir de los valores de cada uno de los atributos de la clase, asi que se genera 
+		un entero unico para cada objeto. Posteriormente, se compara ese valor unico para saber si dos objetos son iguales.
+	- Devuelve un valor "int".
+	- Si se implementa el método "hashCode()" tenemos que sobreescribir el método "equals()" ya que de no hacerlo, cuando se usen algunas estructuras 
+		de datos podríamos tener inconsistencias.
+	- Se debe de implementar éste método en la clase donde se quiera usar y para ello utilizamos la creación de métodos de forma automática: 
+		Source -> Generate HashCode() and Equals()..
+		
+		Ejemplo:
+			
+			// Se comprueba si los dos objetos son iguales en contenido con el método "hashCode()" (Video 127).
+			if (empleado1.hashCode() == empleado2.hashCode())
+			{
+				System.out.println("HashCode: Los objetos son iguales en contenido.");
+			}
+			else
+			{
+				System.out.println("HashCode:Los objetos son distintos en contenido.");
+			}
+			
+			// Resultado: HashCode: Los objetos son iguales en contenido.
+																
+Los métodos "equals()" y "hashCode()" son distintos, pero si el método "equals()" devuelve "true", el método "hashCode()" también va a devolver el 
+mismo valor "true" y lo mismo pasa con el valor "false".
+

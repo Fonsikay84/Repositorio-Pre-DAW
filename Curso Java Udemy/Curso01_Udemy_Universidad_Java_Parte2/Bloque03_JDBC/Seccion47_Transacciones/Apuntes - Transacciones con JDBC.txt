@@ -1,0 +1,521 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 03 - SECCIÓN 47 - TRANSACCIONES CON JDBC EN JAVA. 
+|  VIDEOS: 187, 188, 189
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+	Una transacción es un conjunto de sentencias SQL las cuales son agrupadas en bloques de ejecución, si alguna de las instrucciones falla se puede
+	dar marcha atrás ejecutando con "Rollback" a todo el bloque ejecutado pero si está todo correcto, se realiza un Commit de todo el bloque 
+	ejecutado.
+	
+	Los métodos que se pueden usar en una transacción son:
+	
+		- autocommit (Valores true o false): Realiza o no un commit de manera automática en cada instrucción.
+								 Este método por default tiene el valor "true" por lo que es recomendable al inicio indicar este valor a "false".
+		- commit: Guarda los cambios en la BBDD del bloque de ejecución.
+		- rollback: Revierte los cambios realizados por el bloque de ejecución.
+								Se suele utilizar en los bloques "try catch".
+	
+	Importante: Si cerramos la conexión de JDBC se realiza un Commit, incluso si se deshabilitó la propiedad autocommit.
+	
+Los pasos para implementar las transacciones con JDBC son:
+
+- En la clase que implementa los distintos métodos de operaciones tipo SQL se debe de realizar las siguientes acciones:
+
+	1) Declaración de una variable tipo "Connection" para implementar la transacción.
+
+		Connection conexionTransaccion = null;
+
+	2) Creación de un constructor el cual recibe como argumento el atributo de clase de transacción para su inicialización.
+
+		// Declaración de un constructor para inicializar el valor de la conexión de transacción.
+		public UsuarioDAO(Connection conexionTransaccion)
+		{
+			this.conexionTransaccion = conexionTransaccion;
+		}
+	
+	3) Cuando se asigna a la variable de conexión la creación de la conexión en sí, se debe de preguntar antes si existe una conexión ya creada
+		 o no, porque si existe se mantiene la conexión que existe y sino pues se crea una nueva conexión con la BBDD.
+		
+		Connection conexion = null;
+		
+		// Si ya existe una conexión a la BBDD se mantiene dicha conexión, sino, pues se crea una nueva conexión a la BBDD.
+		
+		if (this.conexionTransaccion != null)
+		{
+			conexion = this.conexionTransaccion;
+		}
+		else
+		{
+			conexion = conexionOracle.crearConexionBBDD();	
+		}
+	
+	4) No se debe de indicar el catch del bloque try, sino que solo tendrá el bloque "try finally" ya que la excepción de va a propagar en la
+		 declaración del método hacia la clase que llame a ésta utilizando para ello la palabra "throws SQLException".
+		 
+	5) En el bloque "finally", se comprueba si se ha creado la conexión en el inicio del método en el que se encuentra, ya que si es así, pues
+		 cierra la conexión con la BBDD, pero sino, pues continua con la conexión. 
+	
+			if (this.conexionTransaccion == null)
+			{
+				conexionOracle.desconexion();
+			}
+
+- En la clase que se esta usando los métodos para las operaciones SQL se debe de realizar las siguientes acciones:
+
+	1) Se debe de declarar dos variables para almacenar la conexión de la BBDD.
+	
+			Conexion_BBDD conexionOracle = null;
+			Connection conexion = null;
+			
+	2) Se realiza la conexión con la BBDD igual que en la clase de los métodos.
+	
+			conexionOracle = new Conexion_BBDD("Oracle");
+			conexion = conexionOracle.crearConexionBBDD();
+	
+	3) Se comprueba si está la función "autocommit" esta activada y si es así, se desactiva.
+	
+			if (conexion.getAutoCommit() == true)
+			{
+				conexion.setAutoCommit(false);
+			}
+	
+	4) Se crea el objeto de la clase que almacena los métodos SQL y se le pasa la conexión para utilizar el constructor nuevo creado 
+		 anteriomente.
+	
+			usuarioDAO = new UsuarioDAO(conexion);
+	
+	5) Se crea en el bloque "try" el bloque "catch" para la excepción "SQLException" en la cual se incluye otro bloque "try catch" para utilizar
+		 la sentencia "conexion.rollback()" y así si se da un error, pues se hace el Rollback para anular todos los cambios realizados durante toda
+		 la sesión de la BBDD.
+	
+			catch (SQLException w_error) 
+			{
+				System.out.println("ERROR: Error en sentencia SQL: " + w_error.getMessage());
+				System.out.println("AVISO: Se va a realizar el Rollback de todos los cambios realizados.");
+				
+				// Se utiliza un bloque "try catch" para enmascarar el error "SQLException" que puede producirse por el Rollback.
+				try 
+				{
+					conexion.rollback();
+				} 
+				catch (SQLException w_errorRollback) 
+				{
+					System.out.println("\nERROR: Error en el Rollback de los datos: " + w_errorRollback.getMessage());
+				}
+			}
+		
+	6) En la zona del código que se necesite guardar los cambios, se utiliza la sentencia "conexion.commit()" para comitar todos los cambios 
+		 realizados durante toda la sesión de la BBDD.
+	
+			conexion.commit();
+			System.out.println("\nINFORMACIÓN: Se han guardado todos las modificaciones realizadas de forma correcta.");
+
+Se incluyen las 3 clases que se ha utilizado para el Laboratorio de esta sección aplicando las transacciones.
+
+1. Interface IUsuario.
+	
+	import java.sql.SQLException;
+	
+	import Seccion46_UsoJDBC_Laboratorio_Usuarios.Usuario;
+	
+	public interface IUsuarioDAO 
+	{
+		
+		// Declaración de los métodos de la interface "IUsuarioDAO".
+		
+		public abstract void consultarUsuarios() throws SQLException;
+		public abstract void insertarUsuarios(Usuario usuario) throws SQLException ;
+		public abstract void actualizarUsuarios(Usuario usuario) throws SQLException ;
+		public abstract void eliminarUsuarios(Usuario usuario) throws SQLException ;
+		
+	}
+	
+2. Clase UsuarioDAO en la que existen los métodos de las consultas SQL.
+
+	import java.sql.Connection;
+	import java.sql.PreparedStatement;
+	import java.sql.ResultSet;
+	import java.sql.SQLException;
+	import java.util.ArrayList;
+	import java.util.List;
+	
+	import Seccion46_UsoJDBC.Conexion_BBDD;
+	import Seccion46_UsoJDBC_Laboratorio_Usuarios.Usuario;
+	
+	// Declaración de la clase "UsuarioDAO" que es la implementación de la interface "IUsuarioDAO".
+	
+	public class UsuarioDAO implements IUsuarioDAO
+	{
+		
+		// Declaración de las variables necesarias.
+		
+		Conexion_BBDD conexionOracle = null;
+		Connection conexion = null;
+		PreparedStatement instruccion = null;
+		Usuario usuario = null;
+		ResultSet registro = null;
+		Connection conexionTransaccion = null;
+		
+		// Declaración de las variables con las sentencias a ejecutar en BBDD.
+		
+		public static final String SQL_SELECT = "SELECT idusuario, username, password FROM usuario";
+		public static final String SQL_INSERT = "INSERT INTO usuario (username, password) VALUES (?, ?)";
+		public static final String SQL_UPDATE = "UPDATE usuario SET username = ?, password = ? WHERE idusuario = ?";
+		public static final String SQL_DELETE = "DELETE FROM usuario WHERE idusuario = ?";
+		
+		public UsuarioDAO()
+		{}
+		
+		// Declaración de un constructor para poder recibir el valor de la conexión de transacción.
+		public UsuarioDAO(Connection conexionTransaccion)
+		{
+			this.conexionTransaccion = conexionTransaccion;
+		}
+		
+		// Declaración del método "consultarUsuario()".
+		
+		public void consultarUsuarios() throws SQLException 
+		{
+			
+			List<Usuario> listaUsuario = new ArrayList<Usuario>();
+			
+			// Se crea un bloque "try catch" para enmascarar el error "SQLException".
+			try 
+			{
+	
+				// Se crea la conexión, se lanza la sentencia SQL de consulta y todos los registros se añaden a la lista de Usuarios para luego imprimirlos 
+				// por consola.
+				
+				conexionOracle = new Conexion_BBDD("Oracle");
+				
+				// Si ya existe una conexión a la BBDD se mantiene dicha conexión, sino, pues se crea una nueva conexión a la BBDD.
+				if (this.conexionTransaccion != null)
+				{
+					conexion = this.conexionTransaccion;
+				}
+				else
+				{
+					conexion = conexionOracle.crearConexionBBDD();	
+				}
+				
+				instruccion = conexion.prepareStatement(SQL_SELECT);
+				registro = instruccion.executeQuery();
+				
+				System.out.println("\n-----------------");
+				System.out.println("LISTA DE USUARIOS");
+				System.out.println("-----------------\n");
+				
+				while (registro.next() == true)
+				{			
+					int reg_idUsuario = registro.getInt("idUsuario");
+					String reg_Usuario = registro.getString("username");
+					String reg_Password = registro.getString("password");
+					
+					usuario = new Usuario(reg_idUsuario, reg_Usuario, reg_Password);				
+					listaUsuario.add(usuario);				
+				}
+				
+				for (Usuario regUsuario : listaUsuario) 
+				{
+					System.out.println(regUsuario.toString());
+				}
+				
+			}
+			// Se desconectan los elementos creados y la conexión, si ha sido creada en éste método.
+			finally
+			{
+				conexionOracle.cerrar(registro);
+				conexionOracle.cerrar(instruccion);
+				
+				if (this.conexionTransaccion == null)
+				{
+					conexionOracle.desconexion();
+				}
+			}
+		}
+		
+		// Declaración del método "insertarUsuarios()".
+		
+		public void insertarUsuarios(Usuario usuario) throws SQLException 
+		{
+			
+			int numRegistro = 0;
+			
+			// Se crea la conexión, se lanza la sentencia INSERT con los parámetros necesarios y se informa por consola.
+			try 
+			{
+				conexionOracle = new Conexion_BBDD("Oracle");
+	
+				// Si ya existe una conexión a la BBDD se mantiene dicha conexión, sino, pues se crea una nueva conexión a la BBDD.
+				if (this.conexionTransaccion != null)
+				{
+					conexion = this.conexionTransaccion;
+				}
+				else
+				{
+					conexion = conexionOracle.crearConexionBBDD();	
+				}
+						
+				instruccion = conexion.prepareStatement(SQL_INSERT);
+				
+				instruccion.setString(1, usuario.getUsername());
+				instruccion.setString(2, usuario.getPassword());
+				
+				numRegistro = instruccion.executeUpdate();
+				
+				System.out.println("\nINFORMACIÓN: Se ha insertado " + numRegistro + " registro en la tabla Usuario.");
+	
+				// Se lanza de nuevo la consulta de datos.
+				consultarUsuarios();
+				
+			} 
+			// Se desconectan los elementos creados y la conexión, si ha sido creada en éste método.
+			finally
+			{
+				conexionOracle.cerrar(instruccion);
+				
+				if (this.conexionTransaccion == null)
+				{
+					conexionOracle.desconexion();
+				}
+			}	
+		}
+		
+		// Declaración del método "actualizarUsuarios()".
+		
+		public void actualizarUsuarios(Usuario usuario) throws SQLException 
+		{
+			
+			int numRegistro = 0;
+			
+			// Se crea la conexión, se lanza la sentencia UPDATE con los parámetros necesarios y se informa por consola.
+			try 
+			{
+				conexionOracle = new Conexion_BBDD("Oracle");
+	
+				// Si ya existe una conexión a la BBDD se mantiene dicha conexión, sino, pues se crea una nueva conexión a la BBDD.
+				if (this.conexionTransaccion != null)
+				{
+					conexion = this.conexionTransaccion;
+				}
+				else
+				{
+					conexion = conexionOracle.crearConexionBBDD();	
+				}
+						
+				instruccion = conexion.prepareStatement(SQL_UPDATE);
+	
+				instruccion.setString(1, usuario.getUsername());
+				instruccion.setString(2, usuario.getPassword());
+				instruccion.setInt(3, usuario.getIdUsuario());
+				
+				numRegistro = instruccion.executeUpdate();
+				
+				System.out.println("\nINFORMACIÓN: Se ha actualizado " + numRegistro + " registro de la tabla Usuario.");
+				
+				// Se lanza de nuevo la consulta de datos.
+				consultarUsuarios();
+				
+			} 
+			// Se desconectan los elementos creados y la conexión, si ha sido creada en éste método.
+			finally
+			{
+				conexionOracle.cerrar(instruccion);
+				
+				if (this.conexionTransaccion == null)
+				{
+					conexionOracle.desconexion();
+				}
+			}
+		}
+	
+		// Declaración del método "eliminarUsuarios()".
+		
+		public void eliminarUsuarios(Usuario usuario) throws SQLException 
+		{
+			int numRegistro = 0;
+			
+			// Se crea la conexión, se lanza la sentencia DELETE con el parámetro necesario y se informa por consola.
+			try 
+			{
+				conexionOracle = new Conexion_BBDD("Oracle");
+	
+				// Si ya existe una conexión a la BBDD se mantiene dicha conexión, sino, pues se crea una nueva conexión a la BBDD.
+				if (this.conexionTransaccion != null)
+				{
+					conexion = this.conexionTransaccion;
+				}
+				else
+				{
+					conexion = conexionOracle.crearConexionBBDD();	
+				}
+						
+				instruccion = conexion.prepareStatement(SQL_DELETE);
+				
+				instruccion.setInt(1, usuario.getIdUsuario());
+				
+				numRegistro = instruccion.executeUpdate();
+				
+				System.out.println("\nINFORMACIÓN: Se ha eliminado " + numRegistro + " registro de la tabla Usuario.");
+				
+				consultarUsuarios();	
+			} 	
+			// Se desconectan los elementos creados y la conexión, si ha sido creada en éste método.
+			finally
+			{
+				conexionOracle.cerrar(instruccion);
+				
+				if (this.conexionTransaccion == null)
+				{
+					conexionOracle.desconexion();
+				}
+			}		
+		}
+	}
+
+3. Clase en la que se ejecutan los métodos de las sentencias SQL.
+
+	import java.sql.Connection;
+	import java.sql.SQLException;
+	import java.util.Scanner;
+	import Seccion46_UsoJDBC.Conexion_BBDD;
+	import Seccion46_UsoJDBC_Laboratorio_Usuarios.Usuario;
+	
+	public class LaboratorioUsuarios 
+	{
+	
+		public static void main(String[] args) 
+		{
+			
+			// Declaración de las variables necesarias.
+			
+			int opcion = 0;
+			int idUsuarioActualizar = 0;
+			int idUsuarioEliminar = 0;
+			Scanner datosConsola = null;
+			UsuarioDAO usuarioDAO = null;
+			Conexion_BBDD conexionOracle = null;
+			Connection conexion = null;
+			
+			try 
+			{
+				// Se crea una conexión con la BBDD.
+				conexionOracle = new Conexion_BBDD("Oracle");
+				conexion = conexionOracle.crearConexionBBDD();
+				
+				// Se comprueba si está la función "autocommit" esta activada y si es así, se desactiva.
+				if (conexion.getAutoCommit() == true)
+				{
+					conexion.setAutoCommit(false);
+				}
+				
+				// Creación de un objeto de tipo UsuarioDAO pasandole la conexión realizada.
+				usuarioDAO = new UsuarioDAO(conexion);
+				
+				while(opcion != 6)
+				{
+					
+					System.out.println("\n--------------------------------------------------");
+					System.out.println("BIENVENIDOS A LA APLICACIÓN DE GESTIÓN DE USUARIOS");
+					System.out.println("--------------------------------------------------");
+					System.out.println("\nMENÚ");
+					System.out.println("\n  1.- Consultar todos los usuarios.");	
+					System.out.println("  2.- Insertar un nuevo usuario.");		
+					System.out.println("  3.- Actualizar un usuario.");		
+					System.out.println("  4.- Eliminar un usuario.");				
+					System.out.println("  5.- Guardar todos los cambios realizados a los datos de los usuarios.");
+					System.out.println("  6.- Salir.");		
+					
+					// Se pide al usuario que introduzca la opción del menú que quiere realizar.
+					System.out.print("\n- Introduzca la opción: ");
+					datosConsola = new Scanner(System.in);
+					opcion = Integer.parseInt(datosConsola.nextLine());
+					
+					// Según la opción elegida.
+					switch (opcion) 
+					{
+						
+						// 1. Prueba sobre el método "consultarUsuarios()".
+						case 1:
+							
+							usuarioDAO.consultarUsuarios();
+							break;
+						
+						// 2. Prueba sobre el método "insertarUsuarios()".
+						case 2: 
+							
+							Usuario usuarioInsertar = new Usuario("Alex", "alexlopez");
+							usuarioDAO.insertarUsuarios(usuarioInsertar);
+							break;
+						
+						// 3. Prueba sobre el método "usuarioActualizar()".
+						case 3:
+							
+							// Se muestran todos los usuarios existentes.
+							usuarioDAO.consultarUsuarios();
+							
+							// Se solicita indicar el usuario a actualizar.
+							System.out.print("\n- Introduzca el ID del usuario a modificar: ");
+							datosConsola = new Scanner(System.in);
+							idUsuarioActualizar = Integer.parseInt(datosConsola.nextLine());
+							
+							// Se actualiza el usuario indicado.
+							Usuario usuarioActualizar = new Usuario(idUsuarioActualizar, "alexito", "peke062022");
+							usuarioDAO.actualizarUsuarios(usuarioActualizar);
+							break;
+						
+						// 4. Prueba sobre el método "eliminarUsuarios()".
+						case 4:
+							
+							// Se muestran todos los usuarios existentes.
+							usuarioDAO.consultarUsuarios();
+							
+							// Se solicita indicar el usuario a eliminar.
+							System.out.print("\n- Introduzca el ID del usuario a eliminar: ");
+							datosConsola = new Scanner(System.in);
+							idUsuarioEliminar = Integer.parseInt(datosConsola.nextLine());
+							
+							// Se elimina el usuario indicado.
+							Usuario usuarioEliminar = new Usuario(idUsuarioEliminar);
+							usuarioDAO.eliminarUsuarios(usuarioEliminar);
+							break;
+						
+						// 5. Guardar los datos.
+						case 5:
+							
+							// Se guardan los datos en la BBDD.
+							conexion.commit();
+							System.out.println("\nINFORMACIÓN: Se han guardado todos las modificaciones realizadas de forma correcta.");
+							break;
+							
+						// 6. Salir de la aplicación.
+						case 6:
+							
+							System.out.println("\nINFORMACIÓN: Cierre de la aplicación \"Gestión de Usuarios\".");
+							break;
+						
+						// Error de la aplicación.
+						default:
+							
+							System.out.println("\nERROR: No se reconoce la opción insertada.");
+							break;
+					}
+				}			
+			} 
+			catch (SQLException w_error) 
+			{
+				System.out.println("ERROR: Error en sentencia SQL: " + w_error.getMessage());
+				System.out.println("AVISO: Se va a realizar el Rollback de todos los cambios realizados.");
+				
+				// Se utiliza un bloque "try catch" para enmascarar el error "SQLException" que puede producirse por el Rollback.
+				try 
+				{
+					conexion.rollback();
+				} 
+				catch (SQLException w_errorRollback) 
+				{
+					System.out.println("\nERROR: Error en el Rollback de los datos: " + w_errorRollback.getMessage());
+				}
+			}
+		}
+	}

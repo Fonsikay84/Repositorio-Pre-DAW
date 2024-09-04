@@ -1,0 +1,53 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 20 - PALABRA FINAL EN JAVA 
+|  VIDEOS: 79, 80
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Palabra final (Video 79).
+
+	- Uso de la palabra final.
+	
+		- Variables: Evita cambiar el valor que almacena la variable por lo que hace a la variable pasar a ser una constante.
+			
+			Ej: public final static int MI_CONSTANTE = 1;
+			
+		- Métodos: Evita que se modifique la definición de un método desde una subclase.
+		
+			Ej: public final void imprimir()
+				{
+					System.out.println("Método imprimir desde Persona.");
+				}
+				
+		. Clases: Evita que se cree una subclase.
+	
+			Ej: public final class Persona {}
+			
+2. Uso de la palabra final con Objetos (Video 80).
+	
+	
+	Cuando se usa la palabra final en la declaración de un objeto lo que indica es que ese objeto no podemos asignarle una nueva creación de un objeto.
+	Ej:
+	
+		final Persona persona1 = new Persona(); // La primera vez podemos crear un objeto de ese tipo de forma correcta.
+		persona1 = new Persona(); // La segunda vez ya se produce un error al no poderle asignar a esa variable un nuevo objeto creado.
+		
+	Si esta permitido modificar el valor de los atributos de la clase utilizando el método "set()" de la propia clase.
+	Ejemplo:
+	
+		// En la clase Persona creamos los métodos get() y set();
+		
+			public String getNombre() 
+			{
+				return this.nombre;
+			}
+			
+			public void setNombre(String nombre)
+			{
+				this.nombre = nombre;
+			}
+		
+		// En la clase de Prueba modificamos el valor del atributo de la clase final y se modifica de forma correcta.
+		
+			persona1.setNombre("Alfonso");
+			System.out.println("Persona Nombre: " + persona1.getNombre());
+			

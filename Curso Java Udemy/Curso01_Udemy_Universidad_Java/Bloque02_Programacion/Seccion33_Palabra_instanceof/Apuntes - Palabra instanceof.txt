@@ -1,0 +1,56 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 33 - PALABRA INSTANCE OF EN JAVA 
+|  VIDEOS: 122, 123.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Palabra "instanceof" (Video 122, 123).
+
+	Instance Of significa "instancia de cierto tipo" y sirve para saber una variable de tipo objeto al tipo al que esta apuntando en memoria, ya que 
+	una variable de tipo objeto puede ser de un tipo objeto en el momento de la declaración pero luego se le puede asignar un objeto de otro tipo, 
+	por ejemplo, una variable de tipo objeto de una clase padre y que luego le asigne un objeto del tipo de la clase hija.
+	
+	Empleado empleado1 = new Empleado("Alfonso", 5000);					// Se crea un objeto de tipo clase padre "Empleado".
+	empleado1 = new Gerente("Isabel", 10000, "Contabilidad");		// Se le asigna un objeto de tipo clase hija "Gerente".
+	
+	Para usar la palabra reservada "instanceof" se debe de realizar siempre dentro de un condicional "if" preguntando si la variable que se le pasa
+	es de un tipo de objeto determinado, siempre en el orden de la clase mas abajo hacia arriba (1º Hijo -> 2º Padre -> 3º Abuelo -> .. -> Object).
+	
+	Esta palabra de Java se utiliza también para asegurar que una variable es de un tipo de objeto determinado porque se pueden convertir variables
+	de objetos a un tipo determinado, tal y como se realiza igualmente en los tipos primitivos utilizando los () e indicando el tipo al que se quiere
+	convertir la variable de forma "forzada". Con el uso de "instanceof" podemos saber exactamente el tipo que es el objeto para luego poder convertir
+	dicha variable en otro tipo de otra clase, normalmente en una clase de tipo padre.
+	
+	Ejemplo: Crear un método llamado "determinarTipo()" en el cual se pase una variable por argumento e indique de que tipo de objeto es.
+	
+		// Llamada al método "determinarTipo()".
+		
+		determinarTipo(empleado1);
+	
+		// Declaración del método "determinarTipo" que nos indica a que tipo de objeto está apuntando la variable objeto que se pasa por argumento.
+		
+		public static void determinarTipo(Empleado empleado)
+		{	
+			// Se pregunta si la variable "empleado" esta apuntando en memoria a un objeto de tipo Gerente.
+			if (empleado instanceof Gerente)
+			{
+				System.out.println("La variable es de tipo Gerente.");
+				
+				// Se crea un objeto de tipo gerente y se le asigna la variable "empleado" que en verdad apunta a un objeto de tipo Gerente, por lo que se 
+				// convierte la variable "empleado" al tipo "Gerente" y así ya puede acceder al método get() declarado en la clase "Gerente".
+				
+				// Estas dos líneas se pueden resumir en una sola: ((Gerente) empleado).getDepartamento()
+				
+				Gerente gerente1 = (Gerente)empleado;
+				System.out.println("Departamento: " + gerente1.getDepartamento());
+				
+			}			
+			// Se pregunta si la variable "empleado" esta apuntando en memoria a un objeto de tipo Empleado.
+			else if (empleado instanceof Empleado)
+			{
+				System.out.println("La variable es de tipo Empleado.");
+			}
+			// Se pregunta si la variable "empleado" esta apuntando en memoria a un objeto de tipo Object.
+			else if (empleado instanceof Object)
+			{
+				System.out.println("La variable es de tipo Object.");
+			}

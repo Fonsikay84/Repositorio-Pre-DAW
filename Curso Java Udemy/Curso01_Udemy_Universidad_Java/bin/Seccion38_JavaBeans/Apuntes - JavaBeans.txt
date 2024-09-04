@@ -1,0 +1,20 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 38 - JAVABEANS EN JAVA 
+|  VIDEOS: 134, 135.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Manejo de JavaBeans (Video 134).
+
+	JavaBeans es un tipo de clase que debe de cumplir unas ciertas características:
+		
+		1) Debe tener implementada la clase con una interface llamada Serializable y para ello, en la declaración de la clase, se debe de indicar lo 
+			 siguiente:
+			
+			 public class Persona implements Serializable{}
+			
+		2) Cada atributo debe de ser un atributo private.
+		3) Debe de tener al menos un constructor vacío.
+		4) Cada atributo private tiene que tener un método public get() y public set() asociado.
+			
+		- La interface Serializable nos va a permitir enviar nuestra clase entre diferentes equipos, ya que si tenemos diferentes servidores de Java y 
+			necesitamos transferir esta clase de JavaBeans entre diferentes equipos, va a ser importante la implementación de la interface Serializable.

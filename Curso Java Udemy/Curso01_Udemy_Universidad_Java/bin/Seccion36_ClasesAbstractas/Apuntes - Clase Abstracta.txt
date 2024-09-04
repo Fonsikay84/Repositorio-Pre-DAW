@@ -1,0 +1,51 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 36 - CLASE ABSTRACTA EN JAVA 
+|  VIDEOS: 128, 129.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Clases Abstractas.
+	
+	- Una clase abstracta es una clase que no tienen ninguna implementación y se definen con la palabra reservada "abstract".
+	- Una clase abstracta se utiliza cuando las caracteristicas de nuestra clase son muy parecidas, ya que existe una relación de herencia.
+	- Si una clase contiene al menos un método abstracto, la clase se debe declarar también como abstracta.
+	- Una clase abstracta puede contener métodos abstractos y no abstractos, además un método abstracto no tiene cuerpo, y solo termina con punto y 
+		coma, de esta manera un método abstracto sólo define la firma del método pero no agrega ningún comportamiento, y son las clases hijas las que 
+		se encargan de implementar este método, es decir, agregar algún comportamiento.
+		De alguna manera es como la sobreescritura, sin embargo debido a que en el método padre no se ha definido ningún comportamiento en el método 
+		abstracto, entonces no se dice que la clase hija sobreescribe el método heredado, sino que lo implementa.
+	- No se pueden crear objetos de una clase abstracta, esto es debido a que algo abstracto no puede materializarse en un objeto, y este mismo 
+		concepto aplica para los métodos abstractos, por lo que sólo podemos trabajar con clases hijas.
+		
+	- Declaración de una clase abstracta.
+	
+		modificador de acceso + abstract + class + nombreClaseAbstracta
+	
+	- Declaración de un método abstracto.
+	
+		abstract + tipoRetorno + nombreMetodoAbstracto() + ";"
+		
+		Ejemplo:
+			
+			// Declaración de la clase Padre y el método, ambos son abstractos.
+			public abstract class FiguraGeometrica
+			{
+				abstract void dibujar();
+			}
+			
+			// Declaración de la clase Hija y el método.
+			public class Rectangulo extends FiguraGeometrica
+			{
+				void dibujar()
+				{
+					System.out.println("Se imprime un " + this.getClass().getSimpleName());	// Obtiene el nombre de la clase en la que se indica éste código.
+				}
+			}
+	
+	- Uso de un método abstracto.
+	
+		// Uso de Upcasting, ya que se crea una variable de tipo padre "FiguraGeometrica" pero apunta a un objeto de tipo hijo "Rectangulo".
+		FiguraGeometrica figura = new Rectangulo("Rectángulo");																																	 
+		
+		// Uso de Polimorfismo, ya que utiliza el método de la clase hija "Rectangulo".
+		figura.dibujar();	
+		

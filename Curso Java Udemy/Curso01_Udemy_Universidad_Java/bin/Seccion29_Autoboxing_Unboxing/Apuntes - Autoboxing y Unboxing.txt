@@ -1,0 +1,68 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 29 - AUTOBOXING Y UNBOXING EN JAVA 
+|  VIDEOS: 113.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Definición de Autoboxing y Unboxing.
+		
+	- Autoboxing: Proceso que el compilador hace de manera automática para convertir un tipo primitivo en un objeto Java en su tipo Object 
+								equivalente.
+	- Unboxing: Proceso que el compilador hace de manera automática para convertir un objeto de tipo envolvente a un tipo primitivo sin necesidad de
+						  aplicar ninguna conversión entre objetos y tipos primitivos.
+						  
+	Cada uno de los tipos primitivos tiene una clase asociada conocida como Clase Wrapper o clase envolvente del tipo primitivo.
+	
+2. Clases envolventes de los tipos primitivos.
+
+	- Tipo primitivo int: Clase Integer.
+	- Tipo primitivo long: Clase Long.
+	- Tipo primitivo float: Clase Float.
+	- Tipo primitivo double: Clase Double. 
+	- Tipo primitivo boolean: Clase Boolean.
+	- Tipo primitivo byte: Clase Byte.
+	- Tipo primitivo char: Clase Character.
+	- Tipo primitivo short: Clase Short.
+	
+	Estas clases envolventes se utilizan porque tienen atributos y métodos que se pueden utilizar a diferencia de los tipos primitivos que solo 
+	declara su tipo.
+	
+	Si la operación que se va a realizar requiere de muchos calculos, se recomienda utilizar los tipos primitivos pero si no tiene mucha lógica de 
+	calculo, podemos utilizar las clases envolventes, ya que va a ser mas recomedable decbio a que podemos utilizar incluso conversiones de manera 
+	más simple.
+	
+3. Uso del Autoboxing para la conversión de tipos de datos utilizando las clases envolventes.
+
+	Para convertir un dato entero de tipo Integer a los demás tipos se utilizan los siguientes métodos del objeto Integer.
+	
+		- int a int: objetoInteger.intValue());
+		- int a long: objetoInteger.longValue());
+		- int a float: objetoInteger.floatValue());
+		- int a double: objetoInteger.doubleValue());
+		- int a short: objetoInteger.shortValue());
+		- int a byte: objetoInteger.byteValue());
+
+	Ej: Tenemos una variable de tipo Integer llamada "numero" y se debe de convertir a todos los demás tipos de datos y mostrarlo por consola.
+	
+		Integer numero = 10;
+
+		// Conversión de tipo int a otros tipos.
+		
+		System.out.println("int a int: " + numero.intValue());
+		System.out.println("int a long: " + numero.longValue());
+		System.out.println("int a float: " + numero.floatValue());
+		System.out.println("int a double: " + numero.doubleValue());
+		System.out.println("int a short: " + numero.shortValue());
+		System.out.println("int a byte: " + numero.byteValue());
+
+4. Uso del Unboxing.
+	
+	Se asigna el valor que tiene la variable de tipo Clase envolvente a la variable de tipo primitiva.
+	 
+		Ej: Tenemos una variable de tipo Integer llamada "enteroInt" y queremos que su valor pase a ser una variable de tipo primitiva int.
+ 
+			Integer enteroInt = 5;
+				
+			// Se obtiene el valor de la variable de tipo Clase Integer y se asigna a una variable de tipo primitivo int.
+			int entero2 = enteroInt; 
+			System.out.println("Entero primitivo: " + entero2);
+	

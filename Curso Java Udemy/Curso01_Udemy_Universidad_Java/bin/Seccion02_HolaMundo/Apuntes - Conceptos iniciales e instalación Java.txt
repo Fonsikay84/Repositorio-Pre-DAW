@@ -1,0 +1,82 @@
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 02 - INSTALACIÓN JAVA Y APACHE NETBEANS 
+|  VIDEOS: 2, 3, 4, 5
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Grupos de Java.
+
+1) Java JSE (Java Standar Edition): Aplicaciones de tipo Escritorio Windows.
+	
+	- Aplicaciones independientes.
+	- Aplicaciones distribuidas.
+	- Applets para navegadores Web.
+
+2) Java JEE: (Java Enterprise Edition): Aplicaciones tipo empresarial.
+
+	- Aplicaciones empresariales 
+	- Comercio electrónico.
+	- Aplicaciones Web.
+
+3) Java JME (Java Movile Edition): Aplicaciones móviles.
+
+	- Aplicaciones móviles.
+	- Aplicaciones PDA.
+	- Aplicaciones televisión.
+	- Aplicaciones para microchips.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Programas a instalar.
+
+1) JDK: Java SE Developer Kit: Software que provee herramientas de desarrollo para la creación de programas en Java.
+
+	Los programas más importantes que se incluyen en el JDK son:
+
+	- appletviewer.exe: Visor de applets para generar sus vistas previas, ya que un applet carece de método main y no se puede ejecutar con el programa java.
+	- javac.exe: Compilador de Java.
+	- java.exe: Intérprete de Java.
+	- javadoc.exe: Genera la documentación de las clases Java de un programa.
+
+2) JRE: Java Runtime Enviroment: Conjunto de utilidades que permite la ejecución de programas Java.
+3) IDE Apache Netbeans: Software utilizado para el desarrollo de programación en Java.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Creación de un nuevo proyecto en Java.
+	
+	- File -> "New Proyect.." (Ctrl + Shift + N). 
+	- Elegimos la categoria "Java with Ant", como tipo de proyecto elegimos la opción "Java Application" y pulsamos el botón de "Next".
+	- Se indica nombre del proyecto, ruta donde se va a guardar dichos archivos y se marca la opción que te añada el "Create main class" que es la clase principal del proyecto de forma automática.
+	- Se pulsa en "Finish" y ya esta el proyecto nuevo creado.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Compilación y ejecución de un archivo Java.
+
+	- En Netbeans, se debe de hacer click derecho sobre el nombre del archivo a compilar con la extensión ".java" y elegimos la opción "Run File" (Shift + F6).
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Utilizar el Debug con Netbeans.
+	
+	- Se debe de pulsar en la parte izquierda, donde aparecen los nº de filas del editor, para poner un punto de ruptura y hacer que el proceso se pare en dicho punto. Sólo se puede poner un punto de ruptura en las lineas donde se ejecuta algún tipo de código, no vale en las declaraciones de paquetes, clases o métodos.
+	- Se pulsa botón derecho del ratón y se selecciona la opción "Debug File" (Ctrl + Shift + F5).
+	- En la barra de herramientas, se nos activan los botones de Debug, como son:
+
+		- Finish Debuger (Shift + F5): Detiene el modo Debug.
+		- Pausar.
+		- Continue (F5): Hace que se quite el modo debug y compile todo el proceso como si no tuviera un punto de ruptura de Debug.
+
+		- Step Over (F8): Ejecuta la linea que tenga marcada el debug pero sin meterse dentro del metodo o procedimiento que se esté utilizando.
+		- Step Over Expression (Shift + F8): 
+		- Step Into (F7): Ejecuta la linea que tenga marcada el debug pero metiendose dentro del metodo que se esté utilizando.
+		- Step Out (Ctrl + F7): Se sale del metodo en el cual hemos entrado pulsando la opción "Step Into".
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Tablas caracteres UNICODE para variables tipo CHAR.
+
+	http://www.icursos.net/referencias/TablaUnicode.html
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------

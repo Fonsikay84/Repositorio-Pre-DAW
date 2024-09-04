@@ -1,0 +1,49 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 02 - SECCIÓN 25 - ARGUMENTOS VARIABLES EN JAVA 
+|  VIDEOS: 105.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Argumentos variables en Java.
+
+  Los argumentos variables son un tipo de argumento que se le pasa a un método en el cual no se conoce cuantos argumentos del mismo tipo se le van 
+  a pasar, por lo que con este tipo de argumento, puede pasar al método en una llamada 2 argumentos del mismo tipo y en otra llamada 1 o 3 
+  argumentos del mismo tipo.
+  
+  La sintaxis del argumento variable es la siguiente:
+  
+    // Declaración de un método.
+    private void nombre_metodo(tipoArgumentoVariable + ... + nombreArgumentoVariable){}
+    
+    Ej: Declaración de un método que tenga un argumento de tipo variable llamado "numeros" que sean de tipo entero:
+    
+      private void imprimirNumeros(int...numeros){}
+      
+  También, se puede utilizar en métodos que utilicen otro tipo de argumentos, pero siempre el argumento variable debe de estar declarado como ultimo 
+  elemento en la declaración del método.
+  
+    private void nombre_metodo(tipoParametro1 nombreParametro1, tipoParametro2 nombreParametro2, tipoArgumentoVariable + ... + nombreArgumentoVariable){}
+    
+    Ej: Declaración de un método que tenga un argumento de tipo variable llamado "numeros" que sean de tipo entero y un argumento de tipo String 
+        llamado "nombre:
+        
+      private void imprimirNumeros(String nombre, int...numeros){}
+      
+  La variable de tipo argumento variable se trata en java como si fuera un arreglo de elementos del tipo indicado en la declaración por lo que para
+  poder utilizar sus valores se debe de recorrer con un bucle "for" igual que si fuera un arreglo.
+  
+  La llamada a un método que contenga un argumento de tipo variable, será indicando los distintos elementos que va a contener el método como argumentos
+  variando la posibilidad del número de parámetros que se le pase.
+  
+  Ejemplo: Realizar una llamada al método "imprimirNumeros()" que la primera vez tenga 3 argumentos de tipo entero, en la segunda tenga solo 1 y en la
+           tercera llamada tenga 5 argumentos, todos ellos de tipo entero.
+           
+           // 3 Argumentos int.
+           imprimirNumeros(2, 6, 10);
+           
+           // 1 Argumentos int.
+           imprimirNumeros(4);
+           
+           // 5 Argumentos int.
+           imprimirNumeros(2, 3, 5, 9, 7);
+           
+           

@@ -1,0 +1,49 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 16 - CONTEXTO ESTÁTICO EN JAVA 
+|  VIDEOS: 67, 68
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Contexto estático (Video 67).
+
+	El contexto estático es cuando se produce la carga de las clases.
+	Los atributos o métodos que se definan con la palabra "static" se van a asociar con la clase en sí y no con el objeto de la clase.
+	Por lo tanto, estos atributos o métodos pueden ser accedidos desde cualquier objeto, ya que la información no se va a asociar con los objetos, 
+	sino con la clase directamente.
+	
+	- Declaración de un atributo estático.
+	
+		static + tipo + nombreVariable;
+		Ej: static int contadorPersonas;
+		
+	- Uso de un atributo estático en una definición de una clase.
+	
+		nombreClase.nombreVariableEstática;
+		Ej: Persona.contadorPersonas = 0;
+	
+	- Declaración del constructor con un atributo estático.
+	
+		nombreClase.nombreVariableEstática = valor;
+		
+		Ejemplo: public Persona(String nombre, int contadorPersonas)
+				 {
+					
+					this.nombre = nombre;
+					Persona.contadorPersonas = contadorPersonas;
+				 }
+			
+	- Declaración de los métodos get y set para un atributo estático.
+	
+		// Al ser un atributo estático, el método get debe de ser también estático.
+		public static int getContadorPersonas()
+		{
+			// Al ser un atributo de clase de tipo estatico, no se puede utilizar la palabra "this" sino el nombre de la clase.
+			return Persona.contadorPersonas;
+		}
+		
+		// Al ser un atributo estático, el método set debe de ser también estático.
+		public static void setContadorPersonas(int contadorPersonas)
+		{
+			// Al ser un atributo de clase de tipo estatico, no se puede utilizar la palabra "this" sino el nombre de la clase.
+			Persona.contadorPersonas = contadorPersonas;
+		}
+	

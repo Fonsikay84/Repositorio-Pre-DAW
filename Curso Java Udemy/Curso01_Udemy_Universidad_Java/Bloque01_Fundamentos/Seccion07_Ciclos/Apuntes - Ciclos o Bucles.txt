@@ -1,0 +1,41 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 07 - BUCLES O CICLOS EN JAVA 
+|  VIDEOS: 40, 41, 42, 43
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Tipos de ciclos.
+
+1) Ciclo While (Video 40).
+
+	- Debido a que la condición del ciclo while se evalúa al inicio, el bloque de código a repetir no se ejecutará ni una sola vez, si es que esta condición no se cumple.
+
+	while (condicion)	-- Valor permitido: Boolean.
+	{
+			-- Código a repetir.
+	}
+
+2) Ciclo Do While (Video 41).
+
+	- Debido a que la condición del ciclo do while se evalúa al final, el bloque de código a repetir se ejecutará por lo menos una vez, aunque esta condición no sea verdadera.
+
+	do -- Valor permitido: Boolean.
+	{
+			-- Código a repetir.
+	}
+	while (condicion);
+
+3) Ciclo For (Video 42).
+
+	- Inicialización: Variable tipo contador que se inicializa en esta sentencia.
+	- Condición: Se revisa que la condición sea verdadera para ejecutar el bucle, sino no se ejecuta el bucle ni una sola vez.
+	- Iteración: Una vez que se ha realizado el código, se incrementa o decrementa la variable contador cada vez que realice una vuelta.
+
+	for (inicializacion; condicion; iteracion)	-- Valor permitido: Boolean.
+	{
+			-- Código a repetir.
+	}
+	
+- Palabras reservadas Break y Continue (Video 43).
+
+	- Break: Corta el proceso de iteración del bucle.
+	- Continue: Continua el proceso de iteración del bucle.	

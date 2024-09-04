@@ -1,0 +1,98 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 06 - SENTENCIAS DE CONTROL EN JAVA
+|  VIDEOS: 34, 35, 36, 37, 38
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1) Operadores lógicos de las sentencias de control.
+
+	- Operador AND: &&
+	- Operador OR: ||
+
+2) Operadores relacionales de las sentencias de control.
+
+	- Mayor que: >
+	- Menor que: <
+	- Mayor o igual que: >=
+	- Menor o igual que: <=
+	- Distinto que: !=
+	- Igual que: ==
+
+Las sentencias de control son las siguientes:
+
+Las condiciones siempre tienen que ir entre parentesis para que no de error de compilación.
+
+1) Sentencia If Else (Video 34).
+
+	If (condicion)	-- Valor permitido: boolean
+	{
+		-- Código If.
+	}
+	Else (condicion)
+	{
+		-- Código Else.
+	}
+
+2) Sentencia If Else If (Video 35).
+
+	If (condicion)	-- Valor permitido: boolean
+	{
+		-- Código If.
+	}
+	Else if (condicion)
+	{
+		-- Código Else if.
+	}
+	Else
+	{
+		-- Código Else.
+	}	
+
+3) Sentencia Switch simple (Video 37).
+
+	Switch (expresion)	-- Valores permitidos: byte, short, int, char, string.
+	{
+		case valor1:
+
+			-- Código case1.
+			break;	-- Hace que se salga del switch.
+
+		case valor2:
+
+			-- Código case2.
+			break;
+		
+		case valorN;
+
+			-- Código case3.
+			break;
+
+		default:
+
+			-- Código default. 
+
+	}
+
+4) Sentencia Switch con varios casos (Video 38).
+
+	Switch (expresion)	-- Valores permitidos: byte, short, int, char, string.
+	{
+		case valor1: case valor2: case valor3:
+
+			-- Código case1, case2, case3.
+			break;	-- Hace que se salga del switch.
+
+		case valor4:
+
+			-- Código case4.
+			break;
+		
+		case valorN;
+
+			-- Código case5.
+			break;
+
+		default:
+
+			-- Código default. 
+
+	}

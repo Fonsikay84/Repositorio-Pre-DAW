@@ -1,0 +1,51 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  LIBRERIAS (IMPORTACIÓN Y USO).
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Librería java.util.
+  
+  + Método Scanner: Solicita al usuario un valor por consola y se guarda en la variable.
+
+    * Importar la librería: import java.util.scanner;
+
+    * Declaración de objeto: Scanner NombreObjetoScanner = new Scanner(System.in);
+    * Uso de la variable tipo objeto Scanner: 
+
+      var NombreVariable NombreObjetoScanner = NombreObjetoScanner.nextLine(); -> Este método recoje el valor que se ha introducido por pantalla.
+
+  + Método Arrays: Se puede obtener el listado de elementos de un array.
+  
+  	* Importar la librería: import java.util.Arrays;
+  
+  + Método Date: Se utiliza para operaciones con fechas.
+    
+  	* Importar la librería: import java.util.Date;
+  	
+  	* Declaración de objeto: Date fechaHoy = new Date();
+  	* Uso de la variable tipo objeto Date:
+  	
+  		System.out.println("Fecha de hoy: " + fechaHoy);
+  		
+- Librería java.time.
+
+  + Metodo LocalDate: Se utiliza para operaciones con fechas.
+  
+  	* Importar la librería: import java.time.LocalDate;
+  	* Declaración de objeto para obtener la fecha actual: LocalDate fechaActual = LocalDate.now();  	
+  	* Uso de la variable de tipo LocalDate: 
+  		
+  		LocalDate fecha = LocalDate.of(2007, 05, 14); // Asigna una fecha a una variable de tipo LocalDate (yyyy, MM, dd).
+ 
+  + Método Period: Se utiliza para operaciones con fechas.
+	  
+		* Importar la librería: import java.time.Period;
+		* Declaración de objeto para obtener el tiempo trascurrido entre dos fechas (El tipo de la variable "fechaMatriculacion" es LocalDate): 
+		
+			Period periodo = Period.between(fechaMatriculacion, fechaActual);
+
+- Librería java.io: (io -> Input Output): Paquete de entrada y salida de Java.
+
+	+ Método File: Se utiliza para el uso de archivos.
+	
+		* Importar la librería: import java.io.File;
+				

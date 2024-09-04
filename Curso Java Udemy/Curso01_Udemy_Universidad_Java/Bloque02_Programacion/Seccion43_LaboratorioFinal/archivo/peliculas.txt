@@ -1,0 +1,4 @@
+conan
+barbaro
+superman
+batman

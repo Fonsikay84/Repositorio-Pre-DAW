@@ -1,0 +1,35 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 31 - SOBREESCRITURA DE MÉTODOS EN JAVA 
+|  VIDEOS: 118, 119.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Sobreescritura de métodos.
+
+	En la sobreescritura de metodos se debe de aplicar el concepto de Herencia ya que la sobreescritura significa que un método en la clase hija va
+	a modificar el funcionamiento del mismo método de la clase padre, ya que lo sobreescribe.
+	
+	Se debe de indicar como información que se esta sobreescribiendo un método utilizando para ello la palabra "@Override", esta palabra indica al
+	compilador que es un método sobreescrito del que posee la clase padre.
+	
+	Para poder acceder al método propio de la clase padre se debe de utilizar el operador "super" de la siguiente manera:
+	
+		super.nombreMetodoPadre;
+		
+	Ejemplo: 
+	
+		Creamos un método en la clase padre:
+	
+			public String obtenerDetalles()
+			{
+				return "Nombre: " + this.nombre + ", Sueldo: " + this.sueldo;
+			}
+			
+		Creamos el mismo método en la clase hija pero añadiendo un atributo propio de la clase hija.
+		
+			@Override
+			public String obtenerDetalles()
+			{
+				
+				// Se llama al método "obtenerDetalles()" de la clase padre y se concatena el valor del atributo de la clase hija.
+				return super.obtenerDetalles() + ", Departamento: " + this.departamento;
+			}

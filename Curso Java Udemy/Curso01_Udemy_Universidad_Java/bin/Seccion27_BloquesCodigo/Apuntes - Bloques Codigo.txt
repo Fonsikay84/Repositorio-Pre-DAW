@@ -1,0 +1,68 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 27 - BLOQUES DE CÓDIGO EN JAVA 
+|  VIDEOS: 109, 110.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Bloques de inicialización de código en Java (Video 109).
+	
+	Los bloques de inicialización de código son "bloques anónimos" que se utilizan para inicializar variables.
+	Este bloque de código se ejecuta antes de la llamada al constructor de la clase en la que se encuentre.
+	
+	
+	Existen dos tipos de bloque de inicialización:
+	
+		- Bloque de inicialización estático: 
+			
+			* Se ejecuta una unica vez cuando se carga la clase en memoria.
+			* Se ejecuta antes del constructor y de un bloque de inicialización estático.
+			* Sólo se pueden inicializar variables que sean declaradas de tipo estáticas con la palabra "static".
+			
+		- Bloque de inicialización no estático.
+			
+			* Se ejecuta cada vez que se cree un nuevo objeto de la clase.
+			* Se ejecuta antes del constructor y después de un bloque de inicialización estático si hubiera.
+			* No se puede inicializar variables estáticas sino variables no estáticas.
+			* Veo que es útil para usarlo cuando hay que inicializar una variable tipo "idPersona" con una variable contador "contadorPersona" de forma
+				automática.
+		
+1) Bloque de inicialización estático.
+	
+	Se define con la palabra "static" y el uso de llaves.
+	
+	static
+	{
+		codigo_inicialización_estatico;
+	}		
+
+2) Bloque de inicialización no estático.
+	
+	Se define solo con el uso de llaves.
+	
+	{
+		codigo_inicialización_noestatico;
+	}
+	
+Ejemplo:
+
+	Un ejemplo sería inicializar dos variables una estatica y otra no estática y cada uno hacer la inicialización en su
+	bloque de inicialización correspondiente.
+	
+		public class Persona 
+		{
+			
+			// Declaración de atributos de la clase.
+			private final int idPersona;
+			private static int contadorPersonas;
+			
+			// Declaración del bloque de inicialización de código de tipo estático.
+			static
+			{
+				System.out.println("Ejecución del bloque de inicialización estático.");
+				Persona.contadorPersonas = 1;
+			}
+			
+			// Declaración del bloque de inicialización de código de tipo no estático.
+			{
+				System.out.println("Ejecución del bloque de inicialización no estático.");
+				this.idPersona = Persona.contadorPersonas++;
+			}

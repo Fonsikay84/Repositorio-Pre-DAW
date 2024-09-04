@@ -1,0 +1,84 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 17 - HERENCIA EN JAVA 
+|  VIDEOS: 70, 71, 72, 73, 74
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Herencia (Video 70).
+
+	- La herencia en Java significa que en una jerarquía de clases nos permite heredar características entre una clase Padre y una seria de clases Hijas.
+	- La herencia nos permitirá representar características o comportamiento en común entre clases, permitiendo definir en la clase Padre los atributos
+	o métodos que sean comunes a las clases hijas, las cuales heredarán estos atributos o métodos definidos en la clase Padre y asi evita duplicar el
+	código entre la clase Padre y las clases Hijas.
+	
+2. Declaración de atributos (Video 70).
+	
+	Para que una clase hija pueda tener acceso a un atributo de la clase padre, el atributo en la clase padre debe de estar declarado con la palabra 
+	reservada "protected". Esta palabra es igual que la palabra "private" pero solo que da acceso a las clases hijas a este atributo, en cambio con la
+	palabra "private" no tendría acceso ninguna clase que no fuera en la que se define.
+	
+	Ej: protected String nombre;
+	
+3. Declaración de una clase hija (Video 71).
+
+	Para indicar que una clase es hija de otra, se debe de utilizar la palabra "extends" en la declaración de la clase e indicar el nombre de la clase
+	que es padre de ésta.
+	
+	Ej: La clase Empleado es hija de la clase Persona: public class Empleado extends Persona {}
+	
+	Una vez que se indica que una clase es hija de otra, utilizando la palabra reservada "this" dentro de la clase hija se puede acceder a todos los
+	atributos si tienen en la clase padre el indicativo "protected" y a todos los métodos al declararse como "public" de la clase padre.
+	
+4. Modificar o inicializar atributos de una clase padre desde una clase hija. (Video 72).
+
+	Para poder acceder a los atributos de una clase padre desde una clase hija para poder inicializar o modificar sus valores se debe de utilizar la
+	palabra reservada "super()" en el constructor de la clase hija pasandole por argumento aquellos atributos que queramos tener acceso. 
+	
+	Importante: el uso de la palabra "super()" siempre se debe de realizar como primera línea de código del constructor ya que sino se produce un error.
+	
+	Con la palabra reservada "super()", lo que se está realizando internamente es una llamada al constructor de la clase padre y se sabe a que 
+	constructor llama según el número de parámetros que se le pase en dicha llamada en el constructor de la clase hija y que corresponda con los 
+	parámetros que tiene asociado el constructor en la clase padre.
+	
+	Ejemplo: 
+	
+	// Clase Padre "Persona".
+	
+		// Declaración del constructor para inicializar sólo el atributo de clase "nombre".
+		
+		public Persona(String nombre)
+		{
+			this.nombre = nombre;
+		}
+		
+	// Clase Hija.
+	
+		// Declaración del constructor que carga el atributo "nombre" de la clase padre "Persona" y los atributos "idEmpleado" y "sueldo" de la clase "Empleado".
+		
+		public Empleado(String nombre, double sueldo)
+		{
+			
+			// Inicializa el atributo "nombre" de la clase padre "Persona" con el valor que se pase en el argumento "nombre".
+			super(nombre);
+			
+			Empleado.contadorEmpleado++;
+			
+			// Se incrementa la variable para el contador de empleados y se asigna su valor al atributo "idEmpleado".
+			this.idEmpleado = Empleado.contadorEmpleado;
+			this.sueldo = sueldo;
+		}
+	
+	// Creación de un objeto de clase "Empleado" modificando el valor del atributo "nombre" de la clase padre "Persona" desde la clase hija "Empleado": 
+	
+		Empleado empleado1 = new Empleado("Alfonso", 1450.00);
+		
+5. Uso del método "toString()" de la clase Padre en la clase Hija (Video 72).
+
+	Para poder usar el método toString() que existe en la clase padre y poder usarlo en la clase hijo para ver la información de los atributos de la clase padre
+	se debe de realizar el siguiente comando: 
+	
+		super.toString()
+		
+
+	
+	
+			

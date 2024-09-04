@@ -1,0 +1,103 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 21 - ARREGLOS EN JAVA 
+|  VIDEOS: 81, 82, 83, 84, 85, 86
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Arreglos (Video 81).
+
+	Un arreglo es un array o conjunto de elementos en el cual vamos a poder agregar elementos de distintos tipos ya que se pueden crear arreglos
+	de tipos primitivos como int, double o arreglos de objetos de tipo Persona.
+	
+	Los arreglos comienzan con el primer elemento que está en la posición 0 del arreglo y se va incrementando cada vez que exista un nuevo elemento
+	en el arreglo. La ultima posición del arreglo se dice que es la posición (n - 1) ya que siempre la posición, al comenzar el primer elemento
+	en la posición 0, pues si tiene 7 elementos, la ultima posición sería (7 - 1) = posición 6 del arreglo.
+
+2. Arreglo de tipo primitivo.
+	
+	2.1. Declaración de un arreglo de tipo primitivo.
+		
+		La declaración de una variable de arreglo es la siguiente:
+		
+			tipoVariable + nombreVariable[] = new tipoVariable[numeroElementosArreglo];
+		
+		- Se debe de indicar siempre en la declaración, cuantos elementos va a contener el arreglo y eso se indica entre corchetes.
+		- Una vez que el arreglo tiene el nº máximo de elementos indicado en la declaración, ya no es posible de poder añadir mas elementos al arreglo
+		  ya que ya ha llegado al tope de elementos en el arreglo, ya que si se intenta agregar un nuevo valor, se muestra un error. 
+		
+		Ejemplo: Una variable de tipo entero llamada edades que va a contener 3 elementos.
+		
+			int edades[] = new int[3];
+			
+	2.2. Modificación o inicialización de los valores de un arreglo de tipo primitivo (Video 82).
+	
+		Para incializar, modificar o acceder al valor de un elemento dentro del arreglo se realiza de la siguiente forma:
+		
+			nombreArreglo[indiceElemento] = valor;
+		
+		Ejemplo: Inicializar los 3 elementos de un arreglo llamado "edades" y mostarlo por consola.
+		
+			edades[0] = 1;
+			edades[1] = 37;
+			edades[2] = 39;
+			System.out.println("Los elementos del arreglo 'Edades' son: " + edades[0] + ", " + edades[1] + ", " + edades[2]);
+			
+	2.3. Recorrer los elementos de un arreglo de tipo primitivo utilizando un bucle For (Video 83).
+	
+		Para poder recorrer el arreglo con un bucle For se realiza la siguiente sentencia utilizando el método "length" que nos indica el valor máximo de 
+		elementos que contiene el arreglo.
+		
+		for(int contador = 0; contador < edades.length; contador++) 
+		{
+			System.out.println("- Elemento " + (contador + 1) + " posición " + contador + ": " + edades[contador]);
+		}
+
+3. Arreglo de tipo Objeto.
+
+	3.1. Declaración de un arreglo de tipo objeto (Video 84).
+	
+		La declaración de una variable de tipo objeto que va a contener un arreglo es la siguiente:
+		
+			nombreClase + nombreVariable[] = new nombreClase[numeroElementosArreglo];
+		
+		- El nombre de la variable siempre tiene que ser con el nombre en plural: Ejemplo: edades, personas, coches, etc.
+		
+		Ejemplo: Una variable de tipo Persona llamada personas que va a contener 2 elementos.
+		
+			Persona personas[] = new Persona[2];
+			
+	3.2. Modificación o inicialización de los valores de un arreglo de tipo objeto (Video 84).
+	
+		Para incializar, modificar o acceder al valor de un elemento dentro del arreglo se realiza de la siguiente forma:
+		
+			nombreArreglo[indiceElemento] = new nombreClase(inicializarValorAtributo);
+		
+		Ejemplo: Inicializar los 2 elementos de un arreglo de objetos llamado "personas" y mostarlo por consola utilizando el método "toString()" de la clase.
+		
+			personas[0] = new Persona("Alfonso");
+			personas[1] = new Persona("Isabel");
+			System.out.println("Los elementos del arreglo 'Personas' son: " + personas[0].toString() + ", " + personas[1].toString());
+		
+	3.3. Recorrer los elementos de un arreglo de tipo objeto utilizando un bucle For (Video 85).
+	
+		Para poder recorrer el arreglo con un bucle For se realiza la siguiente sentencia utilizando el método "length" que nos indica el valor máximo de 
+		elementos que contiene el arreglo.
+	
+		for(int contador = 0; contador < personas.length; contador++) 
+		{
+			System.out.println("- Elemento " + (contador + 1) + " posición " + contador + ": " + personas[contador].toString());
+		}
+	
+4. Inicialización de valores de un arreglo desde su definición llamado "Sintaxis resumida" tanto para tipos primitivos como tipo objeto (Video 86).
+
+	Para poder inicializar los valores de un arreglo desde su definición se realiza de la siguiente manera:
+	
+		tipoVariable/nombreClase nombreArreglo[] = {valorElemento1, valorElemento2, valorElementoX};
+	
+	Ejemplo: Un arreglo de tipo cadena llamada "frutas" que contenga 3 elementos: String frutas[] = {"Naranja", "Platano", "Uva"};
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,72 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 18 - SOBRECARGA DE CONSTRUCTORES Y DE MÉTODOS EN JAVA 
+|  VIDEOS: 76, 77
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Sobrecarga de constructores (Video 76).
+
+	Consiste en tener varios constructores creados en una clase pero que se diferencian entre ellos por el número de argumentos que tiene la llamada
+	y el número de atributos de clase a los que afecta dicho constructor.
+	
+	- Llamada desde un constructor de una clase a otro constructor de la misma clase.
+
+		Para poder llamar desde un constructor, por ejemplo, con un argumento a otro constructor de la misma clase, por ejemplo el constructor vacío, se
+		utiliza la palabra "this()" indicando los argumentos que tenga el constructor.
+		
+		Ejemplo:
+		
+			// Declaración del constructor vacío.
+			
+			public Empleado() 
+			{
+				
+				// Se realiza la operación de contador de los empleados.
+				
+				// Se incrementa la variable para el contador de empleados.
+				Empleado.contadorEmpleado++;
+				
+				// Se asigna el valor del contador al atributo de clase "idEmpleado".
+				this.idEmpleado = Empleado.contadorEmpleado;	
+			}
+			
+			// Declaración del constructor para los atributos de clase.
+			
+			public Empleado(double sueldo)
+			{
+				
+				// Se llama al constructor vacío de Empleado para que realice la carga del atributo de clase "idEmpleado".
+				this();
+				
+				this.sueldo = sueldo;
+			} 
+		
+		Si se utiliza la sobrecarga de constructores y en uno de ellos hay una llamada a la clase padre con la palabra "super()", esta llamada ya no es 
+		válida y solo se podrá utilizar el operador "this.nombreAtributo" para poder acceder al atributo de la clase padre, siempre y cuando en la 
+		definición del atributo de la clase padre se haya indicado el operador "protected" para que tengan acceso con "this()" desde las clases hijas a
+		los atributos de la clase padre.
+	
+2. Sobrecarga de métodos (Video 77).
+
+	Consiste en tener varios métodos llamados iguales creados en una clase pero que se diferencian entre ellos por el número de argumentos que tienen y
+	si tienen los mismos números de argumentos, deben de ser los argumentos de distinto tipo, al menos, uno de ellos, con respecto al método anterior.
+	Tambien, el tipo de valor de retorno puede ser el mismo o distinto entre ellos, solo influye el tema del tipo y numero de argumentos del método.
+	
+	Ejemplo:
+	
+		// Declaración del método sumar con dos argumentos de tipo entero.
+		public int sumar(int a, int b)
+		{
+			System.out.println("Se ejecute el método sumar(int a, int b).");
+			return a + b;
+		}
+	
+		// Declaración del método sumar con dos argumentos de tipo double.
+		public double sumar(double a, double b)
+		{
+			System.out.println("Se ejecute el método sumar(double a, double b).");
+			return a + b;
+		}
+		
+		
+		
+		

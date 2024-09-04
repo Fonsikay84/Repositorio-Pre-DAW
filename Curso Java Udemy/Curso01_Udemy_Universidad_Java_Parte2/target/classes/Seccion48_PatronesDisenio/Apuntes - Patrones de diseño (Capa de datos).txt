@@ -1,0 +1,76 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 03 - SECCIÓN 48 - PATRONES DE DISEÑO (CAPA DE DATOS) CON JDBC EN JAVA. 
+|  VIDEOS: 190, 191
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. Capas de diseño.
+
+	Cuando estamos trabajando con Java en una arquitectura Java empresarial, es común que la aplicación se divida en varias capas y cada una es 
+	responsable de realizar tareas en específico para así minimizar los costos de desarrollo.
+	
+	En Java existen muchas capas pero las tres capas de diseño mas importantes y que se intercomunican entre ellas para poder procesar la 
+	información son:
+	
+		- Capa de Presentación: Se encarga de administrar el flujo entre las distintas pantallas del sistema así como de procesar los datos del 
+														usuario, es decir los formularios, y desplegar la información al usuario. 
+		- Capa de Negocio o Servicio: Se encarga de procesar la lógica de negocio y los servicios que debe manejar nuestro sistema.
+		- Cada de Acceso a Datos: Se encarga de obtener y guardar la información de las fuentes de datos con la base de datos, archivos, etc.
+		
+2. Cohesion y Acoplamiento.
+
+	El tema de cohesión y acoplamiento juegan un rol central en el diseño de software al diseñar nuestros módulos de software.
+	
+	- Cohesion: Es la medida en la que un componente de software se dedica a realizar solamente una tarea para la cual fue creado, delegando las 
+							tareas complementarias a otros componentes.
+	- Acoplamiento: Es la medida en que los cambios de un componente tienden a necesitar cambios de otro componente, es decir, que el acoplamiento 
+									mide el grado de dependencia entre dos o más elementos, ya que éstos pueden ser clases o cualquier otro tipo de componentes 
+									de software.
+									
+	El objetivo del diseño de software es tener una alta cohesión y un bajo acoplamiento entre sus componentes, por lo que estas son dos 
+	características que debemos de tener en cuenta al momento de crear nuestras aplicaciones..
+	
+	La división en capas de manera lógica en una arquitectura Java empresarial introduce un bajo acoplamiento y una alta cohesión de manera 
+	automática debido a que permite que el número de relaciones entre cada capa sea el menor posible y aumente la cohesión en cada capa debido a
+	que tenemos una división de responsabilidades de manera muy específica y clara.
+	
+3. Patrones de diseño.
+
+	Un patrón de diseño es una guía que puede involucrar a varias clases y que a su vez nos permite resolver un problema que se presenta de manera
+	repetitiva por lo que la capa de presentación, la capa de servicio y la capa de acceso a datos pueden tener varios patrones de diseño.	
+	
+	Los patrones de diseño que pueden tener cada una de las capas son:
+	
+		- Capa de Presentación. 
+		
+			* Patrón MVC (Model View Controller): Este patrón significa modelo vista controlador y su objetivo es dividir las responsabilidades entre 
+																						estos tres elementos (modelo, vista y controlador). 
+			* Patrón Font Controler: Nos permite proporcionar una entrada única a nuestra aplicación cuando el usuario hace una petición y por lo tanto
+										 					 aquí podemos aplicar varias características, como puede ser algún tipo de seguridad, validaciones, etc. 
+			* Patrón DTO (Data Transfer Object): Representa un objeto del dominio del problema utilizandose para transferir una entidad o una lista de 
+																					 entidades de cierto tipo entre las distintas capas de la aplicación.
+																					 En ocasiones puede ser una clase de entidad (clase que se existe o guarda en una BBDD).
+																					 																					 	
+			Ejemplo: Un usuario solicita un listado de personas.
+						 
+				1) La capa de presentación procesa la petición y solicita posteriormente a la capa de servicio que ejecute el método "Encontrar listado de 
+					 personas".
+				2) La capa de servicio accede a la capa de datos para que podamos recuperar el listado de personas y posteriormente vamos a regresar un 
+					 listado de objetos de persona utilizando estos objetos DTO (objeto de tipo Persona).
+				3) Comenzamos a regresar la información hasta que damos una respuesta al usuario con el listado de personas que ha solicitado.
+		
+		- Capa de Negocio.
+		
+			* Patrón Bussiness Delegate: Se encarga de los detalles de llamar a algún método de servicio.
+			* Patrón Service Locator: Es utilizado por el patrón "Bussiness Delegate" para localizar los servicios si es que se encuentran en algún 
+																directorio, como puede ser algún directorio de tipo JNDI (Java Naming and Directory Interface) y es una API de JAVA
+																para ubicar un directorio de servicios.
+			* Patrón DTO (Data Transfer Object): Representa un objeto del dominio del problema utilizandose para transferir una entidad o una lista de 
+																					 entidades de cierto tipo entre las distintas capas de la aplicación.
+																					 En ocasiones puede ser una clase de entidad (clase que se existe o guarda en una BBDD).
+		- Capa de Acceso a Datos.
+		
+			* Patrón DAO (Data Access Object): Se encarga de extraer y almacenar información en la BBDD.
+			* Patrón DTO (Data Transfer Object): Representa un objeto del dominio del problema utilizandose para transferir una entidad o una lista de 
+																					 entidades de cierto tipo entre las distintas capas de la aplicación.
+																					 En ocasiones puede ser una clase de entidad (clase que se existe o guarda en una BBDD).
+		

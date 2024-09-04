@@ -1,0 +1,94 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 12 - PASO POR VALOR Y POR REFERENCIA EN JAVA 
+|  VIDEOS: 59, 60 
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Paso por valor (Video 59). 
+
+	Envío de valores a los métodos como argumentos utilizando tipos primitivos ya que sólo estamos copiando el valor del tipo primitivo a una 
+	variable local del método. Esta opción funcionaría como la opción parametro "IN" en Oracle, ya que sólo su valor es de entrada.
+
+	Ejemplo:
+
+	// Programa principal.
+
+	public static void main (String[] args)
+	{
+		int x = 10;
+		imprimir(x);	// Imprime el valor 10.
+		cambiarValor(x);
+		imprimir(x);	// Imprime el valor 10.
+	}
+
+	// Método cambiarValor.
+
+	public static void cambiarValor(int i)
+	{
+		i = 200;
+	}
+
+	En este caso, como el tipo de variable que se envía al método es primitiva y no un objeto, pues se envía una copia del valor que 
+	tiene la variable, pero si se quiere modifica el valor desde otro método, el valor original de la variable no se modifica nunca ya 
+	que solo se pasa una copia de ella, por lo que la variable "x" sigue teniendo el valor 10 aunque en el método se haya cambiado el 
+	valor de la variable "i" a 200.
+
+2. Paso por referencia (Video 60). 
+
+	Envío de valores a los métodos como argumentos utilizando tipos Objetos en vez de tipos primitivos. 
+	Esta opción funcionaría como la opción parametro "IN OUT" en Oracle, ya que su valor es de entrada y salida.
+	
+	Ejemplo:
+
+	// Programa inicial.
+
+	public class PasoReferencia 
+	{
+		public static void main (String[] args)
+		{
+			PasoReferenciaPersona p = new PasoReferenciaPersona();
+			p.cambiarNombre("Juan");
+			p.imprimirNombre(p);		// Imprime Juan.
+			modificarPersona(p);
+			p.imprimirNombre(p);		// Imprime Carlos ya que al pasar por referencia se puede modificar el valor de los atributos.
+		}
+		
+		// Método interno de la clase PasoReferencia para que se observe que también se puede crear métodos dentro de una clase donde está
+		// el método "main". En el caso de tener el método en la misma clase, no hay que referirse al método con el objeto "p", sino
+		// que se puede acceder sin ningun problema de forna simple indicando el nombre del método y sus argumentos.
+		
+		public static void modificarPersona(PasoReferenciaPersona args)
+		{
+			args.cambiarNombre("Carlos");
+		}
+		
+	}
+
+	// Métodos en la clase llamada "Persona".
+
+	public class PasoReferenciaPersona 
+	{
+		// Declaración de atributos.
+		
+		String nombre;
+		
+		// Declaración de métodos.
+		
+		public void cambiarNombre(String nuevoNombre)
+		{
+			this.nombre = nuevoNombre;
+		}
+		
+		public String obtenerNombre()
+		{
+			return this.nombre;
+		}
+		
+		public void imprimirNombre(PasoReferenciaPersona args)
+		{
+			System.out.println("Nombre: " + args.obtenerNombre());
+		}
+	}
+
+	En éste caso, no se envía una copia de la información como en los tipos primitivos, sino que se está enviando la referencia al 
+	objeto, por lo que vamos a poder tener acceso y modificar los atributos del objeto y que luego al terminar el código del método, 
+	dichos cambios se hayan guardado en el objeto en sí pasado por argumento.

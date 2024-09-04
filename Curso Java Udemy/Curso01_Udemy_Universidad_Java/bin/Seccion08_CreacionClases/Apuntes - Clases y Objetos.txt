@@ -1,0 +1,111 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 08 - CLASES Y OBJETOS EN JAVA 
+|  VIDEOS: 45, 46
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Definición de clase (Video 45).
+
+	Una clase es una plantilla que se utiliza para crear objetos del tipo que se ha definido en la clase, por lo que es igual a la creación de un "Type"
+	en Oracle y el objeto sería la variable de dicho "Type" que contiene toda la información de los atributos de la clase.
+	
+	Las clases tienen que tener:
+	
+	  - Nombre identificativo despues de la palabra reservada "class".
+	  - Atributos o variables de la clase, tambien llamadas "Variables de instancia de nuestra clase".
+	  - Métodos de la clase (Funciones o procedimientos característicos de dicha clase).
+	  - Se debe guardar en un archivo con el mismo nombre de la clase y la extensión .java.
+	
+	Para crear un objeto de una clase, se utiliza el mismo nombre de la clase a utilizar.
+	
+	Al definir una clase, sólo estamos definiendo la plantilla con la que vamos a trabajar, pero para poder usar esta plantilla necesitamos crear 
+	objetos a partir de esta plantilla.
+
+2. Atributos y definición de métodos de una clase (Video 46).
+
+	Por ejemplo, puede crearse una nueva clase llamada "Persona" que tenga como atributos de la clase (nombre, apellidos, género, etc) y 
+	métodos para ejecutar las acciones que puede realizar esta persona (comer, dormir, leer, etc).
+	
+	Nombre de la clase: Persona
+	
+	Atributos:
+		
+		- Nombre, de tipo String.
+		- Apellidos, de tipo String.
+		- Género, de tipo String.
+	
+	Métodos:
+	
+		- ObtenerNombre() que devuelve un String
+		- ObtenerApellidos() que devuelve un String
+		- ObtenerGenero() que devuelve un String
+		- ModificarNombre() que devuelve un String
+		- ModificarApellidos() que devuelve un String
+		- ModificarGenero() que devuelve un String 
+
+2.1 - Declaración de la clase.
+	
+	class Persona
+	{
+		
+		// Atributos de la clase.
+	
+		String nombre;
+		String apellidos;
+		String género;
+	
+		// Método de la clase que lo usarán los objetos de ésta clase.
+		// Se declara de tipo "public" para que lo puedan usar dentro de la clase y "void" se indica porque no va a devolver ningún valor.
+	
+		public void ObtenerNombre()
+		{
+	
+			// Código del método.
+	
+		}
+	}
+
+3. Objetos en Java (Video 47, 48).
+
+	Un objeto es la instancia de una clase, por lo que a partir de nuestra plantilla (clase) es posible crear objetos en concreto con los
+	cuales podremos trabajar (cambiar sus valores, llamar a sus métodos, etc).
+	
+	Para crear un objeto, se utiliza la palabra reservada "new" que significa que vamos a crear una nueva variable del tipo de la clase 
+	asociada.
+	
+	La estructura es: 
+		
+		"Nombre_Clase" + "nombre_variable" + "=" + "new" + "Nombre_Clase()";
+		Persona p1 = new Persona();
+	
+	Después de que esta línea se ejecute, la variable "p1" podrá acceder a un objeto de tipo "Persona" que va a tener asociado los 
+	atributos (Nombre, Apellidos y Género) junto a los métodos (ObtenerNombre, ObtenerApellido, ObtenerGenero, ModificarNombre, 
+	ModificarApellido, ModificarGenero) para poder utilizarlo con dicho objeto. 
+	
+	Cada vez que se manda llamar la palabra "new" se creará un nuevo objeto de tipo "Persona", y contendrá sus propios valores. 
+	
+	Hay que tener en cuenta, que cuando se crea un nuevo objeto, siempre al inicio, los atributos tiene por defecto el valor "Null", 
+	hasta que no asignemos un valor a los atributos.
+	
+	Por ejemplo:
+	
+		Persona p2 = new Persona();
+	
+	Esta nueva variable "p2", apunta a un nuevo objeto de tipo "Persona", y por lo tanto contendrá valores distintos a la variable "p1". 
+	Así, cada nuevo objeto contendrá valores distintos en los atributos de nombre, apellidos y género.
+	
+	Para acceder a los atributos de nuestras clases vamos a utilizar el operador "." A través de este operador se liga el nombre del 
+	objeto con el nombre del atributo de la clase.
+	
+	La estructura es:
+	
+		"nombre_variable_objeto" + "." + "nombre_atributo_clase";
+	
+	Por ejemplo: 
+		
+		p1.nombre = "Alfonso";
+		p1.apellidos = "Lopez Jimenez";
+		p2.genero = "Hombre";
+	
+		p2.nombre = "Isabel";
+		p2.apellidos = "Ferral Cabrera";
+		p2.genero = "Mujer";

@@ -1,0 +1,110 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+|  BLOQUE 01 - SECCIÓN 13 - PALABRA RETURN Y NULL EN JAVA 
+|  VIDEOS: 61
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Palabra reservada "Return" (Video 61).
+
+	Existen 3 opciones para poder regresar de un método al que fue llamado:
+
+		1) Utilizando la palabra reservada "return".
+	
+			Una vez que se ejecuta esta instrucción, se regresa el control al método que hizo la llamada previa devolviendo un valor, el cual
+			tiene que ser el mismo tipo que el tipo definido en la declaración del método.
+					
+			- Return de tipos primitivos.
+		
+				// Llamada al método.
+	
+				int resultado = sumar(6, 8);		// Devuelve un valor de tipo "int" por lo que la variable resultado tiene que ser de tipo "int".
+	
+				// Método llamado.
+	
+				int sumar(int a, int b)		// Se indica con el "int" antes del nombre del método, que el valor retornado será de tipo "int".
+				{
+					return a + b;
+				}
+	
+			- Retun de tipo Objeto.
+	
+				// Clase Suma.
+	
+				public class Suma
+				{
+					
+					int a;
+					int b;
+					
+					// Constructor Suma vacío.
+	
+					public Suma()
+					{}
+	
+					// Constructor Suma con dos argumentos.
+	
+					public Suma(int a, int b)
+					{
+						this.a = a;
+						this.b = b;
+					}
+				}
+	
+				// Clase que ejecuta.
+	
+				public class PalabraReturn
+				{
+	
+					public static void main (String[] args)
+					{
+	
+						int resultado = 0;
+	
+						Suma sum = crearObjetoSuma();		// Devuelve un valor de tipo "Suma" por lo que la variable sum tiene que ser de tipo "Suma".
+						resultado = sum.a + sum.b;
+						System.out.pintln("Resultado: " + resultado);
+					}
+	
+					// Se indica con el "Suma" antes del nombre del método, que el valor retornado será de tipo "Suma".
+	
+					public static Suma crearObjetoSuma()	
+					{
+						Suma s = new Suma(3, 4);
+						return s;
+					}
+	
+				}
+	
+		2) Llegando hasta el final del método:
+	
+			En este caso, no hay necesidad de colocar la palabra "return" de manera obligatoria, sino que una vez que se llega al final del 
+			método, se hace "return" de manera implícita y con ello se obtiene el mismo resultado que si colocáramos la palabra "return" sin 
+			argumentos
+	
+		3) Si se produce un error.
+	
+			Si ocurre un error en la ejecución del método, esto provoca que el método termine de manera anormal, y ya sea que se procese esta
+			excepción o no, esto provocará que la ejecución del método concluya.
+			
+2. Comando Null (Video 61).
+
+	El comando "null" se utiliza para eliminar la relación que tiene la variable de tipo Objeto con el objeto al que estaba apuntando, por 
+	lo que ahora, dicha variabla no apunta a ningún objeto y no podrá acceder a sus atributos o métodos propios del objeto.
+	
+	Si se intenta acceder a los atributos o métodos de una variable de tipo Objeto a la que se le ha asignado el valor de "null", ya al no
+	tener la referencia al tipo, pues no se podría acceder a dichos métodos o atributos y mostraría un error conocido llamado 
+	NullPointerExcepcion.
+	
+	Este comando sólo se utiliza en Java con los tipos de variables Object ya que no es posible indicar un valor nulo a una variable de 
+	tipo primitivo.
+	
+	Como regla de buena práctica, se recomienda asignar el valor nulo a una variable de tipo Objeto cuando esta variable no vaya a usarse 
+	más, para que así el "recolector de basura (método System.gc())" actue cuando sea invocado y pueda borrar aquellas variables de tipo 
+	Objeto que no se usen para así liberar espaci en memoria.
+	
+	Ejemplo:
+	
+	Persona p1 = new Persona();	// Se crea un objeto de tipo "Persona."
+	Persona p2 = p1;			// Se crea una variable de tipo "Persona" que apunta igualmente al objeto "Persona" por lo que las dos
+								// tienen acceso a los atributos o métodos del tipo "Persona".
+	
+	p1 = null;		// No se va a utilizar más la referencia de la variable al tipo "Persona".

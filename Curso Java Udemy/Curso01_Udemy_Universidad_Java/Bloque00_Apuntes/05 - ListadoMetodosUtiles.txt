@@ -1,0 +1,66 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------
+| LISTADO DE METODOS UTILES EN JAVA.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Declaración del método principal: public static void main (String args[]){}
+- Imprimir un valor por consola: System.out.printl("Texto");
+- Creación de un atributo de tipo constante: public final static int MI_CONSTANTE = 1;
+- Pedir un valor por consola al usuario y almacenarlo en una variable: 
+  
+  import java.util.scanner;
+
+  Scanner DatosConsola = new Scanner(System.in);
+  var Usuario = DatosConsola.nextLine();
+  System.out.println("Usuario: " + Usuario);
+
+- Pedir un valor por cuadro de diálogo al usuario y almacenarlo en una variable: int numeroDecimal = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese un número entero:"));
+- Mostrar un cuadro de diálogo al usuario con un mensaje informativo: JOptionPane.showMessageDialog(null, "mensaje a mostrar");
+
+- Mostrar una variable float con 4 decimales: System.out.printf("Resultado: %.4f", ecuacion);
+- Convertir variable de tipo String a un tipo Int: var w_edad = Integer.parseInt("39");
+- Convertir variable de tipo String a un tipo Double: var w_valorPI = Double.parseDouble("3.1416");
+- Convertir variable de tipo Int a un tipo String: var w_edadTexto = String.valueOf(10);
+- Convertir variable de tipo String a un tipo Boolean: var envio = Boolean.parseBoolean(DatosConsola.nextLine());
+- Obtener la letra que está en la posición 3 (letra a) de una cadena (Hola): var w_caracter = "Hola".charAt(3);
+- Comparar si el contenido de dos variables de tipo cadena son iguales: var u = cadena1.equals(cadena2);
+- Obtener el valor de una variable tipo enumerada: perroBulldog.name().toString();
+- Obtener la posición de la lista que ocupa un valor de una variable enumerada: var posicion = perroBulldog.ordinal();
+- Obtener un array con la lista de valores que tiene una variable de tipo enumerada: 
+	
+  import java.util.Arrays;
+  
+  Arrays.toString(tipoPerro.values());
+  
+- Obtener los distintos valores de la variable enumerada y el nº de elementos que contiene:
+
+	System.out.print("Los valores que contiene la variable tipoPerro son: ");
+	
+	int contador = 0;
+	for(tipoPerro listaValores: tipoPerro.values())
+	{
+		contador++;
+		System.out.print(listaValores.toString() + ", ");			
+	}
+	System.out.println("\nCantidad de valores que tiene la variable emum tipoPerro: " + contador);
+	
+- Imprimir la información de un objeto: System.out.println("Objeto: " + nombreObjeto);
+- Imprimir la información de un objeto en un constructor: System.out.println("Objeto: " + this);
+- Imprimir la información de un atributo de un objeto: System.out.println("Objeto Persona1 Atributo nombre: " + persona1.nombre);
+- Imprimir el nombre de la clase en la cual se está trabajando: System.out.println("Se imprime un :" + this.getClass().getSimpleName());
+
+- Conocer el número máximo de elementos que puede contener un arreglo: nombreArreglo.length;
+
+- Obtener los distintos valores de un arreglo y el nº de elementos que contiene:
+
+	// Obtener el nº máximo de elementos de un arreglo.
+	System.out.println("Nº máximo de elementos del arreglo: " + edades.length);
+	
+	// Recorremos el array con un bucle For.
+	for(int contador = 0; contador < edades.length; contador++) 
+	{
+		System.out.println("- Elemento " + (contador + 1) + " posición " + contador + ": " + edades[contador]);
+	}
+	
+- Obtener el mensaje de error de una excepción: variableExcepcion.getMessage();
+- Obtener el número de digitos que tiene una cadena: cadena.length();
+- Obtener un caracter indicando su indice de una cadena: cadena.charAt(indiceCaracter);

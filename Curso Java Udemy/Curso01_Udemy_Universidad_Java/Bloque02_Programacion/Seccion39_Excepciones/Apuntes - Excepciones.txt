@@ -1,0 +1,235 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 39 - EXCEPCIONES EN JAVA 
+|  VIDEOS: 136, 137, 138, 139, 140, 141.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Manejo de Excepciones (Video 136).
+
+	Existen varios tipos de excepciones en Java: Imagen "01 - Tipos de Excepciones.png".
+	
+		Exception -> RuntimeException	-> NullPointerException
+								 SQLException 
+	
+	- Actualmente, se recomienda utilizar el tipo de excepción RuntimeException frente al tipo Exception.
+	- Existen diferentes formas de tratar el manejo de excepciones en Java según se utilice la clase Exception o la clase RuntimeException.
+	
+1) Clase Exception: Las clases que heredan de la clase Exception son de tipo "Check Exception", por lo que el compilador nos va a obligar a crear
+										un bloque "try catch".
+		
+	1.1) Creación de una clase propia creada por mi para manejar las excepciones de tipo Exception (Video 138).
+	
+		- Declaración.
+			
+			- La nueva clase creada debe de ser hija de la clase Exception por lo que se utiliza la palabra "extends".
+			- Se debe de crear un constructor que tenga un argumento de tipo cadena llamada "mensaje" para almacenar el mensaje de error.
+			- En el constructor, se debe de llamar al constructor de la clase padre "Exception" con la palabra "super()" y pasandole la variable creada 
+				de tipo String llamada "mensaje".
+				 
+			public class nombreClase extends Exception
+			{
+				public nombreClase(String mensaje)
+				{
+					super(mensaje);
+				}
+			}
+			
+			- Ejemplo:
+			
+				public class ClaseException extends Exception
+				{
+					public ClaseException(String mensaje)
+					{
+						super(mensaje);
+					}
+				}
+				
+	1.2) Creación de una clase donde se utiliza la clase de tipo Exception creada (138, 139).
+			
+			- Declaración de la clase: Uso de la palabra reservada "throws + nombreClaseException".
+			- Cuerpo de la clase: Uso de la palabra reservada "throw new + nombreClaseException(argumentoMensaje)".
+			
+			- Ejemplo: Se declara una clase que va a tener un método en el cual se va a realizar la división entre dos números.
+		
+				// En la declaración de este método se debe de indicar que en éste método se puede producir una excepción y eso se indica con la palabra 
+				// "throws nombreClaseException".
+				public static int division(int numerador, int denominador) throws ClaseException
+				{
+					
+					// Si se va a dividir entre 0, se va a producir un error.
+					if (denominador == 0)
+					{
+						
+						// Se crea un objeto de la clase creada de tipo Exception pero para ello se utiliza la palabra reservada "throw new" y se le pasa el 
+						// argumento del mensaje. 
+						throw new ClaseException("División entre cero.");
+					}
+					else
+					{
+						return numerador / denominador;
+					}
+				}
+
+	1.3) Uso de Excepciones usando el tipo de clase Exception (Video 136, 137, 139, 141).
+	
+		El bloque "try catch" sirve para enmascarar un error que se produce en una sentencia y poder dar la información del error por consola.
+		Se pueden añadir tantos catch como tipos de clases de excepciones tengamos, por lo que se crea un bloque "catch" para cada una de ellas pero
+		siempre el bloque "catch" de la clase "Exception" tiene que ir como último bloque "catch".
+		
+		- Declaración.
+		
+			try
+			{
+				Línea o lineas donde se produce el error.
+			}
+			catch(claseException w_error)
+			{
+			
+				// Si se quiere mostrar sólo el mensaje del error que se ha creado en la clase "Aritmetica", se utiliza el método "getMessage()" de la 
+				// la variable "w_error".
+				System.out.println("ERROR - Se ha producido el siguiente error (ClaseException): " + w_error.getMessage());
+			}			
+			catch(Exception w_error)	// Se guarda el error producido en una variable "w_error".
+			{
+				w_error.printStackTrace(System.out);		// Con el método "printStackTrace(System.out)" de la variable de tipo Exception, se indica que se 
+																								// imprima el error guardado en la variable "w_error" por consola.
+			}
+			// Este bloque se ejecuta siempre se haya producido el error o no.
+			// Se suele utilizar para cerrar una conexión a la BBDD o cerrar un archivo que ha sido abierto.
+			finally
+			{
+				// Cerrar la conexión a BBDD o el archivo abierto.
+			}
+		
+		- Uso.
+		
+			- Ejemplo: Se produce un error en una división de un número por 0 y se debe de controlar utilizando el bloque "try catch".
+		
+				public class PruebaException 
+				{
+					public static void main(String[] args) 
+					{
+				
+						// Declaración de variables.
+						int dividendo = 10;
+						int divisor = 0;
+						int resultado = 0;
+						
+						// Se crea un bloque donde se produce el error para enmascarar y que no salte como error sino que informe del error producido y lo 
+						// muestre por la consola.
+						try
+						{
+							resultado = AritmeticaException.division(dividendo, divisor);		// Línea donde se va a producir el error por dividir entre 0.
+						}
+						// Se pueden añadir tantos catch como tipos de clases de excepciones tengamos, por lo que se crea un bloque "catch" para cada una de 
+						// ellas.
+						// Excepción de la clase creada "ClaseException".
+						catch(ClaseException w_error)	// Se guarda el error en la variable "w_error".
+						{
+							
+							// Si se quiere mostrar sólo el mensaje del error que se ha creado en la clase "Aritmetica", se utiliza el método "getMessage()" de
+							// la variable "w_error".
+							System.out.println("ERROR - Se ha producido el siguiente error (ClaseException): " + w_error.getMessage());
+						
+						}
+						// Excepción de la clase "Exception", ésta clase siempre debe de ir como último "catch".
+						catch(Exception w_error)	// Se guarda el error en la variable "w_error".
+						{
+							
+							// Si se quiere mostrar sólo el mensaje del error que se ha creado en la clase "Aritmetica", se utiliza el método "getMessage()" de
+							// la variable "w_error".
+							System.out.print("ERROR - Se ha producido el siguiente error (Exception): " + w_error.getMessage());
+							
+							// Si se quiere mostrar toda la pila de errores y que se imprima el error guardado en la variable "w_error" por consola se utiliza
+							//  el método "printStackTrace(System.out)" de la variable "w_error".
+							w_error.printStackTrace(System.out);		
+							
+						}
+						// Este bloque se ejecuta siempre se haya producido el error o no.
+						// Se suele utilizar para cerrar una conexión a la BBDD o cerrar un archivo que ha sido abierto.
+						finally
+						{
+							System.out.println("Se revisó la división entre 0.");
+						}
+						
+						// Si la división no es por 0, pues se muestra el resultado de la división.
+						if (divisor != 0)
+						{
+							System.out.println("Resultado de la división: " + resultado);
+						}
+					}
+				}
+								
+2) Clase RuntimeException: Las clases que heredan de la clase RuntimeException son de tipo "Uncheck Exception", por lo que el compilador no nos
+													 obliga a crear un bloque "try catch".
+													 
+	2.1) Creación de una clase propia creada por mi para manejar las excepciones de tipo Exception (Video 140).
+	
+		- Declaración.
+			
+			- La nueva clase creada debe de ser hija de la clase ExceptionRuntime por lo que se utiliza la palabra "extends".
+			- Se debe de crear un constructor que tenga un argumento de tipo cadena llamada "mensaje" para almacenar el mensaje de error.
+			- En el constructor, se debe de llamar al constructor de la clase padre "ExceptionRuntime" con la palabra "super()" y pasandole la variable
+			  creada de tipo String llamada "mensaje".
+				 
+				public class nombreClase extends RuntimeException
+				{
+					public nombreClase(String mensaje)
+					{
+						super(mensaje);
+					}
+				}
+			
+			- Ejemplo:
+			
+				public class ClaseRuntimeException extends RuntimeException
+				{
+					public ClaseRuntimeException(String mensaje)
+					{
+						super(mensaje);
+					}
+				}
+
+	2.2) Creación de una clase donde se utiliza la clase de tipo RuntimeException creada (140).
+			
+			- Ejemplo: Se declara una clase que va a tener un método en el cual se va a realizar la división entre dos números.
+		
+				public static int division(int numerador, int denominador)
+				{
+					
+					// Si se va a dividir entre 0, se va a producir un error.
+					if (denominador == 0)
+					{
+						
+						// Se crea un objeto de la clase creada de tipo Exception pero para ello se utiliza la palabra reservada "throw new" y se le pasa el 
+						// argumento del mensaje. 
+						throw new ClaseRuntimeException("División entre cero.");
+					}
+					else
+					{
+						return numerador / denominador;
+					}
+				}
+				
+	2.3) Uso de Excepciones usando el tipo de clase RuntimeException (Video 140).
+	
+		- En este caso, no tenemos que utilizar el bloque "try catch".
+		
+		- Ejemplo: Se produce un error en una división de un número por 0 y se debe de controlar utilizando la clase RuntimeException.
+	
+			public static void main(String[] args) 
+			{
+		
+				// Declaración de variables.
+				int dividendo = 10;
+				int divisor = 0;
+				int resultado = 0;
+				
+				// Línea donde se va a producir el error por dividir entre 0.
+				resultado = AritmeticaRuntimeException.division(dividendo, divisor);		
+				
+				// Si la división no es por 0, pues se muestra el resultado de la división.
+				if (divisor != 0)
+				{
+					System.out.println("Resultado de la división: " + resultado);
+				}
+			}

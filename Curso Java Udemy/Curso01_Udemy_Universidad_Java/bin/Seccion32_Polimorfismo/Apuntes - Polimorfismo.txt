@@ -1,0 +1,71 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+|  BLOQUE 02 - SECCIÓN 32 - POLIMORFISMO EN JAVA 
+|  VIDEOS: 120, 121.
+---------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Polimorfismo en Java (Video 120).
+
+	Para que se pueda utilizar el concepto de polimorfismo se debe de haber aplicado antes el concepto de Sobreescritura de métodos ya que se debe 
+	de aplicar el concepto de Herencia y ademas ya haber sobreescrito en la clase hija algún método de la clase padre.
+	
+	El polimorfismo significa tener un método general el cual puede tener multiples comportamientos según sea la referencia del objeto que se le
+	pasa por argumentos. Esto solo se puede visualizar en tiempo de ejecución por lo que desde el compilador no podemos comprobar como se implementa
+	este concepto, sino que unicamente hasta que ejecutamos nuestro programa, nos vamos a dar cuenta como funciona el polimorfismo.
+	
+	Una vez que estas dos condiciones existen, se puede aplicar el concepto de Polimorfismo que consiste en poder utilizar el mismo método declarado
+	en las dos clases (padre e hija) y según el tipo de objeto que se le pase como argumento, pues va a utilizar el método creado en la clase padre
+	o el método creado en la clase hija.
+	
+	Siempre se tiene que indicar como tipo de argumento en la llamada del método sobreescrito el tipo de la clase con mayor jerarquía, osea, si 
+	tiene clase padre e hija, pues se crea de la padre, en cambio, si hubiera clase abuelo, padre, hijo, pues se crearía del tipo abuelo.
+	
+	El metodo que se declara en la clase hija tiene que tener como modificador de acceso el mismo que el que tiene el método de la clase padre o ser
+	menos rectrictivo, pero nunca mas restrictivo que la clase padre. Por ejemplo, un método declarado en la clase padre siendo "protected", la 
+	clase hija debe de ser también "protected" pero también "default" o "public" al ser menos restrictivo pero nunca podría ser "private" al ser mas
+	restrictivo que el método en la clase padre.
+	
+	Ej: Se tiene dos clases una padre (Empleado) de la otra que es hija (Gerente) y tienen el mismo método llamado "obtenerDetalles()" que en uno 
+	imprime por consola los datos de los atributos de la clase padre y en la clase hija, imprime los datos de la clase padre junto al atributo propio
+	de la clase hija.
+	
+		// Clase Padre (Empleado).
+		
+		public String obtenerDetalles()
+		{
+			return "Nombre: " + this.nombre + ", Sueldo: " + this.sueldo;
+		}
+		
+		// Clase Hija (Gerente).
+		
+		public String obtenerDetalles()
+		{
+			
+			// Se llama al método "obtenerDetalles()" de la clase padre y se concatena el valor del atributo de la clase hija.
+			return super.obtenerDetalles() + ", Departamento: " + this.departamento;
+		}
+		
+		// Clase principal donde se crean los objetos.
+		
+		// Se define un método que llama al método "obtenerDetalles()".
+		
+		public static void imprimir(Empleado a_empleado)					// Se define un argumento de tipo objeto de la clase Padre Empleado (Mayor jerarquía).
+		{
+			System.out.println("Datos: " + a_empleado.obtenerDetalles());									// Se llama al método compartido entre la clase padre e hija.
+		}
+		
+			// Creación de objeto tipo Empleado.
+			
+			Empleado empleado1 = new Empleado("Alfonso", 5000);
+			imprimir(empleado1);															// Se llama al método "imprimir() pasando como argumento una variable tipo Empleado (Padre).
+			
+			// Resultado por consola: Datos: Nombre: Alfonso, Sueldo: 5000.0	// Se muestran los datos utilizando el método "obtenerDetalles()" del padre.
+			
+			// Creación de objeto tipo Gerente.
+			
+			Gerente gerente1 = new Gerente("Isabel", 2000, "Contabilidad");
+			imprimir(gerente1);																// Se llama al método "imprimir() pasando como argumento una variable tipo Gerente (Hija).
+			
+			// Resultado por consola: Datos: Nombre: Isabel, Sueldo: 2000.0, Departamento: Contabilidad		// Se muestran los datos utilizando el método
+																																																		// "obtenerDetalles()" del hijo.
+																																																		
+																																																		
