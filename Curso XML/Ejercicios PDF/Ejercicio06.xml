@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+EJERCICIO 6.
+
+Indica si el siguiente documento XML está bien formado y en caso de no estarlo corrige los errores:
+
+<?xml version = "1.0"?>
+<documento>
+  <p> Mi Primer <destacar importancia = 1>documento XML</destacar></p]
+  <p>Comienza con la etiqueta <documento&gt;</p>
+  <p>A continuacion colocamos un elemento sin contenido</p>
+  <imagen fichero="imagen.gif">
+</documento>
+-->
+
+<!-- 
+En la línea 9 hay una etiqueta <destacar> que el valor del atributo no está entre comillas y la etiqueta final de "p" no esta correctamente cerrada
+al tener un corchete en vez de un mayor que.
+En la línea 10, se debe de indicar el valor de la etiqueta "menor que" en vez del símbolo al no poder estar dentro de una etiqueta un caracter que
+pertenece a XML.
+En la lína 12, no se ha indicado la barra "/" para cerrar la etiqueta vacía.
+
+El documento XML correcto sería el siguiente:
+-->
+
+<documento>
+
+  <p>Mi Primer <destacar importancia = "1">documento XML</destacar></p>
+  <p>Comienza con la etiqueta &lt;documento&gt;</p>
+  <p>A continuacion colocamos un elemento sin contenido</p>
+  <imagen fichero = "imagen.gif"/>
+  
+</documento>

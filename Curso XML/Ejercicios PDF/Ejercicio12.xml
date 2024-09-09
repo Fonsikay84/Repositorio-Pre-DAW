@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+EJERCICIO 12.
+
+Indica si el siguiente documento XML está bien formado y en caso de no estarlo corrige los errores:
+
+<?xml version = "1.0" encoding = "UTF-8"?>
+<programas>
+  <programa nombre = "Firefox" licencia = "GPL" licencia = "MPL" />
+  <programa nombre = "LibreOffice" licencia = "LGPL" />
+  <programa nombre = "Inkscape" licencia = GPL />
+</programas>
+-->
+
+<!--
+En la línea 9, no se puede indicar dos atributos con el mismo nombre.
+En la línea 11, no se puede poner el valor de un atributo sin las dobles comillas.
+-->
+
+<programas>
+  <programa nombre = "Firefox" licencia = "GPL" licencia2 = "MPL"/>
+  <programa nombre = "LibreOffice" licencia = "LGPL"/>
+  <programa nombre = "Inkscape" licencia = "GPL"/>
+</programas>

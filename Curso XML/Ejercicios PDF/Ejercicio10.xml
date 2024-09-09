@@ -1,0 +1,30 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+EJERCICIO 10.
+
+Indica si el siguiente documento XML está bien formado y en caso de no estarlo corrige los errores:
+
+<?xml version = "1.0" encoding = "UTF-8"?>
+<texto>
+  <Titulo>XML explicado a los niños</titulo>
+  <párrafo>El <abreviatura>XML</abreviatura>define como crear lenguajes de marcas.</parrafo>
+  <párrafo>Las marcas se añaden a un documento de texto para añadir información.</párrafo>
+  <http://>www.example.org</http://>
+</texto>
+-->
+
+<!--
+En la línea 9. no se puede indicar con mayúscula el primer caracter de la etiqueta "titulo" y en el cierre no lo tiene.
+En la línea 10, la etiqueta no se puede nombrar con un acento.
+En la línea 11, la etiqueta "parrafo" no se puede nombrar con un acento tanto en la apertura como en el cierre.
+En la línea 12, la etiqueta no puede tener caracteres especiales tanto en la apertura como en el cierre.
+-->
+
+<texto>
+  <titulo>XML explicado a los niños</titulo>
+  <parrafo>El <abreviatura>XML</abreviatura> define como crear lenguajes de marcas.</parrafo>
+  <parrafo>Las marcas se añaden a un documento de texto para añadir información.</parrafo>
+  <web>http://www.example.org</web>
+</texto>
+
+

@@ -1,0 +1,25 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+EJERCICIO 13.
+
+Indica si el siguiente documento XML está bien formado y en caso de no estarlo corrige los errores:
+
+<?xml version = "1.0" encoding = "UTF-8"?>
+<mundiales-de-futbol>
+  <mundial>
+    <pais = "España" />
+    <1982/>
+  </mundial>
+</mundiales-de-futbol>
+-->
+
+<!--
+En la línea 10, existe un atributo pero no tiene el nombre de la etiqueta.
+En la línea 11, no se puede crear una etiqueta vacía iniciada por un número.
+-->
+
+<mundiales-de-futbol>
+  <mundial pais = "España">
+    <anio>1982</anio> 
+  </mundial>
+</mundiales-de-futbol>

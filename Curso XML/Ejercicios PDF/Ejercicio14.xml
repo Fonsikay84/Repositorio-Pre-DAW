@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+EJERCICIO 14.
+
+Indica si el siguiente documento XML está bien formado y en caso de no estarlo corrige los errores:
+
+<?xml version = "1.0" encoding = "UTF-8"?>
+<mediosDeTransporte>
+  <bicicleta velocidad = "v<100km/h"/>
+  <patinete velocidad maxima = "50 km/h"
+</mediosDeTransporte>
+-->
+
+<!--
+En la línea 9, no puede existir como valor un caracter especial perteneciente a XML como el "<".
+En la línea 10, no puede haber un atributo con espacios en blanco en el nombre y falta los caracteres de cierre de la etiqueta vacía.
+-->
+
+<mediosDeTransporte>
+  <bicicleta velocidad = "v&lt;100 km/h"/>
+  <patinete velocidad_maxima = "50 km/h"/>
+</mediosDeTransporte>

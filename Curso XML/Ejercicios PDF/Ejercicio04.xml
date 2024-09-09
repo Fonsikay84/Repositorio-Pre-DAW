@@ -1,0 +1,71 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+EJERCICIO 4.
+
+Escribe un documento XML que contenga la siguiente información:
+
+******************************************************************************************************************
+*                                                      CDs EN OFERTA                                             *
+******************************************************************************************************************
+* Titulo                      Artista         Pais      Compañia discografica       Precio    Año de publicación *
+******************************************************************************************************************
+* Still got the blues         Gary Moore      UK        Virgin records              10.20     1990               *
+* One night only              Bee Gees        UK        Polydor                     10.90     1998               *
+* When a man loves a woman    Percy Sledge    USA       Atlantic                    8.70      1987               *
+* Big Willie style            Will Smith      USA       Columbia                    9.90      1997               *
+* La canción de Juán Perro    Radio Futura    España    Sony Music-Ariola           9.90      1987               *
+* The dock of the bay         Otis Redding    USA       Atlantic                    7.90      1987               *
+******************************************************************************************************************
+-->
+
+<cd>
+  <titulo_tabla>CDs EN OFERTA</titulo_tabla>
+  <disco>
+    <titulo>Still got the blues</titulo>
+    <artista>Gary Moore</artista>
+    <pais>UK</pais>
+    <compania_discografica>Virgin records</compania_discografica>
+    <precio>10.20</precio>
+    <anio_publicacion>1990</anio_publicacion>
+  </disco>
+  <disco>
+    <titulo>One night only</titulo>
+    <artista>Bee Gees</artista>
+    <pais>UK</pais>
+    <compania_discografica>Polydor</compania_discografica>
+    <precio>10.90</precio>
+    <anio_publicacion>1998</anio_publicacion>
+  </disco>
+  <disco>
+    <titulo>When a man loves a woman</titulo>
+    <artista>Percy Sledge</artista>
+    <pais>USA</pais>
+    <compania_discografica>Atlantic</compania_discografica>
+    <precio>8.70</precio>
+    <anio_publicacion>1987</anio_publicacion>
+  </disco>
+  <disco>
+    <titulo>Big Willie style</titulo>
+    <artista>Will Smith</artista>
+    <pais>USA</pais>
+    <compania_discografica>Columbia</compania_discografica>
+    <precio>9.90</precio>
+    <anio_publicacion>1997</anio_publicacion>
+  </disco>
+  <disco>
+    <titulo>La canción de Juán Perro</titulo>
+    <artista>Radio Futura</artista>
+    <pais>España</pais>
+    <compania_discografica>Sony Music-Ariola</compania_discografica>
+    <precio>9.90</precio>
+    <anio_publicacion>1987</anio_publicacion>
+  </disco>
+  <disco>
+    <titulo>The dock of the bay</titulo>
+    <artista>Otis Redding</artista>
+    <pais>USA</pais>
+    <compania_discografica>Atlantic</compania_discografica>
+    <precio>7.90</precio>
+    <anio_publicacion>1987</anio_publicacion>
+  </disco>
+</cd>

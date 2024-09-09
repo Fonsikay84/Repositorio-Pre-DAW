@@ -1,0 +1,49 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+EJERCICIO 3.
+
+Escribe un documento XML que represente la siguiente información sobre la carta del menú de desayunos de un restaurante:
+
+************************************************************************************************************************************************
+* Nombre                                Precio (en euros)       Descripción                                                           Calorias *
+************************************************************************************************************************************************
+* Gofres Belgas                         5.95                    Dos de nuestros famosos Gofres belgas con abundante sirope            650      *
+* Gofres Belgas con fresas              7.95                    Ligeros gofres belgas cubiertos de fresa y nada montada               900      *
+* Gofres Belgas con frutas del bosque   8.95                    Ligeros gofres belgas cubiertos con fruta del bosque y nata montada   900      *
+* Tostada francesa                      4.50                    Dos gruesas rebanadas de nuestro pan francés casero                   600      *
+* Desayuno de la casa                   6.95                    Dos huevos, bacon o salchicha, tostada y patatas fritas               950      *
+************************************************************************************************************************************************
+-->
+
+<carta_menu>
+  <desayuno>
+    <nombre_producto>Gofres Belgas</nombre_producto>
+    <precio moneda = "euros">5.95</precio>
+    <descripcion>Dos de nuestros famosos Gofres belgas con abundante sirope</descripcion>
+    <calorias>650</calorias>
+  </desayuno>
+  <desayuno>
+    <nombre_producto>Gofres Belgas con fresas</nombre_producto>
+    <precio moneda = "euros">7.95</precio>
+    <descripcion>Ligeros gofres belgas cubiertos de fresa y nada montada</descripcion>
+    <calorias>900</calorias>
+  </desayuno>
+  <desayuno>
+    <nombre_producto>Gofres Belgas con frutas del bosque</nombre_producto>
+    <precio moneda = "euros">8.95</precio>
+    <descripcion>Ligeros gofres belgas cubiertos con fruta del bosque y nata montada</descripcion>
+    <calorias>900</calorias>
+  </desayuno>
+  <desayuno>
+    <nombre_producto>Tostada francesa</nombre_producto>
+    <precio moneda = "euros">4.50</precio>
+    <descripcion>Dos gruesas rebanadas de nuestro pan francés casero</descripcion>
+    <calorias>600</calorias>
+  </desayuno>
+  <desayuno>
+    <nombre_producto>Desayuno de la casa</nombre_producto>
+    <precio moneda = "euros">6.95</precio>
+    <descripcion>Dos huevos, bacon o salchicha, tostada y patatas fritas</descripcion>
+    <calorias>950</calorias>
+  </desayuno>
+</carta_menu>

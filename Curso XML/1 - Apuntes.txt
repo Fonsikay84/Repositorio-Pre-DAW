@@ -1,0 +1,184 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+|	Unidad 1 - Archivos XML.
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Definición de XML.
+
+	XML (extensible markup language) es un lenguaje de marcado basado en texto derivado de SGML (Standard Generalized Markup Language).
+
+2. Documento XML.
+	
+	Un documento XML es la unidad básica de información XML compuesto de elementos y otro marcado de forma ordenada, por la que almacena una
+	gran variedad de datos.
+	
+	Un documento XML tiene 2 partes o secciones y son:
+	
+		- Prólogo: Facilita el procesado de la información del ejemplar.
+		- Ejemplar: Es el bloque donde se construyen los distintos bloques que va a contener toda la información XML y se utilizan para estructurar 
+								e identificar los datos que se van a almacenar y organizar.
+
+2.1. Prólogo de un documento XML.
+	
+	- El prólogo esta dividido en dos partes:
+	
+		- Declaración XML: Es la primera línea del documento y permite indicar que el documento es de tipo XML.
+			
+			Tiene tres funciones:
+			
+				+ Declaración de la versión de XML usada Normalmente se usa el atributo "version" con el valor "1.0".
+				+ Declaración de la codificación empleada para representar los caracteres. Normalmente se usa el atributo "encoding" con el valor "UTF-8".
+				+ Declaración de la autonomía del documento ya que informa de si el documento necesita de otro documento para su interpretación. Normalmente
+					se usa el valor "no" del atributo "standalone".
+				
+		- Declaración del tipo de documento: Define que tipo de documento estamos creando para ser procesado correctamente y siempre comienza por la cadena:
+			"<?xml" y finaliza con "?>".
+		
+	- Cada atributo consta de un nombre de atributo, un signo "=" y el valor asignado al atributo.
+	- Los nombres y valores de los atributos son sensibles a las mayúsculas y minúsculas.
+	- Los nombres de las etiquetas son siempre en minúsculas.
+	- El orden de colocación de los atributos es importante y debe de ser:
+		
+		1) versión. 
+		2) codificación.
+		3) entidades externas.
+	
+	- Las comillas simples o dobles pueden ser utilizados.
+	- La declaración XML no tiene etiqueta de cierre </?xml>.
+	- La sintaxis completa del prólogo de un documento XML es:
+		
+		<?xml version = "numero_version" encoding = "declaracion_codificacion" standalone = "estado_standalone"?>
+		
+	- Los atributos del prólogo de un documento XML son:
+	
+		Parámetro						Valor Atributo	 	Descripción
+		-------------------------------------------------------------------------------------------------------------------------------------------
+		version					  			1.0						Especifica la versión del estándar XML utilizado.
+		codificación			 	 	 UTF-8					Define la codificación de caracteres usada en el documento. UTF-8 es la codificación predeterminada.
+		entidades externas		yes o no				El analizador que informa si el documento se basa en la información de una fuente externa, como 
+																					definición de tipo de documento externo (DTD), por su contenido. 
+																					El valor predeterminado se establece en "no". 
+																					El valor "sí" indica al procesador que no hay declaraciones externas necesarias para analizar el documento.
+																			
+	- Ejemplo de una declaración completa del prólogo de un documento XML: <?xml version = "1.0" encoding = "UTF-8" standalone = "no"?>
+	- Si no se indica la declaración, los valores por defecto de los tres atributos son:
+		
+		- Version: 1.0
+		- Codificación: UTF-8
+		- Entidades externas: "yes"
+		
+2.2. Ejemplar.
+	
+	El ejemplar es la parte mas importante de un documento XML, ya que contiene los datos reales del documento.
+	Un ejemplar esta constituido por varias partes:
+		
+		- Etiqueta inicio y fin: Es el nombre que se le asigna a cada bloque del documento XML para identificar su contenido.
+		- Atributos: Es un conjunto de caracteristicas sobre el contenido almacenado en un elemento.
+		- Valor: Es el valor que toma el atributo al que se le asigna.
+		- Contenido: Es la información que está almacenada en un elemento para su posterior uso.
+			
+	2.2.1. Elementos o etiquetas XML.
+			
+		Los elementos son los distintos bloques de información que permiten definir la estructura de un documento XML.
+			
+		- Un elemento esta delimitado por una etiqueta de aparetura "<nombre_elemento>" y una etiqueta de cierre "</nombre_elemento>".
+		- El nombre de la etiqueta debe de ilustrar su contenido.
+		- El nombre de la etiqueta debe de ser el mismo tanto en la etiqueta de inicio como en la etiqueta de cierre.
+		- Entre las etiquetas XML si indica el valor que va a tener dicha etiqueta.
+				
+			Ej: Creación del elemento nombre: <nombre>Alfonso</nombre>
+			
+		- Existe diferencia de utilizar una etiqueta en mayúsculas y minúsculas, por lo que se recomienda que las etiquetas sean en minúscula siempre.
+		- Las etiquetas deben de estar cerradas en el orden apropiado ya que una etiqueta abierta dentro de otro elemento debe de estar cerrada antes de que 
+			el elemento exterior sea cerrado.
+			
+			Ej: Ejemplo de abrir y cerrar etiquetas con elementos anidados:
+			
+				<elemento_externo>
+					<elemento_interno>
+						El elemento interno fue cerrado antes del elemento externo.
+					</elemento_interno>
+				</elemento_externo>
+				
+		- Un elemento nunca puede contener espacios en blanco o caracteres especiales.
+			
+			Ej: Creación del elemento dirección: <direccion>Calle De Sucre 2</direccion>
+		
+		- El nombre de un elemento puede contener cualquier combinación de caracteres alfanuméricos y los unicos signos de puntuación que se pueden utilizar
+		en los nombres de las etiquetas son el guión "-", el guión bajo "_" y el punto ".".
+			
+			Ej: Creación del elemento "apellido_1": <apellido_1>López</apellido_1>
+			
+		- Existe un elemento vacío, que es cuando se declara un elemento pero no va a tener ninguna información y para ello se declara de la siguiente manera:
+		
+			Ej: Opción 1: Elemento vacío: <elemento></elemento>
+					Opción 2: Elemento vacío: <elemento/>
+		
+		- Un elemento o etiqueta XML puede contener varias etiquetas XML en su interior.
+		- Un documento XML siempre debe de tener un único elemento raíz.
+		
+	2.2.2. Atributos.
+		
+		- Los atributos definen una propiedad del elemento y se definen en la etiqueta de inicio separados entre ellos por un espacio en blanco.
+		
+		- La declaración de un atributo se realiza dentro de la etiqueta de apertura de la siguiente manera:
+		
+			Ej: <elemento nombre_atributo = "información_atributo"></elemento>
+					<coche velocidad = "30km/h">Mercedes</coche>
+		
+		- Pueden existir elementos que tengan asociado atributos vacíos y se declara de la siguiente manera:
+		
+			Ej: <jugador tipo = "">Lebron</jugador>
+			
+		- El nombre de un atributo no debe aparecer más de una vez en la misma etiqueta de inicio o o etiqueta vacía.		
+		- Un ejemplo de archivo XML básico que contiene las etiquetas atributos seria de la siguiente forma:
+		
+			<?xml version = "1.0" encoding = "UTF-8"?>	<!-- Prólogo del archivo XML. -->
+			<!-- Sección de elementos del archivo XML. -->
+			<jardin>																		<!-- Elemento raíz. -->	
+				<plantas categoria = "flores"/>						<!-- Elemento con atributo. -->
+				<plantas categoria = "arbusto">
+				</plantas>				 
+			</jardin>
+			
+	2.2.3 Contenido.
+	
+		El contenido dentro de un archivo XML puede contener cualquier tipo de información, incluyendo caracteres especiales y espacios en blanco.
+		
+			Ej: Creación del elemento dirección: <direccionCasa>Calle De Sucre 2 Bloque 5 1º A</direccionCasa>
+		
+		Algunos caracteres están reservados para la sintaxis XML, por lo que no se pueden utilizar directamente sino se debe de indicar de la 
+		siguiente manera:
+		
+			- Menor que (<): &lt;
+			- Mayor que (>): &gt;
+			- Ampersand (&): &amp;
+			- Apóstrofe (`): &apos;
+			- Dobles comillas ("): &quot;
+
+	El ejemplo de un documento XML sencillo es el siguiente:
+
+		<?xml version="1.0" encoding = "UTF-8"?>	<!-- Prólogo. -->			
+		<!-- Bloque de elementos. -->		
+		<contacto-info>
+			<direccion categoria = "residencia">
+				<nombre>Tanmay Patil</nombre>
+				<empresa>TutorialsPoint</empresa>
+				<telefono>(011) 123-4567</telefono>
+			<direccion/> 
+		</contacto-info>
+				
+3. Comentarios en un archivo XML.
+
+	Un comentario en un archivo XML se crea con la siguiente sintáxis: <!-- Texto del comentario -->
+	
+	- Los comentarios no pueden aparecer antes de la declaración del XML.
+	- Pueden aparecer en cualquier parte de un documento pero no deben aparecer en los valores de los atributos.
+	- Un comentario no se puede anidar dentro de otro comentario.
+
+4. Documentos XML bien formados.
+
+	- Los documentos bien formados son aquellos que cumplen con las reglas de creación de documentos XML y son las siguientes:
+	
+		
+		
+	- Los documentos válidos son aquellos que ademas de estar bien formados, cumplen los requisitos de una definición de estructura (DTD, XML Schema, etc).

@@ -1,0 +1,35 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+EJERCICIO 9.
+
+Indica si el siguiente documento XML está bien formado y en caso de no estarlo corrige los errores:
+
+<?xml version = "1.0" encoding = "UTF-8"?>
+<pelicula>
+  <titulo>Con faldas y a lo loco</titulo>
+  <director>Billy Winder</director>
+</pelicula>
+<pelicula>
+  <director>Leo McCarey</director>
+  <titulo>Sopa de ganso</titulo>
+</pelicula>
+<autor />barto</autor>
+-->
+
+<!--
+En la línea 8, no existe la etiqueta raiz.
+En la línea 14, debería dicha línea aparecer en la línea 13 para tener la misma estructura que el bloque anterior.
+En la línea 16, la etiqueta debería de ser de apertura en vez de cierre de etiqueta vacía y lo indicaría al inicio del documento.
+-->
+
+<peliculas>
+  <autor>barto</autor>
+  <pelicula>
+    <titulo>Con faldas y a lo loco</titulo>
+    <director>Billy Winder</director>
+  </pelicula>
+  <pelicula>
+    <titulo>Sopa de ganso</titulo>
+    <director>Leo McCarey</director>
+  </pelicula>
+</peliculas>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Video 03 - Ejercicio Concurso.-->
+<concursos asociacion = "Andalumusic">
+  <concurso>
+    <codigo>A01</codigo>
+    <titulo>Andalumusic Baladas Populares</titulo>
+    <sede>
+      <direccion>Av.Andalucía nº 25, Pabellón de la Salud</direccion>
+      <localidad>Rota</localidad>
+      <provincia>Cádiz</provincia>
+    </sede>
+    <duracion>
+      <inicio>24/02/2022</inicio>
+      <fin>28/02/2022</fin>
+    </duracion>
+    <numEdicion>2ª</numEdicion>
+    <participantes>
+      <codigo>PB001</codigo>
+      <banda nombre = "Rayo Azul" tipoBanda = "Rock">
+        <integrantes>
+          <integrante instrumento = "Vocal">
+            <nombre>Armando</nombre>
+            <apellidos>Santos García</apellidos>
+            <dni>27842742T</dni>
+            <fechaNacimiento>12/01/1982</fechaNacimiento>
+            <lider></lider>
+          </integrante>
+          <integrante instrumento = "Guitarra Eléctrica">
+            <nombre>Eduardo</nombre>
+            <apellidos>Rodríguez López</apellidos>
+            <dni>55468715Y</dni>
+            <fechaNacimiento>21/03/1998</fechaNacimiento>
+          </integrante>
+          <integrante instrumento = "Bajo">
+            <nombre>John</nombre>
+            <apellidos>Scratch</apellidos>
+            <dni>48316186V</dni>
+            <fechaNacimiento>30/04/1985</fechaNacimiento>
+          </integrante>
+          <integrante instrumento = "Batería">
+            <nombre>Pedro</nombre>
+            <apellidos>Domínguez Serrano</apellidos>
+            <dni>42434965B</dni>
+            <fechaNacimiento>10/10/1982</fechaNacimiento>
+          </integrante>
+        </integrantes>
+      </banda>
+    </participantes>
+    <participantes>
+      <codigo>PS00</codigo>
+      <solista instrumento = "Piano">
+        <nombre>José Ramón</nombre>
+        <apellidos>Fernández de la Osa</apellidos>
+        <dni>02960505Z</dni>
+        <fechaNacimiento>01/05/1972</fechaNacimiento>
+      </solista>
+    </participantes>
+    <participantes>
+      <codigo>PB002</codigo>
+      <banda nombre = "Maná" tipoBanda = "Pop Rock">
+        <integrantes>
+          <integrante instrumento = "Vocal">
+            <nombre>Jose Fernando Emilio</nombre>
+            <apellidos>Olvera Sierra</apellidos>
+            <dni>12345687G</dni>
+            <fechaNacimiento>08/12/1959</fechaNacimiento>
+            <lider></lider>
+          </integrante>
+          <integrante instrumento = "Guitarra Eléctrica">
+            <nombre>Sergio</nombre>
+            <apellidos>Vallín Loera</apellidos>
+            <dni>45762315Q</dni>
+            <fechaNacimiento>26/05/1972</fechaNacimiento>
+          </integrante>
+          <integrante instrumento = "Batería">
+            <nombre>Alejandro</nombre>
+            <apellidos>González Trujillo</apellidos>
+            <dni>54778126H</dni>
+            <fechaNacimiento>24/02/1969</fechaNacimiento>
+          </integrante>
+        </integrantes>
+      </banda>
+    </participantes>
+    <participantes>
+      <codigo>PS002</codigo>
+      <solista instrumento = "Piano">
+        <nombre>Alejandro</nombre>
+        <apellidos>Sánchez Pizarro</apellidos>
+        <dni>02148756P</dni>
+        <fechaNacimiento>18/12/1968</fechaNacimiento>
+      </solista>
+    </participantes>
+  </concurso>
+</concursos>

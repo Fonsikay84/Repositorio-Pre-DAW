@@ -1,0 +1,40 @@
+--------------------------------------------------------------------------------------------------------------------------
+| Lista de reproducción: https://www.youtube.com/watch?v=-lSpVe7IOd4&list=PLM8XywipQpGA4Siojsb3yhSaZth5lFgSD
+| Video 3: XML-Ejercicio xml - concurso musical. XML bien formado.
+| URL: https://youtu.be/vBr9YPH5f70?si=2xpUaSeAHcTVfAG3
+--------------------------------------------------------------------------------------------------------------------------
+
+Cada año la asociación musical “Andalumusic” celebra diferentes concursos musicales en nuestra comunidad.
+Se pide elaborar un documento XML bien formado que permita modelizar la estructura de datos de uno de los concursos 
+celebrados por la asociación. 
+
+La estructura generada debe ser reutilizable para los diferentes concursos.
+Para ello has de tener en cuenta las siguientes consideraciones:
+
+● Queremos almacenar el título del concurso y la sede donde se realizará, incluyendo la dirección, localidad y provincia 
+	del evento, el período de duración y el número de edición del concurso. 
+	El concurso musical se identificará con un código único formado por una letra de la A-Z y dos números.
+● En cada concurso podrán participar tanto bandas musicales como músicos solistas.
+	Cada participación se identificará con un código compuesto por dos letras y tres números.
+● Para cada banda queremos almacenar mediante atributos, su nombre y el tipo de banda a la que pertenece.
+● Tanto de los integrantes de las bandas como de los músicos solistas queremos registrar el nombre, apellidos, dni y fecha de
+	nacimiento.
+● El instrumento asociado a cada integrante de la banda o músico solista se implementará en forma de atributo. 
+	Pueden existir músicos solistas o integrantes de una banda que no toquen ningún instrumento.
+● El líder de cada banda se implementará como un elemento vacío.
+
+En el documento XML debes incluir al menos dos bandas musicales y dos músicos solistas.
+A modo de ejemplo se especifica los datos de un concurso, así como de un grupo musical participante y de un músico solista:
+
+Andalumusic Baladas Populares - 28 de Febrero. 2ª Edición. (del 24/02/2022 al 28/02/2022)
+Lugar: Av.Andalucía nº 25, Pabellón de la Salud. Rota (Cádiz)
+Banda de Rock “Rayo Azul”.
+
+Integrantes:
+
+● Vocal (lider): Armando Santos García - 12/01/1982 - 27842742T
+● Guitarra Eléctrica: Eduardo Rodríguez López - 21/03/1998 - 55468715Y
+● Bajo: John Scratch - 30/04/1985 - 48316186V
+● Batería: Pedro Domínguez Serrano - 10/10/1982 - 42434965B
+
+Solista: Pianista José Ramón Fernández de la Osa - 01/05/1972 - 02960505Z

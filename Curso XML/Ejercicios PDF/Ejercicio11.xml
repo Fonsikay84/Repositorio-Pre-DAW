@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+EJERCICIO 11.
+
+Indica si el siguiente documento XML está bien formado y en caso de no estarlo corrige los errores:
+
+<?xml version = "1.0" encoding = "UTF-8"?>
+<geografia mundial>
+  <pais>
+    <pais>España</pais>
+    <continente>Europa</continente>
+    <capital></capital nombre = "Madrid">
+  </pais>
+</geografia mundial>
+-->
+
+<!-- 
+En la línea 8, el nombre de la etiqueta no se puede indicar con espacios en blanco.
+En la línea 9, no se puede indicar un nombre de etiqueta igual a una etiqueta hija.
+En la línea 12, no se puede indicar un atributo en la etiqueta de cierre vacío.
+En la línea 14, el nombre de la etiqueta no se puede indicar con espacios en blanco.
+-->
+
+<geografia_mundial>
+  <paises>
+    <pais nombre = "España">
+      <continente>Europa</continente>
+      <capital>Madrid</capital>
+    </pais>
+  </paises>
+</geografia_mundial>

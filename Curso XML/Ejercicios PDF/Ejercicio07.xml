@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+EJERCICIO 7.
+
+Indica si el siguiente documento XML está bien formado y en caso de no estarlo corrige los errores:
+
+<?xml version = "1.0"?>
+<libros>
+  <libro id="quijote">
+    <titulo>El Quijote</titulo>
+    <autor nombre = cervantes nombre = cervantes>
+    <descripcion>Es el m<ejor libro de cervantes.</descripcion>
+</libro]
+</Libros>
+-->
+
+<!--
+En la línea 10, se ha indicado por duplicado el atributo "nombre", el valor no se encuentra entre comillas y no tiene el caracter especial "/" para cerrar
+la etiqueta "autor".
+En la línea 11, se ha indicado el caracter especial "<" y no debería.
+En la línea 12, se ha indicado el caracter especial "]" en vez del ">".
+En la línea 13, se ha indicado el nombre de la etiqueta con el primer caracter en mayúscula cuando la etiqueta de apertura esta en minúscula.
+-->
+
+<libros>
+  <libro id = "quijote">
+    <titulo>El Quijote</titulo>
+    <autor nombre = "cervantes"/>
+    <descripcion>Es el mejor libro de cervantes.</descripcion>
+  </libro>
+</libros>
+

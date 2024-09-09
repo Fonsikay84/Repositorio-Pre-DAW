@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+EJERCICIO 2.
+
+Escribe un XML que represente la estructura y los datos que se muestran en la imagen. Y completa el
+contenido para que el texto completo sean tres párrafos:
+
+· ¿Hola qué tal?
+· Hace mucho tiempo que no escribes. A ver si llamas y quedamos pronto.
+· Un saludo.
+-->
+
+<mensaje>
+  <remite>
+    <nombre>Alfredo Reino</nombre>
+    <email>alf@ibium.com</email>
+  </remite>
+  <destinatario>
+    <nombre>Bill Clinton</nombre>
+    <email>president@whitehouse.gov</email>
+  </destinatario>
+  <asunto>Hola Bill</asunto>
+  <texto>
+    <parrafo_saludo>¿Hola qué tal?</parrafo_saludo>
+    <parrafo_respuesta>Hace mucho tiempo que no escribes. A ver si llamas y quedamos pronto.</parrafo_respuesta>
+    <parrafo_despedida>Un saludo.</parrafo_despedida>
+  </texto>
+</mensaje>

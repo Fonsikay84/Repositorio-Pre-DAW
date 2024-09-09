@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+EJERCICIO 1.
+Crea un XML con el siguiente texto de manera que guarde la siguiente información de forma independiente:
+
+Destinatario del pedido, artículo pedido, dirección de entrega, fecha de entrega.
+Pedido para el señor Juan Delgado Martínez. El pedido se compone de una bicicleta A2023. A entregar en
+la calle Barco 4, tercer piso, letra A, el día 19-5-2000.
+-->
+
+<pedido>
+  <articulo>Bicicleta A2023</articulo>
+  <destinatario>
+    <nombre>Juan</nombre>
+    <primer_apellido>Delgado</primer_apellido>
+    <segundo_apellido>Martínez</segundo_apellido>    
+  </destinatario>
+  <direccion_entrega>
+    <tipo_direccion>Calle</tipo_direccion>
+    <nombre_calle>Barco</nombre_calle>
+    <numero>4</numero>
+    <piso>3</piso>
+    <letra>A</letra>
+  </direccion_entrega>
+  <fecha_entrega>19-05-2000</fecha_entrega>
+</pedido>
+

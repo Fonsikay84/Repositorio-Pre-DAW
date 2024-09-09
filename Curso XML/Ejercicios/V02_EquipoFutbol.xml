@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+- Lista de reproducción: https://www.youtube.com/watch?v=-lSpVe7IOd4&list=PLM8XywipQpGA4Siojsb3yhSaZth5lFgSD
+- Video 3: XML-Ejercicio xml - equipos - xml bien formado.
+- URL: https://youtu.be/51MTf83mPvE?si=wCVxhJbCtg1QgFXl
+
+Enunciado: Escribir un documento XML bien formado que guarde información de dos equipos de futbol (nombre, ciudad y 
+entrenador) con dos jugadores (nombre, posición, dorsal y nacionalidad) cada uno.
+
+La posición (portero, defensa, medio y delantero) y el dorsal deberán representarse mediante atributos del jugador.
+
+Cada equipo se identificará con un código de 3 letras que se implementará como atributo.
+
+Utilizar datos para los equipos y jugadores.
+-->
+
+<equipos>
+  <equipo codigo = "CAD">    
+    <nombre>Cádiz C.F.</nombre>
+    <ciudad>Cádiz</ciudad>
+    <entrenador>Paco López</entrenador>
+    <jugadores>
+      <jugador posicion = "Portero" dorsal = "1">
+        <nombre>David Gil Mohedano</nombre>        
+        <nacionalidad>Española</nacionalidad>
+      </jugador>
+      <jugador posicion = "Portero" dorsal = "13">
+        <nombre>José Antonio Caro Díaz</nombre>        
+        <nacionalidad>Española</nacionalidad>
+      </jugador>      
+    </jugadores>
+  </equipo>
+  <equipo codigo = "MAD">    
+    <nombre>Real Madrid C.F.</nombre>
+    <ciudad>Madrid</ciudad>
+    <entrenador>Carlo Ancelotti</entrenador>
+    <jugadores>
+      <jugador posicion = "Delantero" dorsal = "9">
+        <nombre>Kiliam Mbapee</nombre>        
+        <nacionalidad>Francesa</nacionalidad>
+      </jugador>
+      <jugador posicion = "Medio" dorsal = "10">
+        <nombre>Luca Modric</nombre>        
+        <nacionalidad>Croata</nacionalidad>
+      </jugador>      
+    </jugadores>
+  </equipo>
+</equipos>
+

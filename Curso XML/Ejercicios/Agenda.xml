@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<agenda>
+  <nombre>Agenda de Alfonso</nombre>
+  <fechaInicio>
+    <dia>25</dia>
+    <mes>8</mes>
+    <anio>2024</anio>
+  </fechaInicio>
+  <contactos>
+    <contacto id = "1">
+      <nombre>Alfonso</nombre>
+      <apellido1>López</apellido1>
+      <apellido2>Jiménez</apellido2>
+      <telefono tipo = "Móvil">666207804</telefono>
+      <direccion>
+        <tipo>Calle</tipo>
+        <domicilio>De Sucre</domicilio>
+        <numero>2</numero>
+        <bloque>5</bloque>
+        <piso>1</piso>
+        <letra>A</letra>
+        <codigoPostal>11407</codigoPostal>
+        <localidad>Jerez de la Frontera</localidad>
+        <provincia>Cádiz</provincia>
+      </direccion>
+      <peso unidad = "kg">105</peso>
+      <estatura unidad = "cm">189</estatura>
+    </contacto> 
+    <contacto id = "2">
+      <nombre>Isabel</nombre>
+      <apellido1>Ferral</apellido1>
+      <apellido2>Cabrera</apellido2>
+      <telefono tipo = "Móvil">648232289</telefono>
+      <direccion>
+        <tipo>Calle</tipo>
+        <domicilio>De Sucre</domicilio>
+        <numero>2</numero>
+        <bloque>5</bloque>
+        <piso>1</piso>
+        <letra>A</letra>
+        <codigoPostal>11407</codigoPostal>
+        <localidad>Jerez de la Frontera</localidad>
+        <provincia>Cádiz</provincia>
+      </direccion>
+      <peso unidad = "kg">85</peso>
+      <estatura unidad = "cm">165</estatura>
+    </contacto> 
+  </contactos>
+</agenda>
